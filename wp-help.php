@@ -26,7 +26,7 @@ function lez_wp_help_css(){
 }
 
 // Handle the CSS for this
-function wph_lez_scripts( $hook ) {
+function lez_wph_scripts( $hook ) {
 	add_action( 'admin_print_scripts', 'lez_wp_help_css' );
 }
 
@@ -34,6 +34,6 @@ add_action( 'admin_init', 'lez_check_wph' );
 function lez_check_wph() {
 	// If WP Help is active, call customizations
 	if ( is_plugin_active( 'wp-help/wp-help.php' ) ) {
-		add_action( 'admin_print_styles-toplevel_page_wp-help-documents', 'wph_lez_scripts', 10 );
+		add_action( 'admin_print_styles-toplevel_page_wp-help-documents', 'lez_wph_scripts', 10 );
 	}
 }
