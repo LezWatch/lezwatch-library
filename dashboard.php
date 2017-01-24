@@ -6,6 +6,9 @@ Version: 1.1
 Author: Mika Epstein
 */
 
+// Disable JSON - TEMPORARILY
+add_filter('json_enabled', '__return_false');
+add_filter('json_jsonp_enabled', '__return_false');
 
 /*
  * Show Feedback in "Right Now"
