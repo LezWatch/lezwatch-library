@@ -6,16 +6,11 @@ Version: 1.1
 Author: Mika Epstein
 */
 
-// Disable JSON - TEMPORARILY
-add_filter('json_enabled', '__return_false');
-add_filter('json_jsonp_enabled', '__return_false');
-
 /*
  * Show Feedback in "Right Now"
  *
  * @since 1.0
  */
-
 add_action( 'dashboard_glance_items', 'lez_feedback_right_now' );
 function lez_feedback_right_now() {
         	foreach ( array( 'feedback' ) as $post_type ) {
@@ -97,6 +92,5 @@ function lez_fi_admin_print_styles(){
 		div#screen-options-wrap.hidden span.dashicons-camera {
 			padding-top: 5px;
 		}
-
 	</style>';
 }
