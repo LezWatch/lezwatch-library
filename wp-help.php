@@ -6,34 +6,40 @@ Version: 1.0
 Author: Mika Epstein
 */
 
-function lez_wp_help_css(){
-	echo '
-	<style>
-		#cws-wp-help-document {
-		    max-width: 600px;
-		    margin-left: 300px;
-		    background: white;
-		    padding: 10px!important;
-			border: 1px solid #ddd;
-		}
+class LezWatch_WP_Help{
 
-		div#cws-wp-help-document p,
-		#cws-wp-help-listing ul li {
-		    font-size: 14px;
-		}
-	</style>
-	';
-}
-
-// Handle the CSS for this
-function lez_wph_scripts( $hook ) {
-	add_action( 'admin_print_scripts', 'lez_wp_help_css' );
-}
-
-add_action( 'admin_init', 'lez_check_wph' );
-function lez_check_wph() {
-	// If WP Help is active, call customizations
-	if ( is_plugin_active( 'wp-help/wp-help.php' ) ) {
-		add_action( 'admin_print_styles-toplevel_page_wp-help-documents', 'lez_wph_scripts', 10 );
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		add_action( 'admin_print_scripts-toplevel_page_wp-help-documents', array( $this, 'wp_help_css' ) );
 	}
+
+	/**
+	 * CSS to customize WP Help
+	 *
+	 * @since 1.0
+	 */
+	public function wp_help_css( ){
+		echo '
+		<style>
+			#cws-wp-help-document {
+			    max-width: 600px;
+			    margin-left: 300px;
+			    background: white;
+			    padding: 10px!important;
+				border: 1px solid #ddd;
+			}
+	
+			div#cws-wp-help-document p,
+			#cws-wp-help-listing ul li {
+			    font-size: 14px;
+			}
+		</style>
+		';
+	}
+
+
 }
+
+new LezWatch_WP_Help();

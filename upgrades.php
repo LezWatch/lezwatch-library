@@ -24,5 +24,5 @@ add_filter( 'auto_core_update_send_email', '__return_true', 1 );
 add_filter( 'automatic_updates_send_debug_email', '__return_true', 1 );
 
 // SSL fixes
-//add_filter('https_ssl_verify', '__return_false');
-//add_filter('https_local_ssl_verify', '__return_false');
+add_filter('https_ssl_verify', '__return_false');
+add_filter('https_local_ssl_verify', '__return_false');
