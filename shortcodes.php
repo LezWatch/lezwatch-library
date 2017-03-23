@@ -145,7 +145,7 @@ class LezWatch_Shortcodes{
 	 *
 	 * Usage: [author-box users=username]
 	 *
-	 * @since 1.0
+	 * @since 1.2
 	*/
 	public function author_box( $atts ) {
 
