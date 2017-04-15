@@ -6,7 +6,7 @@ Version: 1.1
 Author: Mika Epstein
 */
 
-class LezWatch_Dashboard{
+class LP_Dashboard{
 
 	/**
 	 * Constructor
@@ -60,13 +60,13 @@ class LezWatch_Dashboard{
 	public function featured_image_manage_posts_columns( $columns ) {
 		if ( !is_array( $columns ) ) $columns = array();
 		$new_columns = array();
-	
+
 		// Put the feature image right after title
 		foreach( $columns as $key => $title ) {
 			$new_columns[$key] = $title;
 			if ( $key == 'title' ) $new_columns['featured_image'] = '<span class="dashicons dashicons-camera"><span class="screen-reader-text">Image?</span></span>';
 		}
-	
+
 		return $new_columns;
 	}
 
@@ -81,7 +81,7 @@ class LezWatch_Dashboard{
 			$post_thumbnail_id = get_post_thumbnail_id( $post_ID );
 			$post_featured_image = false;
 			if ( $post_thumbnail_id ) $post_featured_image = true;
-		
+
 	        $output = '<span class="dashicons dashicons-no"><span class="screen-reader-text">No</span></span>';
 	        if ( $post_featured_image == true ) $output = '<span class="dashicons dashicons-yes"><span class="screen-reader-text">Yes</span></span>';
 	        echo $output;
@@ -117,4 +117,4 @@ class LezWatch_Dashboard{
 
 }
 
-new LezWatch_Dashboard();
+new LP_Dashboard();

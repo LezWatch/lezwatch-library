@@ -6,7 +6,7 @@ Version: 1.0
 Author: Mika Epstein
 */
 
-class LezWatch_Socialicons{
+class LP_Socialicons{
 
 	/**
 	 * Constructor
@@ -35,7 +35,7 @@ class LezWatch_Socialicons{
 	 *		url  = (url) a link (optional)
 	 *
 	 * @since 1.0
-	 */	
+	 */
 	public function socialicon_shortcode($atts) {
 		$iconsfolder = plugin_dir_path( __FILE__ ) . '/socialicons/';
 	    $svg = shortcode_atts( array(
@@ -43,11 +43,11 @@ class LezWatch_Socialicons{
 	    'title'	=> 'an icon',
 	    'url'	=> '',
 	    ), $atts );
-	
+
 	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) {
 		    $svg['file'] = 'square';
 	    }
-	
+
 		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-shortcode '.sanitize_text_field($svg['title']).'">';
 		if ( !empty($svg['url']) ) {
 			$iconpath .= '<a href='.esc_url( $svg['url'] ).'>'.file_get_contents( $iconsfolder.$svg['file'].'.svg' ).'</a>';
@@ -55,9 +55,9 @@ class LezWatch_Socialicons{
 			$iconpath .= file_get_contents( $iconsfolder.$svg['file'].'.svg' );
 		}
 		$iconpath .= '</span>';
-	
+
 		return $iconpath;
 	}
 }
 
-new LezWatch_Socialicons();
+new LP_Socialicons();

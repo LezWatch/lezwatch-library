@@ -6,7 +6,7 @@ Version: 1.0
 Author: Mika Epstein
 */
 
-class LezWatch_WP_Help{
+class LP_WP_Help{
 
 	/**
 	 * Constructor
@@ -30,7 +30,7 @@ class LezWatch_WP_Help{
 			    padding: 10px!important;
 				border: 1px solid #ddd;
 			}
-	
+
 			div#cws-wp-help-document p,
 			#cws-wp-help-listing ul li {
 			    font-size: 14px;
@@ -42,4 +42,4 @@ class LezWatch_WP_Help{
 
 }
 
-new LezWatch_WP_Help();
+new LP_WP_Help();

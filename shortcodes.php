@@ -6,7 +6,7 @@ Version: 1.2
 Author: Mika Epstein
 */
 
-class LezWatch_Shortcodes{
+class LP_Shortcodes{
 
 	/**
 	 * Constructor
@@ -188,4 +188,4 @@ class LezWatch_Shortcodes{
 
 }
 
-new LezWatch_Shortcodes();
+new LP_Shortcodes();
