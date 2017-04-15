@@ -21,7 +21,7 @@ if ( ! defined('WPINC' ) ) {
 	die;
 }
 
-class SymboliconsSettings {
+class LP_SymboliconsSettings {
 
 	/*
 	 * Construct
@@ -134,14 +134,14 @@ class SymboliconsSettings {
 	}
 
 }
-new SymboliconsSettings();
+new LP_SymboliconsSettings();
 
 /*
  * Inline CSS
  *
  * Forcing the Symbolicons not to be Gigantor, Robot of Robots, on all pages.
  */
-function symbolicon_admin_inline_css(){
+function lp_symbolicon_admin_inline_css(){
 	echo '
 	<style>
 		span.svg-shortcode svg {
@@ -152,4 +152,4 @@ function symbolicon_admin_inline_css(){
 	</style>
 	';
 }
-add_action( 'admin_print_scripts', 'symbolicon_admin_inline_css' );
+add_action( 'admin_print_scripts', 'lp_symbolicon_admin_inline_css' );
