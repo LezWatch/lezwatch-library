@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="27px" viewBox="0 0 28 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>boat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-140.000000, -589.000000)">
+            <g id="boat" sketch:type="MSLayerGroup" transform="translate(140.000000, 589.000000)">
+                <path d="M8,15 C6.346,15 5,13.654 5,12 L5,4 C5,2.346 6.346,1 8,1 L20,1 C21.654,1 23,2.346 23,4 L23,12 C23,13.654 21.654,15 20,15 L8,15" id="Fill-15" fill="#ECECEC" sketch:type="MSShapeGroup"></path>
+                <path d="M20,2 C21.103,2 22,2.897 22,4 L22,12 C22,13.103 21.103,14 20,14 L8,14 C6.897,14 6,13.103 6,12 L6,4 C6,2.897 6.897,2 8,2 L20,2 M20,0 L8,0 C5.8,0 4,1.8 4,4 L4,12 C4,14.2 5.8,16 8,16 L20,16 C22.2,16 24,14.2 24,12 L24,4 C24,1.8 22.2,0 20,0" id="Fill-16" fill="#323232" sketch:type="MSShapeGroup"></path>
+                <path d="M13,2 L15,2 L15,8 L13,8 L13,2 Z" id="Fill-17" fill="#323232" sketch:type="MSShapeGroup"></path>
+                <path d="M1,14 L6.417,25 L14,25 L14,6 C14,6 1,9.582 1,14" id="Fill-782" fill="#8C8C8C" sketch:type="MSShapeGroup"></path>
+                <path d="M27,14 L21.583,25 L14,25 L14,6 C14,6 27,9.582 27,14" id="Fill-783" fill="#BEBEBE" sketch:type="MSShapeGroup"></path>
+                <path d="M24.5,22.209 C23.729,23.289 22.447,24 21,24 C19.553,24 18.272,23.289 17.5,22.209 C16.729,23.289 15.447,24 14,24 C12.553,24 11.273,23.289 10.499,22.209 C9.728,23.289 8.448,24 7,24 C5.553,24 4.273,23.289 3.502,22.209 C2.729,23.289 1,24 0,24 L0,27 L28,27 L28,24 C27,24 25.273,23.289 24.5,22.209" id="Fill-784" fill="#1EAAE1" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

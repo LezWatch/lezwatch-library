@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>popsicles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-196.000000, -756.000000)">
+            <g id="popsicles" sketch:type="MSLayerGroup" transform="translate(196.000000, 756.000000)">
+                <path d="M19,26 C19,27.104 19.896,28 21,28 C22.105,28 23,27.104 23,26 L23,20 L19,20 L19,26" id="Fill-119" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M21,0 C17.134,0 14,3.134 14,7 L14,19 C14,20.105 14.895,21 16,21 L26,21 C27.104,21 28,20.105 28,19 L28,7 C28,3.134 24.866,0 21,0" id="Fill-120" fill="#EC648B" sketch:type="MSShapeGroup"></path>
+                <path d="M5,26 C5,27.104 5.895,28 7,28 C8.104,28 9,27.104 9,26 L9,20 L5,20 L5,26" id="Fill-121" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M7,0 C3.134,0 0,3.134 0,7 L0,19 C0,20.105 0.896,21 2,21 L12,21 C13.105,21 14,20.105 14,19 L14,7 C14,3.134 10.866,0 7,0" id="Fill-122" fill="#8CBE3C" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

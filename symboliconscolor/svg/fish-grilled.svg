@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>fish-grilled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-308.000000, -1036.000000)">
+            <g id="fish-grilled" sketch:type="MSLayerGroup" transform="translate(308.000000, 1036.000000)">
+                <path d="M27.899,1.323 C27.823,0.729 27.275,0.181 26.68,0.105 C26.68,0.105 17.441,-1.073 11.889,4.479 C8.356,8.013 8.053,15.433 8.053,15.433 C8.029,16.013 7.558,16.587 7.007,16.71 L0.003,18.252 L3.134,19.997 L5.255,21.177 C5.81,21.487 6.517,22.194 6.827,22.75 L9.751,28.002 L11.293,20.996 C11.417,20.446 11.991,19.976 12.572,19.95 C12.572,19.95 19.992,19.648 23.525,16.114 C29.076,10.564 27.899,1.323 27.899,1.323" id="Fill-320" fill="#A0A0A0" sketch:type="MSShapeGroup"></path>
+                <path d="M18.104,16.8 L12.104,8.8 C12.036,8.71 12.004,8.604 12.004,8.5 C12.004,8.349 12.073,8.198 12.204,8.099 C12.425,7.935 12.738,7.979 12.904,8.2 L18.904,16.2 C19.068,16.42 19.024,16.733 18.804,16.9 C18.583,17.065 18.27,17.02 18.104,16.8" id="Fill-321" fill="#8C8C8C" sketch:type="MSShapeGroup"></path>
+                <path d="M21.103,13.8 L15.103,5.8 C15.036,5.71 15.003,5.604 15.003,5.5 C15.003,5.349 15.073,5.198 15.204,5.099 C15.424,4.935 15.738,4.979 15.904,5.2 L21.904,13.2 C22.069,13.42 22.024,13.733 21.803,13.9 C21.583,14.065 21.269,14.02 21.103,13.8" id="Fill-322" fill="#8C8C8C" sketch:type="MSShapeGroup"></path>
+                <path d="M22.965,6.838 C22.379,7.424 21.431,7.424 20.845,6.839 C20.257,6.251 20.256,5.302 20.844,4.717 C21.43,4.128 22.377,4.128 22.964,4.716 C23.552,5.303 23.55,6.25 22.965,6.838" id="Fill-323" fill="#BEBEBE" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

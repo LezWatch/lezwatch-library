@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="21px" height="37px" viewBox="0 0 21 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>mimosa</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-423.000000, -355.000000)">
+            <g id="mimosa" sketch:type="MSLayerGroup" transform="translate(423.000000, 355.000000)">
+                <path d="M18.452,1.457 C15.541,-0.852 11.309,-0.364 9,2.548 L19.543,10.909 C21.852,7.998 21.364,3.766 18.452,1.457" id="Fill-973" fill="#E67E22" sketch:type="MSShapeGroup"></path>
+                <path d="M17.488,2.673 C15.248,0.897 11.993,1.273 10.216,3.513 L18.327,9.945 C20.103,7.705 19.727,4.45 17.488,2.673" id="Fill-974" fill="#F39C12" sketch:type="MSShapeGroup"></path>
+                <path d="M15.015,35.879 L10,35 L10,24 L8,24 L8,35 L2.985,35.879 C2.718,35.946 2.5,36.225 2.5,36.5 C2.5,36.775 2.725,37 3,37 L15,37 C15.275,37 15.5,36.775 15.5,36.5 C15.5,36.225 15.282,35.946 15.015,35.879" id="Fill-975" fill="#BEE6FA" sketch:type="MSShapeGroup"></path>
+                <path d="M1.463,9 C0.539,13.314 0,17.383 0,19.5 C0,25.299 4.029,30 9,30 C13.971,30 18,25.299 18,19.5 C18,17.383 17.461,13.314 16.537,9 L1.463,9" id="Fill-976" fill="#F39C12" sketch:type="MSShapeGroup"></path>
+                <path d="M16.574,9 C16.275,7.673 15.937,6.321 15.563,5 L2.511,5 C2.137,6.321 1.798,7.673 1.5,9 L16.574,9" id="Fill-977" fill="#BEE6FA" sketch:type="MSShapeGroup"></path>
+                <path d="M12.998,11 C12.742,11 12.487,11.097 12.291,11.293 C11.901,11.683 11.901,12.317 12.29,12.706 C12.485,12.901 12.741,12.999 12.998,12.999 C13.254,12.999 13.51,12.901 13.706,12.706 C14.095,12.317 14.095,11.682 13.704,11.293 C13.51,11.098 13.254,11 12.998,11" id="Fill-978" fill="#F7B54D" sketch:type="MSShapeGroup"></path>
+                <path d="M13.499,14.999 C13.115,14.999 12.731,15.145 12.439,15.438 C11.852,16.025 11.852,16.975 12.439,17.561 C12.731,17.854 13.114,18 13.498,18 C13.882,18 14.267,17.853 14.56,17.56 C15.147,16.974 15.147,16.024 14.561,15.439 C14.268,15.145 13.884,14.999 13.499,14.999" id="Fill-979" fill="#F7B54D" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

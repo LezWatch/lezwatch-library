@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="32px" viewBox="0 0 20 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>axe</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-928.000000, -362.000000)">
+            <g id="axe" sketch:type="MSLayerGroup" transform="translate(928.000000, 361.000000)">
+                <path d="M4,1 L8.873,1 L8.873,33 L4,33 L4,1 Z" id="Fill-600" fill="#A67C52" sketch:type="MSShapeGroup"></path>
+                <path d="M17.062,0.999 L13,4 L2.087,4 C0.987,4 0.087,4.9 0.087,6 L0.087,13.067 C0.087,14.167 0.987,15.067 2.087,15.067 L13.04,15.067 L13.082,15.063 L17.001,18.071 C18.841,15.966 18.867,3.102 17.062,0.999" id="Fill-601" fill="#323232" sketch:type="MSShapeGroup"></path>
+                <path d="M17.062,0.999 L15.779,1.946 C17.16,3.967 18,6.607 18,9.5 C18,12.418 17.145,15.078 15.743,17.106 L17.001,18.071 C18.841,15.966 20,12.906 20,9.5 C20,6.132 18.867,3.102 17.062,0.999" id="Fill-602" fill="#A0A0A0" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

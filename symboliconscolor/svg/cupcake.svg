@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="27px" viewBox="0 0 24 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>cupcake</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-142.000000, -757.000000)">
+            <g id="cupcake" sketch:type="MSLayerGroup" transform="translate(142.000000, 757.000000)">
+                <path d="M2.621,15.226 L5.084,27 L18.89,27 L21.39,15.226 L2.621,15.226" id="Fill-95" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M11.5,15.226 L12.5,15.226 L12.5,27 L11.5,27 L11.5,15.226 Z" id="Fill-96" fill="#A57D52" sketch:type="MSShapeGroup"></path>
+                <path d="M16.195,27 L15.198,27 L16.872,15.381 L17.862,15.525 L16.195,27" id="Fill-97" fill="#A57D52" sketch:type="MSShapeGroup"></path>
+                <path d="M7.808,27 L6.105,15.422 L7.096,15.277 L8.798,27 L7.808,27" id="Fill-98" fill="#A57D52" sketch:type="MSShapeGroup"></path>
+                <path d="M22.238,10.509 C22.255,10.368 22.286,10.23 22.286,10.084 C22.286,2.983 12.008,0 12.008,0 C13.537,4.033 9.805,4.033 9.805,4.033 C0.995,3.908 1.729,10.084 1.729,10.084 C1.729,10.228 1.76,10.364 1.776,10.505 C0.748,10.874 0,11.924 0,13.177 C0,14.736 1.151,16 2.572,16 L21.428,16 C22.849,16 24,14.736 24,13.177 C24,11.93 23.259,10.883 22.238,10.509" id="Fill-99" fill="#EC648B" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

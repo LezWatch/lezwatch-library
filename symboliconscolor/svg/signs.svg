@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>signs</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-252.000000, -588.000000)">
+            <g id="signs" sketch:type="MSLayerGroup" transform="translate(252.000000, 588.000000)">
+                <path d="M13,0 L15,0 L15,28 L13,28 L13,0 Z" id="Fill-792" fill="#323232" sketch:type="MSShapeGroup"></path>
+                <path d="M23.999,9 L23.999,2 L3.5,2 L0,5.5 L3.5,9 L23.999,9" id="Fill-793" fill="#1EAAE1" sketch:type="MSShapeGroup"></path>
+                <path d="M24.5,12 L2.999,12 L2.999,19 L24.5,19 L28,15.479 L24.5,12" id="Fill-794" fill="#1EAAE1" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="28px" viewBox="0 0 24 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>orange-juice</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-646.000000, -252.000000)">
+            <g id="orange-juice" sketch:type="MSLayerGroup" transform="translate(646.000000, 252.000000)">
+                <path d="M24,6.5 C24,10.09 21.09,13 17.5,13 C13.91,13 11,10.09 11,6.5 C11,2.91 13.91,0 17.5,0 C21.09,0 24,2.91 24,6.5" id="Fill-153" fill="#E67E22" sketch:type="MSShapeGroup"></path>
+                <path d="M22.5,6.5 C22.5,9.261 20.261,11.5 17.5,11.5 C14.739,11.5 12.5,9.261 12.5,6.5 C12.5,3.739 14.739,1.5 17.5,1.5 C20.261,1.5 22.5,3.739 22.5,6.5" id="Fill-154" fill="#F39C12" sketch:type="MSShapeGroup"></path>
+                <path d="M0,15 L0,25.5 C0,26.881 1.119,28 2.5,28 L15.5,28 C16.881,28 18,26.881 18,25.5 L18,15 L0,15" id="Fill-155" fill="#F39C12" sketch:type="MSShapeGroup"></path>
+                <path d="M0,6 L18,6 L18,15 L0,15 L0,6 Z" id="Fill-156" fill="#BEE6FA" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

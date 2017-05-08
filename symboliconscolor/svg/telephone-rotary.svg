@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="26px" viewBox="0 0 28 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>telephone-rotary</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-196.000000, -254.000000)">
+            <g id="telephone-rotary" sketch:type="MSLayerGroup" transform="translate(195.000000, 254.000000)">
+                <path d="M23,11.6 C25,14 28.344,19.6 29,22 L1,22 C1.624,19.6 5,14 7,11.6 L8,11.6 L8,10 L22,10 L22,11.6 L23,11.6" id="Fill-681" fill="#C0392B" sketch:type="MSShapeGroup"></path>
+                <path d="M28.461,11.403 C28.212,11.651 27.625,11.997 27.102,12.005 L22.906,12.005 C22.415,11.997 21.965,11.788 21.619,11.443 C21.249,11.073 21,10.55 21,9.987 L21.008,6.763 C20.919,6.739 20.155,6.714 20.058,6.682 C18.86,6.337 17.22,5.854 15.001,5.854 C12.773,5.847 11.132,6.328 9.926,6.683 L9,6.763 L9,9.996 C9,10.542 8.759,11.073 8.389,11.442 C8.043,11.788 7.593,11.992 7.103,12 L2.891,11.997 C2.408,11.997 1.95,11.813 1.596,11.46 C1.017,10.88 0.993,10.535 1.001,8.275 C1.025,7.028 1.54,5.709 2.255,4.769 C2.481,4.463 2.81,4.118 3.019,3.909 C5.528,1.4 9.838,0.016 15.001,0 C20.163,0.016 24.473,1.399 26.982,3.909 C27.263,4.19 27.504,4.479 27.737,4.776 C28.461,5.694 28.976,7.028 29,8.275 C29,10.526 28.807,11.024 28.461,11.403" id="Fill-682" fill="#921816" sketch:type="MSShapeGroup"></path>
+                <path d="M1,22 L29,22 L29,26 L1,26 L1,22 Z" id="Fill-683" fill="#921816" sketch:type="MSShapeGroup"></path>
+                <path d="M12,4 C12,3.45 11.55,3 11,3 L10,3 C9.45,3 9,3.45 9,4 L9,14 C9,14.55 9.45,15 10,15 L11,15 C11.55,15 12,14.55 12,14 L12,4" id="Fill-684" fill="#C0392B" sketch:type="MSShapeGroup"></path>
+                <path d="M21,4 C21,3.45 20.55,3 20,3 L19,3 C18.45,3 18,3.45 18,4 L18,14 C18,14.55 18.45,15 19,15 L20,15 C20.55,15 21,14.55 21,14 L21,4" id="Fill-685" fill="#C0392B" sketch:type="MSShapeGroup"></path>
+                <path d="M21,15.999 C21,13.796 18.312,12 15,12 C11.688,12 9,13.796 9,15.999 C9,18.204 11.688,20 15,20 C18.312,20 21,18.204 21,15.999" id="Fill-686" fill="#921816" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

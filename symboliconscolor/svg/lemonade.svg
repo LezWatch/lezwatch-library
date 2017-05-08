@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="28px" viewBox="0 0 24 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>lemonade</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-310.000000, -980.000000)">
+            <g id="lemonade" sketch:type="MSLayerGroup" transform="translate(310.000000, 980.000000)">
+                <path d="M24.003,6.5 C24.003,10.09 21.093,13 17.503,13 C13.914,13 11.003,10.09 11.003,6.5 C11.003,2.91 13.914,0 17.503,0 C21.093,0 24.003,2.91 24.003,6.5" id="Fill-314" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+                <path d="M22.503,6.5 C22.503,9.261 20.265,11.5 17.503,11.5 C14.742,11.5 12.503,9.261 12.503,6.5 C12.503,3.739 14.742,1.5 17.503,1.5 C20.265,1.5 22.503,3.739 22.503,6.5" id="Fill-315" fill="#F6D34B" sketch:type="MSShapeGroup"></path>
+                <path d="M0.003,15 L0.003,25.5 C0.003,26.881 1.123,28 2.503,28 L15.503,28 C16.884,28 18.003,26.881 18.003,25.5 L18.003,15 L0.003,15" id="Fill-316" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+                <path d="M0.003,6 L18.003,6 L18.003,15 L0.003,15 L0.003,6 Z" id="Fill-317" fill="#BEE6FA" sketch:type="MSShapeGroup"></path>
+                <path d="M5.006,23 L2.003,20 L5.006,17 L8.009,20 L5.006,23" id="Fill-318" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M8.005,22 L12.009,22 L12.009,26 L8.005,26 L8.005,22 Z" id="Fill-319" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

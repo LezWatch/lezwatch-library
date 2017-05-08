@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>lemon-wedge</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-420.000000, -812.000000)">
+            <g id="lemon-wedge" sketch:type="MSLayerGroup" transform="translate(420.000000, 812.000000)">
+                <path d="M0,23.196 C2.968,26.164 7.069,28 11.598,28 C20.657,28 28,20.656 28,11.598 C28,7.069 26.164,2.968 23.196,0 L0,23.196" id="Fill-1145" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+                <path d="M2.109,21.087 C4.537,23.516 7.892,25.018 11.598,25.018 C19.009,25.018 25.018,19.01 25.018,11.598 C25.018,7.892 23.516,4.537 21.087,2.109 L2.109,21.087" id="Fill-1146" fill="#F4D03F" sketch:type="MSShapeGroup"></path>
+                <path d="M11.598,25.018 C15.304,25.018 18.659,23.516 21.087,21.087 L11.598,11.598 L10.929,24.984 C11.152,24.995 11.372,25.018 11.598,25.018" id="Fill-1147" fill="#F7D963" sketch:type="MSShapeGroup"></path>
+                <path d="M25.018,11.598 C25.018,7.892 23.516,4.537 21.087,2.109 L11.598,11.598 L24.987,12.207 C24.996,12.003 25.018,11.803 25.018,11.598" id="Fill-1148" fill="#F7D963" sketch:type="MSShapeGroup"></path>
+                <path d="M9.863,13.333 C10.307,13.777 10.92,14.052 11.598,14.052 C12.953,14.052 14.052,12.953 14.052,11.598 C14.052,10.92 13.777,10.307 13.333,9.863 L9.863,13.333" id="Fill-1149" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

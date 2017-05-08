@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="22px" viewBox="0 0 26 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>breakfast-sandwich</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-533.000000, -314.000000)">
+            <g id="breakfast-sandwich" sketch:type="MSLayerGroup" transform="translate(533.000000, 314.000000)">
+                <path d="M1,9 L25,9 L25,13.964 L1,13.964 L1,9 Z" id="Fill-11" fill="#F6F6F6" sketch:type="MSShapeGroup"></path>
+                <path d="M24.375,9 L1.625,9 C0.728,9 0,8.328 0,7.5 C0,6.672 0.728,6 1.625,6 L24.375,6 C25.272,6 26,6.672 26,7.5 C26,8.328 25.272,9 24.375,9" id="Fill-868" fill="#8C5A3C" sketch:type="MSShapeGroup"></path>
+                <path d="M25,16 L1,16 C0.121,16 0,16.755 0,17.667 L0,19.083 C0,20.685 2.143,22 4.756,22 L21.244,22 C23.857,22 26,20.685 26,19.083 L26,17.667 C26,16.755 25.867,16 25,16" id="Fill-869" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M6.057,9 C7.708,10.832 10.205,12 13,12 C15.795,12 18.292,10.832 19.943,9 L6.057,9" id="Fill-870" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+                <path d="M1,14 L1,16 L3.406,16 L7.406,19 L13,16 L25,16 L25,14 L1,14" id="Fill-871" fill="#F39C12" sketch:type="MSShapeGroup"></path>
+                <path d="M1,6 L25,6 C25.879,6 26,5.245 26,4.333 L26,2.917 C26,1.315 23.857,0 21.244,0 L4.756,0 C2.143,0 0,1.315 0,2.917 L0,4.333 C0,5.245 0.133,6 1,6" id="Fill-960" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>lemon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-476.000000, -812.000000)">
+            <g id="lemon" sketch:type="MSLayerGroup" transform="translate(475.000000, 811.000000)">
+                <path d="M28.299,2.461 L27.539,1.701 C26.703,0.865 25.245,0.762 24.299,1.471 L23.35,2.183 C19.023,1.211 11.825,2.217 7.021,7.021 C2.217,11.825 1.211,19.023 2.183,23.35 L1.471,24.299 C0.762,25.245 0.865,26.703 1.701,27.539 L2.461,28.299 C3.297,29.135 4.755,29.238 5.701,28.529 L6.65,27.817 C10.977,28.789 18.175,27.783 22.979,22.979 C27.783,18.175 28.789,10.977 27.817,6.65 L28.529,5.701 C29.238,4.755 29.135,3.297 28.299,2.461" id="Fill-860" fill="#F1C40F" sketch:type="MSShapeGroup"></path>
+                <path d="M12.233,25.973 C11.697,26.1 11.156,25.769 11.027,25.231 C10.899,24.694 11.234,24.155 11.77,24.027 C12.304,23.9 12.845,24.231 12.973,24.767 C13.101,25.306 12.768,25.845 12.233,25.973" id="Fill-861" fill="#F6D34B" sketch:type="MSShapeGroup"></path>
+                <path d="M13.484,22.591 C12.948,22.719 12.406,22.388 12.278,21.849 C12.15,21.312 12.485,20.773 13.02,20.646 C13.555,20.518 14.096,20.849 14.224,21.386 C14.352,21.924 14.019,22.464 13.484,22.591" id="Fill-862" fill="#F6D34B" sketch:type="MSShapeGroup"></path>
+                <path d="M16.124,25.046 C15.588,25.174 15.047,24.843 14.918,24.304 C14.791,23.767 15.125,23.228 15.661,23.101 C16.196,22.973 16.736,23.304 16.864,23.841 C16.992,24.38 16.659,24.919 16.124,25.046" id="Fill-863" fill="#F6D34B" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

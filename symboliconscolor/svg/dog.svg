@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>dog</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Symbolicons-Color" sketch:type="MSArtboardGroup" transform="translate(-420.000000, -980.000000)">
+            <g id="dog" sketch:type="MSLayerGroup" transform="translate(419.000000, 980.000000)">
+                <path d="M28,9 L28.857,4.396 C28.725,3.027 27.592,2 26.172,2 L17.848,2 L14,0 L15,9 L28,9" id="Fill-207" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M23,11 L15,11 L5.211,19.004 C3.615,18.596 2.336,17.545 1.738,16.07 L1.73,16.121 C1.363,15.08 1.156,15.617 1.061,16.051 C1.024,16.299 0.998,16.562 1,16.822 C1.012,19.117 2.613,21.049 4.781,21.639 L7.977,28 L11,28 L15.799,24 C15.834,23.807 15.82,23.682 15.816,23.42 C15.815,23.163 15.783,22.916 15.727,22.68 L21.035,20.111 L24,28 L29,28 L23,11" id="Fill-215" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M11,18 C10.298,18 9.627,18.127 9,18.349 L9,28 L15.463,28 C16.416,26.938 17,25.539 17,24 C17,20.686 14.314,18 11,18" id="Fill-216" fill="#A57D52" sketch:type="MSShapeGroup"></path>
+                <path d="M15,9 L23,9 L23,11 L15,11 L15,9 Z" id="Fill-217" fill="#2980B9" sketch:type="MSShapeGroup"></path>
+                <path d="M17,24 L15,24 C15,20.686 12.314,18 9,18 L9,28 L21,28 C21,25.791 19.209,24 17,24" id="Fill-218" fill="#BE9664" sketch:type="MSShapeGroup"></path>
+                <path d="M20,4 C20.553,4 21,4.447 21,5 C21,5.553 20.553,6 20,6 C19.448,6 19,5.553 19,5 C19,4.447 19.448,4 20,4" id="Fill-224" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

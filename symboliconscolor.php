@@ -1,8 +1,8 @@
 <?php
 /**
- * Symbolicons
+ * Symbolicons Color
  *
- * Shows the symbolicons settings page, based on the contents on
+ * Shows the symbolicons Color settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
  * Version:    1.0
@@ -12,16 +12,16 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', WP_CONTENT_DIR . '/mu-plugins/symbolicons/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', WP_CONTENT_DIR . '/mu-plugins/symboliconscolor/' );
 
-if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', '/wp-content/mu-plugins/symbolicons/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', '/wp-content/mu-plugins/symboliconscolor/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
 	die;
 }
 
-class LP_SymboliconsSettings {
+class LP_SymboliconsColorSettings {
 
 	/*
 	 * Construct
@@ -41,7 +41,7 @@ class LP_SymboliconsSettings {
 	 */
     public function init() {
         add_action( 'admin_menu', array( $this, 'add_settings_page') );
-        add_shortcode('symbolicon', array( $this, 'shortcode') );
+        add_shortcode('symboliconcolor', array( $this, 'shortcode') );
     }
 
 	/*
@@ -56,16 +56,16 @@ class LP_SymboliconsSettings {
 	 * @return SVG icon of awesomeness
 	 */
 	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONS_PATH.'/svg/';
+		$iconsfolder = LP_SYMBOLICONSCOLOR_PATH.'/svg/';
 	    $svg = shortcode_atts( array(
 	    'file'	=> '',
 	    'title'	=> '',
 	    'url'	=> '',
 	    ), $atts );
 
-	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) $svg['file'] = 'square';
+	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) $svg['file'] = 'eightball';
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-shortcode '.sanitize_text_field($svg['title']).'">';
+		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-color-shortcode '.sanitize_text_field($svg['title']).'">';
 		if ( !empty($svg['url']) ) {
 			$iconpath .= '<a href='.esc_url( $svg['url'] ).'>'.file_get_contents( $iconsfolder.$svg['file'].'.svg' ).'</a>';
 		} else {
@@ -82,7 +82,7 @@ class LP_SymboliconsSettings {
 	 * Create our settings page
 	 */
 	public function add_settings_page() {
-		$page = add_theme_page(__('Symbolicons'), __('Symbolicons'), 'edit_posts', 'symbolicons', array($this, 'settings_page'));
+		$page = add_theme_page(__('Symbolicons Color'), __('Symbolicons Color'), 'edit_posts', 'symboliconscolor', array($this, 'settings_page'));
 	}
 
 	/*
@@ -95,61 +95,62 @@ class LP_SymboliconsSettings {
 		<div class="wrap">
 
 		<style>
-			span.cmb2-icon {
+			span.symlclr-icon {
 				width: 80px;
 			    display: inline-block;
 			    vertical-align: top;
 			    margin: 10px;
 			    word-wrap: break-word;
 			}
-			span.cmb2-icon svg {
+			span.symlclr-icon svg {
 			    width: 75px;
 			    height: 75px;
 			}
-			span.cmb2-icon svg * {
-				fill: #444;
-			}
 		</style>
 
-		<h2>Symbolicons</h2>
+		<h2>Symbolicons Color</h2>
 
 		<?php
 
-		$imagepath = LP_SYMBOLICONS_PATH.'/svg/';
+		$imagepath = LP_SYMBOLICONSCOLOR_PATH.'/svg/';
 
 		if ( !file_exists( $imagepath ) && !is_dir( $imagepath ) ) {
-			echo '<p>Your site does not appear to have the symbolicons folder included, so you can\'t use them. It should be installed at <code>'.$imagepath.'</code> for this to work.';
+			echo '<p>Your site does not appear to have the symbolicons color folder included, so you can\'t use them. It should be installed at <code>'.$imagepath.'</code> for this to work.';
 
 		} else {
 
-			echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
+			echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconscolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
 			foreach( glob( $imagepath.'*' ) as $filename ){
 				$image = file_get_contents( $filename );
 				$name  = str_replace( $imagepath, '' , $filename );
 				$name  = str_replace( '.svg', '', $name );
-				echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
+				echo '<span role="img" class="symlclr-icon">' . $image . $name .'</span>';
 			}
 		}
 	}
 
 }
-new LP_SymboliconsSettings();
+new LP_SymboliconsColorSettings();
 
 /*
  * Inline CSS
  *
  * Forcing the Symbolicons not to be Gigantor, Robot of Robots, on all pages.
+ * This should be defined by Symbolicons regularm but just in case...
  */
-function lp_symbolicon_admin_inline_css(){
-	echo '
-	<style>
-		span.svg-shortcode svg {
-		    width: 50px;
-		    height: 50px;
-		    margin: 0 5px 0 5px;
-		}
-	</style>
-	';
+
+if ( !function_exists( 'lp_symbolicon_admin_inline_css' ) ) {
+	function lp_symbolicon_admin_inline_css(){
+		echo '
+		<style>
+			span.svg-shortcode svg {
+			    width: 50px;
+			    height: 50px;
+			    margin: 0 5px 0 5px;
+			}
+		</style>
+		';
+	}
+	add_action( 'admin_print_scripts', 'lp_symbolicon_admin_inline_css' );
 }
-add_action( 'admin_print_scripts', 'lp_symbolicon_admin_inline_css' );
