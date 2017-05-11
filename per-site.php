@@ -18,14 +18,18 @@ class LP_Per_Site {
 	public function __construct() {
 		global $blog_id;
 
+		// Site URL switches:
 		$site_url = parse_url( get_site_url( $blog_id ) );
-
 		switch ( $site_url['host'] ) {
 			case "lezpress.com":
 			case "lezpress.dev":
 				add_action( 'init', array( $this, 'lezpress' ) );
 				break;
 		}
+		
+		// Enable shortcodes in text widgets
+		add_filter('widget_text','do_shortcode');
+
 	}
 
 	function lezpress() {
