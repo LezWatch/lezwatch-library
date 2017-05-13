@@ -119,7 +119,7 @@ class LP_SymboliconsColorSettings {
 
 		} else {
 
-			echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconscolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
+			echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
 			foreach( glob( $imagepath.'*' ) as $filename ){
 				$image = file_get_contents( $filename );
