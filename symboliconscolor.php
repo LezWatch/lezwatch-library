@@ -40,8 +40,8 @@ class LP_SymboliconsColorSettings {
 	 * - establish shortcode
 	 */
     public function init() {
-        add_action( 'admin_menu', array( $this, 'add_settings_page') );
-        add_shortcode('symboliconcolor', array( $this, 'shortcode') );
+        add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+        add_shortcode( 'symboliconcolor', array( $this, 'shortcode' ) );
     }
 
 	/*
@@ -56,20 +56,20 @@ class LP_SymboliconsColorSettings {
 	 * @return SVG icon of awesomeness
 	 */
 	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONSCOLOR_PATH.'/svg/';
+		$iconsfolder = LP_SYMBOLICONSCOLOR_PATH . '/svg/';
 	    $svg = shortcode_atts( array(
 	    'file'	=> '',
 	    'title'	=> '',
 	    'url'	=> '',
 	    ), $atts );
 
-	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) $svg['file'] = 'eightball';
+	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-color-shortcode '.sanitize_text_field($svg['title']).'">';
+		$iconpath = '<span role="img" aria-label="'. sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-color-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
 		if ( !empty($svg['url']) ) {
-			$iconpath .= '<a href='.esc_url( $svg['url'] ).'>'.file_get_contents( $iconsfolder.$svg['file'].'.svg' ).'</a>';
+			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder.$svg['file'].'.svg' );
+			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
 		}
 		$iconpath .= '</span>';
 

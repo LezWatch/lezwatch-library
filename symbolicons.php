@@ -40,8 +40,8 @@ class LP_SymboliconsSettings {
 	 * - establish shortcode
 	 */
     public function init() {
-        add_action( 'admin_menu', array( $this, 'add_settings_page') );
-        add_shortcode('symbolicon', array( $this, 'shortcode') );
+        add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+        add_shortcode( 'symbolicon', array( $this, 'shortcode' ) );
     }
 
 	/*
@@ -56,20 +56,21 @@ class LP_SymboliconsSettings {
 	 * @return SVG icon of awesomeness
 	 */
 	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONS_PATH.'/svg/';
+		$iconsfolder = LP_SYMBOLICONS_PATH . '/svg/';
 	    $svg = shortcode_atts( array(
-	    'file'	=> '',
-	    'title'	=> '',
-	    'url'	=> '',
+	    	'file'	=> '',
+			'title'	=> '',
+			'url'	=> '',
 	    ), $atts );
 
-	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) $svg['file'] = 'square';
+		// Default to the square if nothing is there
+	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-shortcode '.sanitize_text_field($svg['title']).'">';
-		if ( !empty($svg['url']) ) {
-			$iconpath .= '<a href='.esc_url( $svg['url'] ).'>'.file_get_contents( $iconsfolder.$svg['file'].'.svg' ).'</a>';
+		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
+		if ( !empty( $svg[ 'url' ] ) ) {
+			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder.$svg['file'].'.svg' );
+			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
 		}
 		$iconpath .= '</span>';
 
@@ -82,7 +83,7 @@ class LP_SymboliconsSettings {
 	 * Create our settings page
 	 */
 	public function add_settings_page() {
-		$page = add_theme_page(__('Symbolicons'), __('Symbolicons'), 'edit_posts', 'symbolicons', array($this, 'settings_page'));
+		$page = add_theme_page( 'Symbolicons', 'Symbolicons', 'edit_posts', 'symbolicons', array( $this, 'settings_page' ) );
 	}
 
 	/*
@@ -115,21 +116,15 @@ class LP_SymboliconsSettings {
 
 		<?php
 
-		$imagepath = LP_SYMBOLICONS_PATH.'/svg/';
+		$imagepath = LP_SYMBOLICONS_PATH . '/svg/';
 
-		if ( !file_exists( $imagepath ) && !is_dir( $imagepath ) ) {
-			echo '<p>Your site does not appear to have the symbolicons folder included, so you can\'t use them. It should be installed at <code>'.$imagepath.'</code> for this to work.';
+		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
 
-		} else {
-
-			echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
-
-			foreach( glob( $imagepath.'*' ) as $filename ){
-				$image = file_get_contents( $filename );
-				$name  = str_replace( $imagepath, '' , $filename );
-				$name  = str_replace( '.svg', '', $name );
-				echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
-			}
+		foreach( glob( $imagepath . '*' ) as $filename ){
+			$image = file_get_contents( $filename );
+			$name  = str_replace( $imagepath, '' , $filename );
+			$name  = str_replace( '.svg', '', $name );
+			echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
 		}
 	}
 

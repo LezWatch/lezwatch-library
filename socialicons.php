@@ -19,8 +19,8 @@ class LP_Socialicons{
 	 * Init
 	 */
 	public function init() {
-		add_shortcode( 'svgicon', array( $this, 'socialicon_shortcode') );
-		add_shortcode( 'socialicon', array( $this, 'socialicon_shortcode') );
+		add_shortcode( 'svgicon', array( $this, 'socialicon_shortcode' ) );
+		add_shortcode( 'socialicon', array( $this, 'socialicon_shortcode' ) );
 		add_filter( 'widget_text', 'do_shortcode', 7 );
 	}
 
@@ -44,15 +44,15 @@ class LP_Socialicons{
 	    'url'	=> '',
 	    ), $atts );
 
-	    if ( !file_exists( $iconsfolder.$svg['file'].'.svg' ) ) {
+	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) {
 		    $svg['file'] = 'square';
 	    }
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field($svg['title']).'" title="'.sanitize_text_field($svg['title']).'" class="svg-shortcode '.sanitize_text_field($svg['title']).'">';
-		if ( !empty($svg['url']) ) {
-			$iconpath .= '<a href='.esc_url( $svg['url'] ).'>'.file_get_contents( $iconsfolder.$svg['file'].'.svg' ).'</a>';
+		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
+		if ( !empty( $svg[ 'url' ] ) ) {
+			$iconpath .= '<a href=' . esc_url( $svg[ 'url' ] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder.$svg['file'].'.svg' );
+			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
 		}
 		$iconpath .= '</span>';
 

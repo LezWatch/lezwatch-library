@@ -19,9 +19,9 @@ class LP_Shortcodes{
 	 * Init
 	 */
 	public function init() {
-		add_shortcode( 'copyright', array( $this, 'copyright') );
-		add_shortcode( 'numposts', array( $this, 'numposts') );
-		add_shortcode( 'google-ads', array( $this, 'google_ads') );
+		add_shortcode( 'copyright', array( $this, 'copyright' ) );
+		add_shortcode( 'numposts', array( $this, 'numposts' ) );
+		add_shortcode( 'google-ads', array( $this, 'google_ads' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 	}
 
@@ -42,13 +42,13 @@ class LP_Shortcodes{
 	        'text' => '&copy;'
 	    ), $atts );
 
-		$year = ( $attributes['year'] == '' || ctype_digit($attributes['year']) == false )? date('Y') : intval($attributes['year']);
-		$text = ( $attributes['text'] == '' )? '&copy;' : sanitize_text_field( $attributes['text'] );
+		$year = ( $attributes[ 'year' ] == '' || ctype_digit( $attributes[ 'year' ] ) == false )? date( 'Y' ) : intval( $attributes[ 'year' ] );
+		$text = ( $attributes[ 'text' ] == '' )? '&copy;' : sanitize_text_field( $attributes[ 'text' ] );
 
-		if ( $year == date('Y') || $year > date('Y') ) {
-			$output = date('Y');
-		} elseif ( $year < date('Y') ) {
-			$output = $year . ' - ' . date('Y');
+		if ( $year == date( 'Y' ) || $year > date( 'Y' ) ) {
+			$output = date( 'Y' );
+		} elseif ( $year < date( 'Y' ) ) {
+			$output = $year . ' - ' . date( 'Y' );
 		}
 
 		return $text . ' ' . $output;
@@ -78,18 +78,18 @@ class LP_Shortcodes{
 		if ( $attr['data'] == 'posts' ) {
 
 			// Collect posts
-			$posttype = sanitize_text_field( $attr['posttype'] );
+			$posttype = sanitize_text_field( $attr[ 'posttype' ] );
 
 			if ( post_type_exists( $posttype ) !== true ) $posttype = 'post';
 
 			$to_count = wp_count_posts( $posttype );
 			$return = $to_count->publish;
 
-		} elseif ( $attr['data'] == 'taxonomy' ) {
+		} elseif ( $attr[ 'data' ] == 'taxonomy' ) {
 
 			// Collect Taxonomies
-			$the_term     = sanitize_text_field( $attr['term'] );
-			$the_taxonomy = sanitize_text_field( $attr['taxonomy'] );
+			$the_term     = sanitize_text_field( $attr[ 'term' ] );
+			$the_taxonomy = sanitize_text_field( $attr[ 'taxonomy' ] );
 
 			if ( !is_null($the_term) && $the_taxonomy !== false ) {
 				$all_taxonomies = ( empty( $the_taxonomy ) )? get_taxonomies() : array( $the_taxonomy ) ;
@@ -175,7 +175,7 @@ class LP_Shortcodes{
 					<section class="author-box '. $columns .'">'
 					. $gravatar
 					. '<h4 class="author-box-title"><span itemprop="name">' . $username . '</span></h4>
-					<div class="author-box-content" itemprop="description">'. $description .'</div>
+					<div class="author-box-content" itemprop="description">' . $description .  '</div>
 					</section>
 				';
 			}
