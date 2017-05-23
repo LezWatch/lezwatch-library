@@ -14,9 +14,10 @@ class LP_Dashboard{
 	public function __construct() {
 		add_action( 'dashboard_glance_items', array( $this, 'dashboard_glance_feedback' ) );
 		add_action( 'admin_head', array( $this, 'dashboard_glance_feedback_css' ) );
-		add_filter( 'manage_posts_columns', array( $this, 'featured_image_manage_posts_columns') );
-		add_action( 'manage_posts_custom_column', array( $this, 'featured_image_manage_custom_columns') , 10, 2);
-		add_action( 'admin_print_scripts', array( $this, 'featured_image_admin_print_styles')  );
+		add_filter( 'manage_posts_columns', array( $this, 'featured_image_manage_posts_columns' ) );
+		add_action( 'manage_posts_custom_column', array( $this, 'featured_image_manage_custom_columns' ) , 10, 2);
+		add_action( 'admin_print_scripts', array( $this, 'featured_image_admin_print_styles' )  );
+		add_filter( 'get_blogs_of_user' , array( $this, 'sort_my_sites' ) );
 	}
 
 	/*
@@ -113,6 +114,12 @@ class LP_Dashboard{
 				padding-top: 5px;
 			}
 		</style>';
+	}
+
+	public function sort_my_sites($blogs) {
+		$f = create_function( '$a,$b' , 'return strcasecmp($a->blogname,$b->blogname);' );
+		uasort( $blogs, $f );
+		return $blogs;
 	}
 
 }
