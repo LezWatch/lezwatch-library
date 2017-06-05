@@ -30,31 +30,14 @@ class LP_Per_Site {
 
 			case 'lezpress.com':
 			case 'lezpress.dev':
+			case 'lezpress.local':
 				add_action( 'init', array( $this, 'lezpress' ) );
-				break;
-
-			case 'lezwatchtv.com':
-			case 'dev.lezwatchtv.com':
-			case 'lezwatchtv.lezpress.com':
-				add_filter( 'do_enclose', array( $this, 'delete_enclosure' ) );
-				add_filter( 'rss_enclosure', array( $this, 'delete_enclosure' ) );
-				add_filter( 'atom_enclosure', array( $this, 'delete_enclosure' ) );
 				break;
 		}
 
 		// Enable shortcodes in text widgets
 		add_filter( 'widget_text', 'do_shortcode' );
 
-	}
-
-	/**
-	 * delete_enclosure function.
-	 *
-	 * @access public
-	 * @return void
-	 */
-	function delete_enclosure(){
-		return '';
 	}
 
 	/**
