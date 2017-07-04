@@ -44,9 +44,7 @@ class LP_Socialicons{
 	    'url'	=> '',
 	    ), $atts );
 
-	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) {
-		    $svg['file'] = 'square';
-	    }
+	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) )  $svg['file'] = 'square';
 
 		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
 		if ( !empty( $svg[ 'url' ] ) ) {

@@ -12,7 +12,7 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', WP_CONTENT_DIR . '/mu-plugins/symboliconscolor/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', dirname( __FILE__ ) . '/symboliconscolor/' );
 
 if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', '/wp-content/mu-plugins/symboliconscolor/' );
 
@@ -30,6 +30,7 @@ class LP_SymboliconsColorSettings {
 	 */
     public function __construct() {
         add_action( 'init', array( &$this, 'init' ) );
+        add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
     }
 
 	/*
@@ -42,6 +43,13 @@ class LP_SymboliconsColorSettings {
     public function init() {
         add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
         add_shortcode( 'symboliconcolor', array( $this, 'shortcode' ) );
+    }
+
+	/*
+	 * admin_enqueue_scripts
+	 */
+    public function admin_enqueue_scripts() {
+        wp_register_style( 'symbolicons-admin', '/wp-content/assets/css/symbolicons-admin.css', false );
     }
 
 	/*
@@ -132,25 +140,3 @@ class LP_SymboliconsColorSettings {
 
 }
 new LP_SymboliconsColorSettings();
-
-/*
- * Inline CSS
- *
- * Forcing the Symbolicons not to be Gigantor, Robot of Robots, on all pages.
- * This should be defined by Symbolicons regularm but just in case...
- */
-
-if ( !function_exists( 'lp_symbolicon_admin_inline_css' ) ) {
-	function lp_symbolicon_admin_inline_css(){
-		echo '
-		<style>
-			span.svg-shortcode svg {
-			    width: 50px;
-			    height: 50px;
-			    margin: 0 5px 0 5px;
-			}
-		</style>
-		';
-	}
-	add_action( 'admin_print_scripts', 'lp_symbolicon_admin_inline_css' );
-}

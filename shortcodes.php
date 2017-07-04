@@ -13,6 +13,7 @@ class LP_Shortcodes{
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'init' ) );
+		add_filter( 'widget_text', 'do_shortcode' );
 	}
 
 	/**
@@ -151,7 +152,7 @@ class LP_Shortcodes{
 
 		if ( $atts['users'] == '' ) return;
 
-		wp_enqueue_style( 'author-box-shortcode', '/wp-content/mu-plugins/css/author-box.css' );
+		wp_enqueue_style( 'author-box-shortcode', '/wp-content/mu-plugins/assets/css/author-box.css' );
 
 		$users = explode(',', $atts['users'] );
 		$user_count = count( $users );

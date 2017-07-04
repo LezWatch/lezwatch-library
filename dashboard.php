@@ -2,7 +2,7 @@
 /*
 Plugin Name: Dashboard
 Description: Custom Dashboard and WP Admin Changes
-Version: 1.1
+Version: 1.2.0
 Author: Mika Epstein
 */
 
@@ -18,6 +18,20 @@ class LP_Dashboard{
 		add_action( 'manage_posts_custom_column', array( $this, 'featured_image_manage_custom_columns' ) , 10, 2);
 		add_action( 'admin_print_scripts', array( $this, 'featured_image_admin_print_styles' )  );
 		add_filter( 'get_blogs_of_user' , array( $this, 'sort_my_sites' ) );
+
+		add_action( 'pre_ping', array( $this, 'no_self_ping' ) );
+	}
+
+	/**
+	 * Prevent self pings by interlinks
+	 *
+	 * @since 1.2.0
+	 */
+	function no_self_ping( &$links ) {
+		$home = get_option( 'home' );
+		foreach ( $links as $l => $link )
+		  if ( 0 === strpos( $link, $home ) )
+	        unset( $links[ $l ] );
 	}
 
 	/*
