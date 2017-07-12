@@ -12,7 +12,7 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', dirname( __FILE__ ) . '/symbolicons/' );
+if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', dirname( __FILE__ ) . '/' );
 
 if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', '/wp-content/mu-plugins/symbolicons/' );
 

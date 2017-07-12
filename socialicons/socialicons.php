@@ -37,7 +37,7 @@ class LP_Socialicons{
 	 * @since 1.0
 	 */
 	public function socialicon_shortcode($atts) {
-		$iconsfolder = plugin_dir_path( __FILE__ ) . '/socialicons/';
+		$iconsfolder = dirname( __FILE__ ) . '/';
 	    $svg = shortcode_atts( array(
 	    'file'	=> 'square',
 	    'title'	=> 'an icon',

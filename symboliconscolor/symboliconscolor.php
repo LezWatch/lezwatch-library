@@ -12,7 +12,7 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', dirname( __FILE__ ) . '/symboliconscolor/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', dirname( __FILE__ ) . '/' );
 
 if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', '/wp-content/mu-plugins/symboliconscolor/' );
 
