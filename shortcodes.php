@@ -23,6 +23,7 @@ class LP_Shortcodes{
 		add_shortcode( 'copyright', array( $this, 'copyright' ) );
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
 		add_shortcode( 'google-ads', array( $this, 'google_ads' ) );
+		add_shortcode( 'amazon-ads', array( $this, 'amazon_ads' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 	}
 
@@ -137,6 +138,85 @@ class LP_Shortcodes{
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 		';
+
+		return $ads;
+	}
+
+	/*
+	 * Display Amazon Ads
+	 *
+	 * Usage: [amazon-ads type={banner|gift-card} size={468x30}]
+	 *
+	 * @since 1.0
+	*/
+	public function amazon_ads( $atts ) {
+
+		$attr = shortcode_atts( array(
+			'type'  => 'gift-card',
+			'size'  => '468x30',
+		), $atts );
+
+		switch ( $attr['size'] ) {
+			case '120x600':
+				$width  = '120';
+				$height = '600';
+				$linkid = '6012b37c4f8c5ebb566988562aa52a15';
+				$p      = '11';
+			break;
+			default: 
+				$width  = '468';
+				$height = '60';
+				$linkid = 'dcfff07d2a2c296751a749235bd0800c';
+				$p      = '13';
+		}
+
+		$gift_card_ads = '
+			<div class="alignleft">
+				<script type="text/javascript">
+				    amzn_assoc_ad_type = "banner";
+					amzn_assoc_marketplace = "amazon";
+					amzn_assoc_region = "US";
+					amzn_assoc_placement = "assoc_banner_placement_default";
+					amzn_assoc_campaigns = "gift_certificates";
+					amzn_assoc_banner_type = "category";
+					amzn_assoc_isresponsive = "true";
+					amzn_assoc_banner_id = "1G274HKHXM7QERC7YAG2";
+					amzn_assoc_tracking_id = "ipsteorg-20";
+					amzn_assoc_linkid = "dc3bf7c50bc51fc107ce7511327d64e4";
+				</script>
+				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+		    </div>';
+		    
+		$banner_ads = '
+			<div class="alignleft">
+				<script type="text/javascript">
+					amzn_assoc_ad_type = "banner";
+					amzn_assoc_marketplace = "amazon";
+					amzn_assoc_region = "US";
+					amzn_assoc_placement = "assoc_banner_placement_default";
+					amzn_assoc_banner_type = "ez";
+					amzn_assoc_p = "' . $p . '";
+					amzn_assoc_width = "' . $width . '";
+					amzn_assoc_height = "' . $height . '";
+					amzn_assoc_tracking_id = "ipsteorg-20";
+					amzn_assoc_linkid = "' . $linkid . '";;
+			    </script>
+			    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+			</div>
+		';
+		
+		$native_ads = '<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=03c364f2-4dd2-4fdf-85ea-299766f94353"></script>';
+
+		// Show the ad based on what you picked...
+		switch ( $attr['type'] ) {
+			case 'native':
+				$ads = $native_ads;
+			case 'banner':
+				$ads = $banner_ads;
+			case 'gift-card':
+			default:
+				$ads = $gift_card_ads;
+		}
 
 		return $ads;
 	}
