@@ -160,13 +160,13 @@ class LP_Shortcodes{
 			case '120x600':
 				$width  = '120';
 				$height = '600';
-				$linkid = '6012b37c4f8c5ebb566988562aa52a15';
+				$linkid = 'df6784c1de12263d667401e69a4893e7';
 				$p      = '11';
 			break;
-			default: 
+			default:
 				$width  = '468';
 				$height = '60';
-				$linkid = 'dcfff07d2a2c296751a749235bd0800c';
+				$linkid = '21f97ff04402ba07089dfcf071a36c6c';
 				$p      = '13';
 		}
 
@@ -181,12 +181,12 @@ class LP_Shortcodes{
 					amzn_assoc_banner_type = "category";
 					amzn_assoc_isresponsive = "true";
 					amzn_assoc_banner_id = "1G274HKHXM7QERC7YAG2";
-					amzn_assoc_tracking_id = "ipsteorg-20";
-					amzn_assoc_linkid = "dc3bf7c50bc51fc107ce7511327d64e4";
+					amzn_assoc_tracking_id = "lezpress-20";
+					amzn_assoc_linkid = "d1494a48a27537cf8ecaa3b732b56b2d";
 				</script>
 				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
 		    </div>';
-		    
+
 		$banner_ads = '
 			<div class="alignleft">
 				<script type="text/javascript">
@@ -198,25 +198,27 @@ class LP_Shortcodes{
 					amzn_assoc_p = "' . $p . '";
 					amzn_assoc_width = "' . $width . '";
 					amzn_assoc_height = "' . $height . '";
-					amzn_assoc_tracking_id = "ipsteorg-20";
+					amzn_assoc_tracking_id = "lezpress-20";
 					amzn_assoc_linkid = "' . $linkid . '";;
 			    </script>
 			    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
 			</div>
 		';
-		
+
 		$native_ads = '<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=03c364f2-4dd2-4fdf-85ea-299766f94353"></script>';
 
 		// Show the ad based on what you picked...
+		$ads = '<!-- BEGIN Amazon Ads --><div class="amazon-ads ' . sanitize_html_class( $attr['type'] ) . '">';
 		switch ( $attr['type'] ) {
 			case 'native':
-				$ads = $native_ads;
+				$ads .= $native_ads;
 			case 'banner':
-				$ads = $banner_ads;
+				$ads .= $banner_ads;
 			case 'gift-card':
 			default:
-				$ads = $gift_card_ads;
+				$ads .= $gift_card_ads;
 		}
+		$ads .= '</div><!-- END Amazon Ads -->';
 
 		return $ads;
 	}
