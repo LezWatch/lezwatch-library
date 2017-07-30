@@ -22,8 +22,6 @@ class LP_Shortcodes{
 	public function init() {
 		add_shortcode( 'copyright', array( $this, 'copyright' ) );
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
-		add_shortcode( 'google-ads', array( $this, 'google_ads' ) );
-		add_shortcode( 'amazon-ads', array( $this, 'amazon_ads' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 	}
 
@@ -115,112 +113,6 @@ class LP_Shortcodes{
 		}
 
 		return $return;
-	}
-
-	/*
-	 * Display Google Ads (responsive only)
-	 *
-	 * Usage: [google-ads]
-	 *
-	 * @since 1.0
-	*/
-	public function google_ads( $atts ) {
-
-		$ads = '
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- Responsive -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-7868382837959636"
-			     data-ad-slot="8167384707"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-		';
-
-		return $ads;
-	}
-
-	/*
-	 * Display Amazon Ads
-	 *
-	 * Usage: [amazon-ads type={banner|gift-card} size={468x30}]
-	 *
-	 * @since 1.0
-	*/
-	public function amazon_ads( $atts ) {
-
-		$attr = shortcode_atts( array(
-			'type'  => 'gift-card',
-			'size'  => '468x30',
-		), $atts );
-
-		switch ( $attr['size'] ) {
-			case '120x600':
-				$width  = '120';
-				$height = '600';
-				$linkid = 'df6784c1de12263d667401e69a4893e7';
-				$p      = '11';
-			break;
-			default:
-				$width  = '468';
-				$height = '60';
-				$linkid = '21f97ff04402ba07089dfcf071a36c6c';
-				$p      = '13';
-		}
-
-		$gift_card_ads = '
-			<div class="alignleft">
-				<script type="text/javascript">
-				    amzn_assoc_ad_type = "banner";
-					amzn_assoc_marketplace = "amazon";
-					amzn_assoc_region = "US";
-					amzn_assoc_placement = "assoc_banner_placement_default";
-					amzn_assoc_campaigns = "gift_certificates";
-					amzn_assoc_banner_type = "category";
-					amzn_assoc_isresponsive = "true";
-					amzn_assoc_banner_id = "1G274HKHXM7QERC7YAG2";
-					amzn_assoc_tracking_id = "lezpress-20";
-					amzn_assoc_linkid = "d1494a48a27537cf8ecaa3b732b56b2d";
-				</script>
-				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-		    </div>';
-
-		$banner_ads = '
-			<div class="alignleft">
-				<script type="text/javascript">
-					amzn_assoc_ad_type = "banner";
-					amzn_assoc_marketplace = "amazon";
-					amzn_assoc_region = "US";
-					amzn_assoc_placement = "assoc_banner_placement_default";
-					amzn_assoc_banner_type = "ez";
-					amzn_assoc_p = "' . $p . '";
-					amzn_assoc_width = "' . $width . '";
-					amzn_assoc_height = "' . $height . '";
-					amzn_assoc_tracking_id = "lezpress-20";
-					amzn_assoc_linkid = "' . $linkid . '";;
-			    </script>
-			    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-			</div>
-		';
-
-		$native_ads = '<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=03c364f2-4dd2-4fdf-85ea-299766f94353"></script>';
-
-		// Show the ad based on what you picked...
-		$ads = '<!-- BEGIN Amazon Ads --><div class="amazon-ads ' . sanitize_html_class( $attr['type'] ) . '">';
-		switch ( $attr['type'] ) {
-			case 'native':
-				$ads .= $native_ads;
-			case 'banner':
-				$ads .= $banner_ads;
-			case 'gift-card':
-			default:
-				$ads .= $gift_card_ads;
-		}
-		$ads .= '</div><!-- END Amazon Ads -->';
-
-		return $ads;
 	}
 
 	/*
