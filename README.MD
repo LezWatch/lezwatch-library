@@ -2,11 +2,25 @@
 
 MU Plugins shared by all LezWatch sites
 
-## Includes
+## Features
 
-* Advertising - Custom affiliate/ad shortcodes
+* Automatic upgrades for themes, plugins, and core WordPress )Skipping Akismet, Hello Dolly, and the default themes).
 
-## Assets
+### Advertising
+
+Global Advertising code
+
+_Display Affiliate Ads_
+
+Usage: `[affiliates type={random|genesis|facetwp|dreamhost} size={heightxwidth}]`
+
+(Currently all ads are 300x250 for ... reasons)
+
+_Display Amazon Ads_
+
+Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
+
+### Assets
 
 * AWS Phar
 * CSS for Author Box shortcode
@@ -16,34 +30,26 @@ MU Plugins shared by all LezWatch sites
 * Symbolicons
 * Symbolicons Color
 
-## Dashboard customizations
+### Dashboard customizations
 
+* Prevent self pings by interlinks
 * Show Feedback in "Right Now"
-* Show extra column in posts list to mark if a post has a featured image
+* Custom Icon for Feedback in "Right Now"
+* Custom column with icon for featured images in posts
 
-## Plugins
+### Plugins
 
 The following plugins have extra code:
 
-### CMB2
+* CMB2: Select2, Grid, Year Range
+* FacetWP: CMB2 Integration
+* WP Help: Custom CSS
 
-* cmb-field-select2
-* CMB2-grid
-* year-range
-
-### Facet
-
-* CMB2 Integration
-
-### WP Help
-
-Custom CSS
-
-## Shortcodes
+### Shortcodes
 
 Custom Shortcodes:
 
-### Display Copyright Year
+_Display Copyright Year_
 
 Usage: `[copyright year=(start year) text=(copyright text)]`
 
@@ -52,7 +58,7 @@ Attributes:
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
 
-### Number of Posts via shortcodes
+_Number of Posts via shortcodes_
 
 Usage: `[numposts data="posts" posttype="post type" term="term slug" taxonomy="taxonomy slug"]`
 
@@ -62,14 +68,13 @@ Attributes:
 * term = term slug
 * taxonomy = taxonomy slug
 
-### Display Author Box
+_Display Author Box_
 
 Usage: `[author-box users=username]`
 
-## Socialicons
+_Socialicons_
 
 Shortcodes to support SVGs for Social Icons (Twitter, Facebook, Tumblr, Google+)
 
-## Upgrades
 
-Automatic upgrades for themes, plugins, and core WordPress. Skipping Akismet, Hello Dolly, and the default themes.
+
