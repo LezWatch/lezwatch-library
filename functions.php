@@ -18,8 +18,10 @@ include_once( dirname( __FILE__ ) . '/plugins/wp-help.php' );
 // Local Plugins
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
 include_once( dirname( __FILE__ ) . '/socialicons/socialicons.php' );
-include_once( dirname( __FILE__ ) . '/symbolicons/symbolicons.php' );
-include_once( dirname( __FILE__ ) . '/symboliconscolor/symboliconscolor.php' );
+
+// Symbolicons
+include_once( dirname( __FILE__ ) . '/assets/symbolicons.php' );
+include_once( dirname( __FILE__ ) . '/assets/symboliconscolor.php' );
 
 /**
  * LezPress_Network class.

@@ -49,14 +49,10 @@ class LP_Advertising {
 		if ( $type == 'random' || !in_array( $type, $valid_types) )
 			$type = $valid_types [ array_rand( $valid_types ) ];
 
-
 		if ( !in_array( $size, $valid_sizes) )
 			$size = '300x250';
 
 		$genesis = array(
-			'125x125' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=965932&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/9888BF0AC9006B0B5DA071FA0974EE72.png" border="0" alt="StudioPress Sites" /></a>',
-			'160x600' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=255469&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/160x600.png" border="0" alt="Genesis Framework for WordPress" /></a>',
-			'250x250' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=241697&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/250x250.jpg" border="0" alt="StudioPress Premium WordPress Themes" /></a>',
 			'300x250' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=255472&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/300x250.png" border="0" alt="Genesis Framework for WordPress" /></a>',
 		);
 
@@ -66,13 +62,6 @@ class LP_Advertising {
 
 		$dreamhost = array(
 			'300x250' => '<a href="https://dreamhost.com/dreampress/"><img src="' . plugins_url( "images/dreamhost-300x250.png", __FILE__ ) . '"></a>',
-		);
-
-		$liquidweb = array(
-			'125x125' => '<a href="//liquidweb.evyy.net/c/294289/388066/4464"><img src="//a.impactradius-go.com/display-ad/4464-388066" border="0" alt="Liquid Web Dedicated Servers" width="125" height="125"/></a><img height="0" width="0" src="//liquidweb.evyy.net/i/294289/388066/4464" style="position:absolute;visibility:hidden;" border="0" />',
-			'160x600' => '<a href="//liquidweb.evyy.net/c/294289/386647/4464"><img src="//a.impactradius-go.com/display-ad/4464-386647" border="0" alt="" width="160" height="600"/></a><img height="0" width="0" src="//liquidweb.evyy.net/i/294289/386647/4464" style="position:absolute;visibility:hidden;" border="0" />',
-			'250x250' => '<a href="//liquidweb.evyy.net/c/294289/297274/4464"><img src="//a.impactradius-go.com/display-ad/4464-297274" border="0" alt="Liquid Web Managed Word Press" width="250" height="250"/></a><img height="0" width="0" src="//liquidweb.evyy.net/i/294289/297274/4464" style="position:absolute;visibility:hidden;" border="0" />',
-			'300x250' => '<a href="//liquidweb.evyy.net/c/294289/386651/4464"><img src="//a.impactradius-go.com/display-ad/4464-386651" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="//liquidweb.evyy.net/i/294289/386651/4464" style="position:absolute;visibility:hidden;" border="0" />',
 		);
 
 		$yikes = array(
@@ -88,8 +77,8 @@ class LP_Advertising {
 			case 'facetwp':
 				$advert .= $facetwp[ $size ];
 				break;
-			case 'liquidweb':
-				$advert .= $liquidweb[ $size ];
+			case 'dreamhost':
+				$advert .= $dreamhost[ $size ];
 				break;
 			default:
 				$advert .= $yikes[ $size ];

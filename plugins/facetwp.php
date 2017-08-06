@@ -21,7 +21,6 @@ class LP_FacetWP_Addons {
 	public function __construct() {
 
 		// Include extra Plugins
-		include_once( dirname( __FILE__ ) . '/facetwp/facet-stack/plugin.php' );
 		include_once( dirname( __FILE__ ) . '/facetwp/cmb2.php' );
 
 		// Filter paged output
