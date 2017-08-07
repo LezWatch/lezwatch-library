@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Global Advertising
+Library:  Global Advertising
 Description: Advertising Code for the LeZWatch Network
 Version: 1.0
 Author: Mika Epstein

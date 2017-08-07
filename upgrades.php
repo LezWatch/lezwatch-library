@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Upgrade Control
+Library:  Upgrade Control
 Description: Control for upgrades
 Version: 1.0
 Author: Mika Epstein

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Functions
+Library:  Functions
 Description: Special Functions
 Version: 2.0.0
 Author: Mika Epstein

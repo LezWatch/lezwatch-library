@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Dashboard
+Library:  Dashboard
 Description: Custom Dashboard and WP Admin Changes
 Version: 1.2.1
 Author: Mika Epstein

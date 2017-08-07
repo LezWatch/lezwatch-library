@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: CMB2 Add Ons
+Library:  CMB2 Add Ons
 Description: Addons for CMB2 that make life worth living
 Version: 1.0
 Author: Mika Epstein

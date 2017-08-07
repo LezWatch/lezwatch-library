@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: FacetWP Add Ons
+Library:  FacetWP Add Ons
 Description: Addons for FacetWP that make life worth living
 Version: 1.1.0
 Author: Mika Epstein
