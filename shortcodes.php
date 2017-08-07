@@ -1,6 +1,6 @@
 <?php
 /*
-Library:  Global Shortcodes
+Library: Global Shortcodes
 Description: Various shortcodes used on the LeZWatch Network
 Version: 1.2
 Author: Mika Epstein

@@ -1,6 +1,6 @@
 <?php
 /*
-Library:  WP Help
+Library: WP Help
 Description: Boostrap file to make a couple tweaks to wp-help
 Version: 1.0
 Author: Mika Epstein

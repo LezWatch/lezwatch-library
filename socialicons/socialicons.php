@@ -1,6 +1,6 @@
 <?php
 /*
-Library:  Social Icons
+Library: Social Icons
 Description: Embed social media icons (which are SVG) as shortcodes
 Version: 1.0
 Author: Mika Epstein

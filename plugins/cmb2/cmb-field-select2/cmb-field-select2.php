@@ -1,6 +1,6 @@
 <?php
 /*
-Library:  CMB2 Field Type: Select2
+Library: CMB2 Field Type: Select2
 Plugin URI: https://github.com/mustardBees/cmb-field-select2
 GitHub Plugin URI: https://github.com/mustardBees/cmb-field-select2
 Description: Select2 field type for CMB2.
