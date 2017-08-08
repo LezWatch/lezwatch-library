@@ -57,15 +57,15 @@ class LP_Advertising {
 		);
 
 		$facetwp = array(
-			'300x250' => '<a href="https://facetwp.com/?ref=91&campaign=LezPress"><img src="' . plugins_url( "images/facetwp-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://facetwp.com/?ref=91&campaign=LezPress"><img src="' . WP_CONTENT_URL . '/library/advertising/images/facetwp-300x250.png"></a>',
 		);
 
 		$dreamhost = array(
-			'300x250' => '<a href="https://dreamhost.com/dreampress/"><img src="' . plugins_url( "images/dreamhost-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://dreamhost.com/dreampress/"><img src="' . WP_CONTENT_URL . '/library/advertising/images/dreamhost-300x250.png"></a>',
 		);
 
 		$yikes = array(
-			'300x250' => '<a href="https://www.yikesinc.com"><img src="' . plugins_url( "images/yikes-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://www.yikesinc.com"><img src="' . WP_CONTENT_URL . '/library/advertising/images/yikes-300x250.png"></a>',
 		);
 
 		$advert = '<!-- BEGIN Affiliate Ads --><div class="affiliate-ads ' . sanitize_html_class( $attr['type'] ) . '">';

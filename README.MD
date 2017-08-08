@@ -30,7 +30,6 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 * CSS for Author Box shortcode
 * CSS for Symbolicons
 * JS for CatSignal
-* JS for FacetWP Pagination
 * Symbolicons
 * Symbolicons Color
 
@@ -40,14 +39,6 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 * Show Feedback in "Right Now"
 * Custom Icon for Feedback in "Right Now"
 * Custom column with icon for featured images in posts
-
-### Plugins
-
-The following plugins have extra code:
-
-* CMB2: Select2, Grid, Year Range
-* FacetWP: CMB2 Integration
-* WP Help: Custom CSS
 
 ### Shortcodes
 
@@ -80,5 +71,10 @@ _Socialicons_
 
 Shortcodes to support SVGs for Social Icons (Twitter, Facebook, Tumblr, Google+)
 
+## Deployment
 
+Pushes to the `master` branch are automatically deployed via Codeship to:
 
+* lezwatchtv.com
+* lwtv.dream.press
+* lezwatchcommercials.com

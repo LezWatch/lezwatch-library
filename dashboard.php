@@ -41,11 +41,13 @@ class LP_Dashboard{
 	public function dashboard_glance_feedback() {
         	foreach ( array( 'feedback' ) as $post_type ) {
         		$num_posts = wp_count_posts( $post_type );
-        		if ( $num_posts && $num_posts->publish ) {
+				$count_posts = ( isset( $num_posts->publish ) )? $num_posts->publish : '0';
+        		 
+        		if ( $count_posts !== '0' ) {
         			if ( 'feedback' == $post_type ) {
-        				$text = _n( '%s Message', '%s Messages', $num_posts->publish );
+        				$text = _n( '%s Message', '%s Messages', $count_posts );
         			}
-        			$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+        			$text = sprintf( $text, number_format_i18n( $count_posts ) );
         			printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
         		}
         	}
