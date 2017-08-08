@@ -29,7 +29,7 @@ class LP_CMB2_Addons {
 
 		add_filter( 'pw_cmb2_field_select2_asset_path', 'lezwatch_pw_cmb2_field_select2_asset_path' );
 		function lezwatch_pw_cmb2_field_select2_asset_path() {
-			return '/wp-content/mu-plugins/plugins/cmb2/cmb-field-select2/';
+			return '/wp-content/library/plugins/cmb2/cmb-field-select2/';
 		}
 
 		/* Date Year Range */
