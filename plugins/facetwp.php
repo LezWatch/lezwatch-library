@@ -34,7 +34,7 @@ class LP_FacetWP_Addons {
 	}
 
 	function wp_enqueue_scripts() {
-		wp_enqueue_script( 'facetwp-pagination', '/wp-content/mu-plugins/assets/js/facetwp-pagination.js' , array(), '1.0', true );
+		wp_enqueue_script( 'facetwp-pagination', '/wp-content/library/assets/js/facetwp-pagination.js' , array(), '1.0', true );
 	}
 
 	/**

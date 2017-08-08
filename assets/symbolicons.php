@@ -47,7 +47,7 @@ class LP_SymboliconsSettings {
 	 * admin_enqueue_scripts
 	 */
     public function admin_enqueue_scripts() {
-        wp_register_style( 'symbolicons-admin', '/wp-content/assets/css/symbolicons-admin.css', false );
+        wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
     }
 
 	/*

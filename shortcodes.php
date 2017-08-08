@@ -126,7 +126,7 @@ class LP_Shortcodes{
 
 		if ( $atts['users'] == '' ) return;
 
-		wp_enqueue_style( 'author-box-shortcode', '/wp-content/mu-plugins/assets/css/author-box.css' );
+		wp_enqueue_style( 'author-box-shortcode', '/wp-content/library/assets/css/author-box.css' );
 
 		$users = explode(',', $atts['users'] );
 		$user_count = count( $users );

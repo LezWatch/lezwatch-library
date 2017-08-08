@@ -9,6 +9,9 @@ Author: Mika Epstein
 /*
  * File Includes
  */
+include_once( dirname( __FILE__ ) . '/dashboard.php' );
+include_once( dirname( __FILE__ ) . '/shortcodes.php' );
+include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
 // Plugin Addons
 include_once( dirname( __FILE__ ) . '/plugins/cmb2.php' );
@@ -41,7 +44,7 @@ class LezPress_Network {
 	 */
 	function wp_enqueue_scripts() {
 		// Cat Signal
-		wp_enqueue_script( 'cat-signal', '/wp-content/mu-plugins/assets/js/catsignal.js', array(), self::$version, true );
+		wp_enqueue_script( 'cat-signal', '/wp-content/library/assets/js/catsignal.js', array(), self::$version, true );
 	}
 
 }

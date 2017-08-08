@@ -21,7 +21,7 @@ class LP_CMB2_Addons {
 	 */
 	public function __construct() {
 		/* CMB2 Grid */
-		define( 'CMB2GRID_DIR', '/wp-content/mu-plugins/plugins/cmb2/CMB2-grid/' );
+		define( 'CMB2GRID_DIR', '/wp-content/library/plugins/cmb2/CMB2-grid/' );
 		include_once( dirname( __FILE__ ) . '/cmb2/CMB2-grid/Cmb2GridPluginLoad.php' );
 
 		/* Select2 */
