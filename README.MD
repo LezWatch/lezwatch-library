@@ -1,10 +1,14 @@
-## LezWatch MU Plugins
+## LezWatch Library
 
-MU Plugins shared by all LezWatch sites
+Code shared by all LezWatch sites
 
-## Features
+## Description
 
-* Automatic upgrades for themes, plugins, and core WordPress )Skipping Akismet, Hello Dolly, and the default themes).
+Instead of an MU Plugin, this is a library of code that is called by the sub-plugins. This way updates can be segmented.
+
+Includes:
+
+* Automatic upgrades for themes, plugins, and core WordPress (Skipping Akismet, Hello Dolly, and the default themes).
 
 ### Advertising
 
