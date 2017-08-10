@@ -12,8 +12,6 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', 'https://lezpress.objects-us-west-1.dream.io/symboliconscolor/' );
-
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
 	die;
@@ -21,14 +19,27 @@ if ( ! defined('WPINC' ) ) {
 
 class LP_SymboliconsColorSettings {
 
+	public $lp_region;
+	public $lp_bucket;
+	public $lp_prefix;
+
 	/*
 	 * Construct
 	 *
 	 * Actions to happen immediately
 	 */
     public function __construct() {
+
+	    $this->lp_region = 'us-east-1';
+	    $this->lp_bucket = 'lezpress-icons';
+	    $this->lp_prefix = 'symboliconscolor';
+
         add_action( 'init', array( &$this, 'init' ) );
         add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+
+		if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) {
+			define( 'LP_SYMBOLICONSCOLOR_PATH', 'https://' . $this->lp_bucket . '.objects-' . $this->lp_region . '.dream.io/' . $this->lp_prefix . '/' );
+		}
     }
 
 	/*
@@ -102,8 +113,8 @@ class LP_SymboliconsColorSettings {
 
 		$s3 = new Aws\S3\S3Client([
 		    'version' => 'latest',
-		    'region'  => 'us-east-1',
-		    'endpoint' => 'https://objects-us-west-1.dream.io',
+		    'region'  => $this->lp_region,
+		    'endpoint' => 'https://objects-' . $this->lp_region . '.dream.io',
 			'credentials' => [
 				'key'    => AWS_ACCESS_KEY_ID,
 				'secret' => AWS_SECRET_ACCESS_KEY,
@@ -111,15 +122,15 @@ class LP_SymboliconsColorSettings {
 		]);
 
 		$files = $s3->getPaginator( 'ListObjects', [
-		    'Bucket' => 'lezpress',
-		    'Prefix' => 'symboliconscolor/',
+		    'Bucket' => $this->lp_bucket,
+		    'Prefix' => $this->lp_prefix .'/',
 		]);
 
 		foreach ( $files as $file ) {
 			foreach ( $file['Contents'] as $item ) {
 				if ( strpos( $item['Key'], '.svg' ) !== false ) {
 					$name = strtolower( substr( $item['Key'] , 0, strrpos( $item['Key'] , ".") ) );
-					$name = str_replace( 'symboliconscolor/', '', $name );
+					$name = str_replace( $this->lp_prefix .'/', '', $name );
 					$symbolicons .= "$name\r\n";
 				}
 			}
