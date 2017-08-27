@@ -190,7 +190,7 @@ class LP_SymboliconsColorSettings {
 		$symbol_list = fopen( $upload_dir['basedir'] . '/symboliconscolor.txt', 'r' );
 		if ( $symbol_list ) {
 			while ( ( $line = fgets( $symbol_list ) ) !== false ) {
-				echo '<span role="img" class="symlclr-icon"><img src="http://lezpress.objects-us-west-1.dream.io/symboliconscolor/' . $line . '.svg" width="75px">' . $line .'</span>';
+				echo '<span role="img" class="symlclr-icon"><img src="' LP_SYMBOLICONSCOLOR_PATH . $line . '.svg" width="75px">' . $line .'</span>';
 			}
 		}
 		fclose( $symbol_list );

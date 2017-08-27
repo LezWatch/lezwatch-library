@@ -193,7 +193,7 @@ class LP_SymboliconsSettings {
 		$symbol_list = fopen( $upload_dir['basedir'] . '/symbolicons.txt', 'r' );
 		if ( $symbol_list ) {
 			while ( ( $line = fgets( $symbol_list ) ) !== false ) {
-				echo '<span role="img" class="cmb2-icon"><img src="http://lezpress.objects-us-west-1.dream.io/symbolicons/' . $line . '.svg" width="75px">' . $line .'</span>';
+				echo '<span role="img" class="cmb2-icon"><img src="' LP_SYMBOLICONS_PATH . $line . '.svg" width="75px">' . $line .'</span>';
 			}
 		}
 		fclose( $symbol_list );
