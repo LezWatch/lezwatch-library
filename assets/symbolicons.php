@@ -190,13 +190,27 @@ class LP_SymboliconsSettings {
 	
 		echo '<p>Usage example: <code>[symbolicon file=rainbow title="Rainbow" url=https://rainbow.com]</code></p>';
 
-		$symbol_list = fopen( $upload_dir['basedir'] . '/symbolicons.txt', 'r' );
+		$symbol_list  = fopen( $upload_dir['basedir'] . '/symbolicons.txt', 'r' );
+		$symbol_array = array();
+
 		if ( $symbol_list ) {
+			delete_option( 'lp_symbolicons' );
+			
 			while ( ( $line = fgets( $symbol_list ) ) !== false ) {
-				echo '<span role="img" class="cmb2-icon"><img src="' . LP_SYMBOLICONS_PATH . $line . '.svg" width="75px">' . $line .'</span>';
+				$line = trim( str_replace( array( "\r", "\n" ), '', $line ) );
+				$symbol_array[ $line ] = $line;
 			}
+			
+			add_option( 'lp_symbolicons', $symbol_array );
 		}
 		fclose( $symbol_list );
+		
+		if ( get_option( 'lp_symbolicons' ) !== false ) {
+			foreach ( get_option( 'lp_symbolicons' ) as $symbol ) {
+				echo '<span role="img" class="cmb2-icon"><img src="' . LP_SYMBOLICONS_PATH . $symbol . '.svg" width="75px">' . $symbol .'</span>';
+			}	
+		}
+		
 	}
 
 }

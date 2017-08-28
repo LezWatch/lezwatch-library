@@ -189,11 +189,22 @@ class LP_SymboliconsColorSettings {
 
 		$symbol_list = fopen( $upload_dir['basedir'] . '/symboliconscolor.txt', 'r' );
 		if ( $symbol_list ) {
+			delete_option( 'lp_symbolicons_color' );
+			
 			while ( ( $line = fgets( $symbol_list ) ) !== false ) {
-				echo '<span role="img" class="symlclr-icon"><img src="' . LP_SYMBOLICONSCOLOR_PATH . $line . '.svg" width="75px">' . $line .'</span>';
+				$line = trim( str_replace( array( "\r", "\n" ), '', $line ) );
+				$symbol_array[ $line ] = $line;
 			}
+			
+			add_option( 'lp_symbolicons_color', $symbol_array );
 		}
 		fclose( $symbol_list );
+
+		if ( get_option( 'lp_symbolicons_color' ) !== false ) {
+			foreach ( get_option( 'lp_symbolicons_color' ) as $symbol ) {
+				echo '<span role="img" class="symlclr-icon"><img src="' . LP_SYMBOLICONSCOLOR_PATH . $symbol . '.svg" width="75px">' . $symbol .'</span>';
+			}	
+		}
 
 	}
 
