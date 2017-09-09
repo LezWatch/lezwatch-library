@@ -116,8 +116,8 @@ class LP_SymboliconsColorSettings {
 		    'region'  => $this->lp_region,
 		    'endpoint' => 'https://objects-' . $this->lp_region . '.dream.io',
 			'credentials' => [
-				'key'    => AWS_ACCESS_KEY_ID,
-				'secret' => AWS_SECRET_ACCESS_KEY,
+				'key'    => DHO_ACCESS_KEY_ID,
+				'secret' => DHO_SECRET_ACCESS_KEY,
 			]
 		]);
 
