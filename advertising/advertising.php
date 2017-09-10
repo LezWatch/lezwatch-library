@@ -119,7 +119,7 @@ class LP_Advertising {
 		}
 
 		$gift_card_ads = '
-			<div class="alignleft">
+			<div class="amazon-ads">
 				<script type="text/javascript">
 				    amzn_assoc_ad_type = "banner";
 					amzn_assoc_marketplace = "amazon";
@@ -136,7 +136,7 @@ class LP_Advertising {
 		    </div>';
 
 		$banner_ads = '
-			<div class="alignleft">
+			<div class="amazon-ads">
 				<script type="text/javascript">
 					amzn_assoc_ad_type = "banner";
 					amzn_assoc_marketplace = "amazon";
@@ -237,7 +237,7 @@ class LP_Advertising {
 
 		// Build the ad
 		$ads = '
-			<div class="alignleft">
+			<div class="amazon-ads">
 				<script type="text/javascript">
 					amzn_assoc_ad_type = "banner";
 					amzn_assoc_marketplace = "amazon";
