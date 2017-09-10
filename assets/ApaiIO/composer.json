@@ -1,5 +1,15 @@
 {
+    "name": "lezwatch/apai-io",
+    "description": "Library for Amazon Product API",
+    "type": "library",
     "require": {
         "exeu/apai-io": "~2.0"
-    }
+    },
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Mika 'Ipstenu' Epstein",
+            "email": "mika@lezwatchtv.com"
+        }
+    ]
 }

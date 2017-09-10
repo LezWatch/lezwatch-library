@@ -20,6 +20,7 @@ class LP_Advertising {
 	 */
 	public function init() {
 		add_shortcode( 'amazon-ads', array( $this, 'amazon_ads' ) );
+		add_shortcode( 'amazon-bounties', array( $this, 'amazon_bounties' ) );
 		add_shortcode( 'affiliates', array( $this, 'affiliates' ) );
 	}
 
@@ -168,6 +169,95 @@ class LP_Advertising {
 		$ads .= '</div><!-- END Amazon Ads -->';
 
 		return $ads;
+	}
+
+	/*
+	 * Display Amazon Bounties
+	 *
+	 * Usage: [amazon-bounties]
+	 *
+	 * Currently all ads are 300x250 for ... reasons
+	 *
+	 * @since 1.0
+	*/
+
+	public function amazon_bounties( $atts ) {
+
+		$bounties      = array();
+		$all_bounties  = array( 
+			'hbo-2020'      => array( 
+				'expires'   => '2020-12-01',
+				'banner_id' => '11XR3BAGVDW8V1CS1SR2', 
+				'linkid'    => '4911c201ef21008a67f629c4745c8d59' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'hbo-2017'      => array(
+				'expires'   => '2017-12-30',
+				'banner_id' => '17V0HBPP6E0CA2YD83G2', 
+				'linkid'    => 'b66058bd84eac1f6e1a00e36224411ac',
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'channels-2020' => array( 
+				'expires'   => '2020-06-08',
+				'banner_id' => '0NAE4QVSPV9WBX705Q02', 
+				'linkid'    => 'c8a2d6e4e9d8c3043a360edddd16cd65',
+				'campaign'  => 'amazonvideosubs'
+				),
+			'showtime-2020' => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '1D4BYT6626ZE612AYY82', 
+				'linkid'    => '8c44a7c89f6d17fcbc7520e12f6e8d19',
+				'campaign'  => 'amazonvideosubs'
+				),
+			'primeent'      => array( 
+				'expires'   => 'ongoing',
+				'banner_id' => '0AYXCYJJ9PEFSXH6QP02',
+				'linkid'    => 'ccab416cb595e275df2791325eb2367b',
+				'campaign'  => 'primeent'
+				),
+			'firetv-2017'   => array( 
+				'expires'   => '2017-12-31',
+				'banner_id' => '1E8K86THMZ6SY8Y2SH02',
+				'linkid'    => 'f12a50b3d8a00a436189261002ac80f7',
+				'campaign'  => 'amzn_smp_firetvedition'
+				),
+			);
+			
+		// Exclude anything expired
+		foreach ( $all_bounties as $a_bounty => $value ) {
+			$expires = strtotime( $value['expires'] );
+			
+			if ( $value['expires'] == 'ongoing' || $expires >= time() ) {
+				$bounties[$a_bounty] = $value;
+			}
+		}
+
+		// Pick a random valid bounty
+		$bounty = $bounties [ array_rand( $bounties ) ];
+
+		// Build the ad
+		$ads = '
+			<div class="alignleft">
+				<script type="text/javascript">
+					amzn_assoc_ad_type = "banner";
+					amzn_assoc_marketplace = "amazon";
+					amzn_assoc_region = "US";
+					amzn_assoc_placement = "assoc_banner_placement_default";
+					amzn_assoc_campaigns = "'. $bounty['campaign'] .'";
+					amzn_assoc_banner_type = "promotions";
+					amzn_assoc_p = "12";
+					amzn_assoc_banner_id = "'. $bounty['banner_id'] .'";
+					amzn_assoc_width = "300";
+					amzn_assoc_height = "250";
+					amzn_assoc_tracking_id = "lezpress-20";
+					amzn_assoc_linkid = "'. $bounty['linkid'] .'";
+				</script>
+				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+			</div>
+		';
+		
+		return $ads;
+
 	}
 
 }
