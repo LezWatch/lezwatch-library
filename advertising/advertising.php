@@ -174,17 +174,23 @@ class LP_Advertising {
 	/*
 	 * Display Amazon Bounties
 	 *
-	 * Usage: [amazon-bounties]
+	 * Usage: [amazon-bounties size=""]
 	 *
-	 * Currently all ads are 300x250 for ... reasons
+	 * Valid sizes: 300x250, 160x600, 728x90, 300x600
+	 * Default: 300x250
 	 *
 	 * @since 1.0
 	*/
 
 	public function amazon_bounties( $atts ) {
 
-		$bounties      = array();
-		$all_bounties  = array( 
+		$attr = shortcode_atts( array(
+			'size'  => '300x250',
+		), $atts );
+
+		$bounties        = array();
+
+		$bounties_300250 = array( 
 			'hbo-2020'      => array( 
 				'expires'   => '2020-12-01',
 				'banner_id' => '11XR3BAGVDW8V1CS1SR2', 
@@ -197,7 +203,7 @@ class LP_Advertising {
 				'linkid'    => 'b66058bd84eac1f6e1a00e36224411ac',
 				'campaign'  => 'amazonvideosubs'
 				), 
-			'channels-2020' => array( 
+			'outlander-2020'=> array( 
 				'expires'   => '2020-06-08',
 				'banner_id' => '0NAE4QVSPV9WBX705Q02', 
 				'linkid'    => 'c8a2d6e4e9d8c3043a360edddd16cd65',
@@ -221,7 +227,66 @@ class LP_Advertising {
 				'linkid'    => 'f12a50b3d8a00a436189261002ac80f7',
 				'campaign'  => 'amzn_smp_firetvedition'
 				),
+			'britbox'       => array( 
+				'expires'   => 'ongoing',
+				'banner_id' => '1AQGHMAACGH04WKQ1YG2',
+				'linkid'    => 'd45fe5a514960324926ae983dfb7a827',
+				'campaign'  => 'amazonvideosubs'
+				),
 			);
+
+		$bounties_160600 = array( 
+			'shameless'     => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '08ZZRWXWXFEVHYCASCR2', 
+				'linkid'    => '605851501c5f3bc4d86c97419de9c8a2' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'westworld'     => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '10MCTXD1DJ0K6ACX0KG2', 
+				'linkid'    => '5c2a2f020b3e96d8daee238ed92dad0f' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'outlander'     => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '096WSZC10BTDR26Z8YR2', 
+				'linkid'    => 'bf8765a9aa039cac14a4e4d946fd3e8a' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'twinpeaks'     => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '0K1QMMQGG293DT46SZ82', 
+				'linkid'    => 'e1d660836ce282fcd9d92461994fdc87' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'gameofthrones' => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '1KAXW3M068GBRWGGR282', 
+				'linkid'    => 'd23b0739507877f14aca96ee1f5e48f6' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			'britbox' => array( 
+				'expires'   => '2020-12-31',
+				'banner_id' => '1451M1TK3PKR29C2YBR2', 
+				'linkid'    => 'bc81d7076d2ca29a4ef9bbdd36ba4d93' ,
+				'campaign'  => 'amazonvideosubs'
+				), 
+			);
+
+		switch ( $attr['size'] ) {
+			case '160x600':
+				$all_bounties = $bounties_160600;
+				$width  = '160';
+				$height = '600';
+				$amzn_assoc_p = '14';
+				break;
+			default:
+				$all_bounties = $bounties_300250;
+				$width  = '300';
+				$height = '250';
+				$amzn_assoc_p = '12';
+		}
 			
 		// Exclude anything expired
 		foreach ( $all_bounties as $a_bounty => $value ) {
@@ -245,10 +310,10 @@ class LP_Advertising {
 					amzn_assoc_placement = "assoc_banner_placement_default";
 					amzn_assoc_campaigns = "'. $bounty['campaign'] .'";
 					amzn_assoc_banner_type = "promotions";
-					amzn_assoc_p = "12";
+					amzn_assoc_p = "'. $amzn_assoc_p .'";
 					amzn_assoc_banner_id = "'. $bounty['banner_id'] .'";
-					amzn_assoc_width = "300";
-					amzn_assoc_height = "250";
+					amzn_assoc_width = "'. $width .'";
+					amzn_assoc_height = "'. $height .'";
 					amzn_assoc_tracking_id = "lezpress-20";
 					amzn_assoc_linkid = "'. $bounty['linkid'] .'";
 				</script>
