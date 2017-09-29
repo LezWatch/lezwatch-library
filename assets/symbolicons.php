@@ -5,12 +5,16 @@
  * Shows the symbolicons settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:    2.0
+ * Version:    1.0
  * Author:     Mika A. Epstein
  * Author URI: https://halfelf.org
  * License:    GPL-2.0+
  *
  */
+
+if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', dirname( __FILE__ ) . '/symbolicons/' );
+
+if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', '/wp-content/library/assets/symbolicons/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
@@ -18,10 +22,6 @@ if ( ! defined('WPINC' ) ) {
 }
 
 class LP_SymboliconsSettings {
-	
-	public $lp_region;
-	public $lp_bucket;
-	public $lp_prefix;
 
 	/*
 	 * Construct
@@ -29,17 +29,8 @@ class LP_SymboliconsSettings {
 	 * Actions to happen immediately
 	 */
     public function __construct() {
-	    
-	    $this->lp_region = 'us-east-1';
-	    $this->lp_bucket = 'lezpress-icons';
-	    $this->lp_prefix = 'symbolicons';
-	    
         add_action( 'init', array( &$this, 'init' ) );
         add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
-
-		if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) {
-			define( 'LP_SYMBOLICONS_PATH', 'https://' . $this->lp_bucket . '.objects-' . $this->lp_region . '.dream.io/' . $this->lp_prefix . '/' );
-		}
     }
 
 	/*
@@ -81,66 +72,17 @@ class LP_SymboliconsSettings {
 	    ), $atts );
 
 		// Default to the square if nothing is there
-		$svg = wp_remote_get( $iconsfolder . $svg[ 'file' ] . '.svg' );
-		$icon = $svg['body'];
-		if ( $svg['response']['code'] == '404' ) {
-			$request = wp_remote_get( $iconpath . 'square.svg' );
-			$icon = $request['body'];
-		}
+	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
 		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
 		if ( !empty( $svg[ 'url' ] ) ) {
-			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . $icon . '</a>';
+			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
 		} else {
-			$iconpath .= $icon;
+			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
 		}
 		$iconpath .= '</span>';
 
 		return $iconpath;
-	}
-
-	/**
-	 * get_icons function.
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function get_icons() {
-		
-		include_once( dirname( __FILE__ ) . '/aws.phar' );
-
-		$symbolicons = '';
-
-		$s3 = new Aws\S3\S3Client([
-		    'version' => 'latest',
-		    'region'  => $this->lp_region,
-		    'endpoint' => 'https://objects-' . $this->lp_region . '.dream.io',
-			'credentials' => [
-				'key'    => DHO_ACCESS_KEY_ID,
-				'secret' => DHO_SECRET_ACCESS_KEY,
-			]
-		]);
-
-		$files = $s3->getPaginator( 'ListObjects', [
-		    'Bucket' => $this->lp_bucket,
-		    'Prefix' => $this->lp_prefix .'/',
-		]);
-
-		foreach ( $files as $file ) {
-			foreach ( $file['Contents'] as $item ) {
-				if ( strpos( $item['Key'], '.svg' ) !== false ) {
-					$name = strtolower( substr( $item['Key'] , 0, strrpos( $item['Key'] , ".") ) );
-					$name = str_replace( $this->lp_prefix .'/', '', $name );
-					$symbolicons .= "$name\r\n";
-				}
-			}
-		}
-
-		$upload_dir = wp_upload_dir();
-		$symb_file = $upload_dir['basedir'] . '/symbolicons.txt';
-		$open_file  = fopen( $symb_file, 'wa+' );
-		$write_file = fputs( $open_file, $symbolicons );
-		fclose( $open_file );
 	}
 
 	/*
@@ -182,35 +124,16 @@ class LP_SymboliconsSettings {
 
 		<?php
 
-		$this->get_icons();
-		$imagepath  = LP_SYMBOLICONS_PATH;
-		$upload_dir = wp_upload_dir();
+		$imagepath = LP_SYMBOLICONS_PATH.'/';
 
 		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
-	
-		echo '<p>Usage example: <code>[symbolicon file=rainbow title="Rainbow" url=https://rainbow.com]</code></p>';
 
-		$symbol_list  = fopen( $upload_dir['basedir'] . '/symbolicons.txt', 'r' );
-		$symbol_array = array();
-
-		if ( $symbol_list ) {
-			delete_option( 'lp_symbolicons' );
-			
-			while ( ( $line = fgets( $symbol_list ) ) !== false ) {
-				$line = trim( str_replace( array( "\r", "\n" ), '', $line ) );
-				$symbol_array[ $line ] = $line;
-			}
-			
-			add_option( 'lp_symbolicons', $symbol_array );
+		foreach( glob( $imagepath . '*' ) as $filename ){
+			$image = file_get_contents( $filename );
+			$name  = str_replace( $imagepath, '' , $filename );
+			$name  = str_replace( '.svg', '', $name );
+			echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
 		}
-		fclose( $symbol_list );
-		
-		if ( get_option( 'lp_symbolicons' ) !== false ) {
-			foreach ( get_option( 'lp_symbolicons' ) as $symbol ) {
-				echo '<span role="img" class="cmb2-icon"><img src="' . LP_SYMBOLICONS_PATH . $symbol . '.svg" width="75px">' . $symbol .'</span>';
-			}	
-		}
-		
 	}
 
 }
