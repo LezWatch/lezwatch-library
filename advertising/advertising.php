@@ -45,17 +45,13 @@ class LP_Advertising {
 		$size = sanitize_text_field( $attr['size'] );
 
 		$valid_sizes  = array( '300x250' );
-		$valid_types  = array( 'genesis', 'facetwp', 'dreamhost', 'yikes' );
+		$valid_types  = array( 'facetwp', 'dreamhost', 'yikes' );
 
 		if ( $type == 'random' || !in_array( $type, $valid_types) )
 			$type = $valid_types [ array_rand( $valid_types ) ];
 
 		if ( !in_array( $size, $valid_sizes) )
 			$size = '300x250';
-
-		$genesis = array(
-			'300x250' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=255472&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/300x250.png" border="0" alt="Genesis Framework for WordPress" /></a>',
-		);
 
 		$facetwp = array(
 			'300x250' => '<a href="https://facetwp.com/?ref=91&campaign=LezPress"><img src="' . WP_CONTENT_URL . '/library/advertising/images/facetwp-300x250.png"></a>',
@@ -72,15 +68,13 @@ class LP_Advertising {
 		$advert = '<!-- BEGIN Affiliate Ads --><div class="affiliate-ads ' . sanitize_html_class( $attr['type'] ) . '">';
 
 		switch ( $type ) {
-			case 'genesis':
-				$advert .= $genesis[ $size ];
-				break;
 			case 'facetwp':
 				$advert .= $facetwp[ $size ];
 				break;
 			case 'dreamhost':
 				$advert .= $dreamhost[ $size ];
 				break;
+			case 'yikes':
 			default:
 				$advert .= $yikes[ $size ];
 		}
