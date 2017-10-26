@@ -15,7 +15,6 @@ include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
 // Local Plugins
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
-include_once( dirname( __FILE__ ) . '/socialicons/socialicons.php' );
 
 // Symbolicons
 include_once( dirname( __FILE__ ) . '/assets/symbolicons.php' );

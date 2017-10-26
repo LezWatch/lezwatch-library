@@ -67,10 +67,6 @@ _Display Author Box_
 
 Usage: `[author-box users=username]`
 
-_Socialicons_
-
-Shortcodes to support SVGs for Social Icons (Twitter, Facebook, Tumblr, Google+)
-
 ## Deployment
 
 Pushes to the `master` branch are automatically deployed via Codeship to:
