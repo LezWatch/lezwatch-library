@@ -23,6 +23,7 @@ class LP_Shortcodes{
 		add_shortcode( 'copyright', array( $this, 'copyright' ) );
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
+		add_shortcode( 'glossary', array( $this, 'glossary' ) );
 	}
 
 	/*
@@ -37,10 +38,10 @@ class LP_Shortcodes{
 	 * @since 1.0
 	 */
 	public function copyright( $atts ) {
-	    $attributes = shortcode_atts( array(
-	        'year' => 'auto',
-	        'text' => '&copy;'
-	    ), $atts );
+		$attributes = shortcode_atts( array(
+			'year' => 'auto',
+			'text' => '&copy;'
+		), $atts );
 
 		$year = ( $attributes[ 'year' ] == '' || ctype_digit( $attributes[ 'year' ] ) == false )? date( 'Y' ) : intval( $attributes[ 'year' ] );
 		$text = ( $attributes[ 'text' ] == '' )? '&copy;' : sanitize_text_field( $attributes[ 'text' ] );
@@ -95,13 +96,13 @@ class LP_Shortcodes{
 				$all_taxonomies = ( empty( $the_taxonomy ) )? get_taxonomies() : array( $the_taxonomy ) ;
 
 				foreach ( $all_taxonomies as $taxonomy ) {
-				    $does_term_exist = term_exists( $the_term, $taxonomy );
-				    if ( $does_term_exist !== 0 && $does_term_exist !== null ) {
-					    $the_taxonomy = $taxonomy;
-					    break;
-				    } else {
-					    $the_taxonomy = false;
-				    }
+					$does_term_exist = term_exists( $the_term, $taxonomy );
+					if ( $does_term_exist !== 0 && $does_term_exist !== null ) {
+						$the_taxonomy = $taxonomy;
+						break;
+					} else {
+						$the_taxonomy = false;
+					}
 				}
 				$to_count = get_term_by( 'slug', $the_term, $the_taxonomy );
 				$return = $to_count->count;
@@ -111,7 +112,6 @@ class LP_Shortcodes{
 		} else {
 			$return = 'n/a';
 		}
-
 		return $return;
 	}
 
@@ -126,9 +126,9 @@ class LP_Shortcodes{
 
 		if ( $atts['users'] == '' ) return;
 
-		wp_enqueue_style( 'author-box-shortcode', '/wp-content/library/assets/css/author-box.css' );
+		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ) );
 
-		$users = explode(',', $atts['users'] );
+		$users = explode(',', sanitize_user( $atts['users'] ) );
 		$user_count = count( $users );
 
 		$columns = 'one-half';
@@ -159,6 +159,42 @@ class LP_Shortcodes{
 		$author_box .= '</div>';
 
 		return $author_box;
+	}
+
+	/*
+	 * Outputs Glossary Terms
+	 *
+	 * Usage: [glossary taxonomy="taxonomy slug"]
+	 *
+	 * Attributes:
+	 *		taxonomy = taxonomy slug
+	 *
+	 * @since 1.0
+	 */
+	public function glossary( $atts ) {
+		$attr = shortcode_atts( array(
+			'taxonomy' => '',
+		), $atts );
+		
+		// Bail Early
+		if ( $atts['taxonomy'] == '' ) return;
+		
+		$the_taxonomy = sanitize_text_field( $attr[ 'taxonomy' ] );
+		$the_terms    = get_terms( $the_taxonomy );
+		$return       = '<ul class="trope-list list-group">';
+
+		if ( $the_terms && !is_wp_error( $the_terms ) ) {
+			// loop over each returned trope
+			foreach( $the_terms as $term ) {
+				$icon    = lwtv_yikes_symbolicons( get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) .'.svg', 'fa-square' );
+				$return .= '<li class="list-group-item glossary term term-' . $term->slug . '"><a href="' . get_term_link( $term->slug, $the_taxonomy ) .'" rel="glossary term">' . $icon .'</a> <a href="' . get_term_link( $term->slug, $the_taxonomy) .'" rel="glossary term" class="trope-link">' . $term->name .'</a></li>';
+			}
+		}
+			
+		$return .= '</ul>';
+		
+		return $return;
+		
 	}
 
 }
