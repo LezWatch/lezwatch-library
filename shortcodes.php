@@ -23,6 +23,7 @@ class LP_Shortcodes{
 		add_shortcode( 'copyright', array( $this, 'copyright' ) );
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
+		add_shortcode( 'glossary', array( $this, 'glossary' ) );
 	}
 
 	/*
@@ -37,10 +38,10 @@ class LP_Shortcodes{
 	 * @since 1.0
 	 */
 	public function copyright( $atts ) {
-	    $attributes = shortcode_atts( array(
-	        'year' => 'auto',
-	        'text' => '&copy;'
-	    ), $atts );
+		$attributes = shortcode_atts( array(
+			'year' => 'auto',
+			'text' => '&copy;'
+		), $atts );
 
 		$year = ( $attributes[ 'year' ] == '' || ctype_digit( $attributes[ 'year' ] ) == false )? date( 'Y' ) : intval( $attributes[ 'year' ] );
 		$text = ( $attributes[ 'text' ] == '' )? '&copy;' : sanitize_text_field( $attributes[ 'text' ] );
@@ -95,13 +96,13 @@ class LP_Shortcodes{
 				$all_taxonomies = ( empty( $the_taxonomy ) )? get_taxonomies() : array( $the_taxonomy ) ;
 
 				foreach ( $all_taxonomies as $taxonomy ) {
-				    $does_term_exist = term_exists( $the_term, $taxonomy );
-				    if ( $does_term_exist !== 0 && $does_term_exist !== null ) {
-					    $the_taxonomy = $taxonomy;
-					    break;
-				    } else {
-					    $the_taxonomy = false;
-				    }
+					$does_term_exist = term_exists( $the_term, $taxonomy );
+					if ( $does_term_exist !== 0 && $does_term_exist !== null ) {
+						$the_taxonomy = $taxonomy;
+						break;
+					} else {
+						$the_taxonomy = false;
+					}
 				}
 				$to_count = get_term_by( 'slug', $the_term, $the_taxonomy );
 				$return = $to_count->count;
@@ -111,7 +112,6 @@ class LP_Shortcodes{
 		} else {
 			$return = 'n/a';
 		}
-
 		return $return;
 	}
 
@@ -126,39 +126,110 @@ class LP_Shortcodes{
 
 		if ( $atts['users'] == '' ) return;
 
-		wp_enqueue_style( 'author-box-shortcode', '/wp-content/library/assets/css/author-box.css' );
+		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ) );
 
-		$users = explode(',', $atts['users'] );
-		$user_count = count( $users );
-
-		$columns = 'one-half';
-		if ( $user_count == 1 ) $columns = '';
-		if ( $user_count % 3 == 0 ) $columns = 'one-third';
-
+		$users    = explode(',', sanitize_user( $atts['users'] ) );
 		$author_box = '<div class="author-box-shortcode">';
 
 		foreach( $users as $user ) {
 			$user = username_exists( sanitize_user( $user ) );
 			if ( $user ) {
-				$authordata    = get_userdata( $user );
-				$gravatar_size = 'genesis_author_box_gravatar_size' ;
-				$gravatar      = get_avatar( get_the_author_meta( 'email', $user ), $gravatar_size );
-				$description   = wpautop( get_the_author_meta( 'description', $user ) );
-				$username      = get_the_author_meta( 'display_name' , $user );
+				// Get author gravatar
+				$gravatar = get_avatar( get_the_author_meta( 'email', $user ) );
+
+				// Get author's display name 
+				// If display name is not available then use nickname as display name
+				$display_name = ( get_the_author_meta( 'display_name', $user ) )? get_the_author_meta( 'display_name', $user ) : get_the_author_meta( 'nickname', $user ) ;
+				 
+				// Get author's biographical information or description
+				$user_description = ( get_the_author_meta( 'user_description', $user ) )? get_the_author_meta( 'user_description', $user ) : '';
+				 
+				// Get author's website URL 
+				$user_twitter = get_the_author_meta( 'twitter', $user );
+				 
+				// Get link to the author archive page
+				$numposts   = count_many_users_posts( array( $user ), 'post', true );
+				$user_posts = $numposts[$user];
+
+				// Get author Fav Shows
+				$all_fav_shows = get_the_author_meta( 'lez_user_favourite_shows', $user );
+				if ( $all_fav_shows !== '' ) {
+					$show_title = array();
+					foreach ( $all_fav_shows as $each_show ) {
+						if ( get_post_status ( $each_show ) !== 'publish' ) {
+							array_push( $show_title, '<em><span class="disabled-show-link">' . get_the_title( $each_show ) . '</span></em>' );
+						} else {
+							array_push( $show_title, '<em><a href="' . get_permalink( $each_show ) . '">' . get_the_title( $each_show ) . '</a></em>' );
+						}
+					}
+					$favourites = ( empty( $show_title ) )? '' : implode( ', ', $show_title );
+					$fav_title =  _n( 'Show', 'Shows', count( $show_title ) );
+				}
+
+				// Build the author box
+				$author_details  = '<div class="col-sm-3">' . get_avatar( get_the_author_meta('user_email') , 90 ) . '</div>';
+				$author_details .= '<div class="col-sm-9">';
+				$author_details .= '<h4 class="author_name">' . $display_name . '</h4>';
+				$author_details .= '<div class="author-bio">' . nl2br( $user_description ) . '</div>';
+
+				$author_details .= '<div class="author-details">';
+
+				// If the author has posts, show a link
+				$author_details .= ( $user_posts > 0 )? '<div class="author-archives">' . lwtv_yikes_symbolicons( 'newspaper.svg', 'fa-newspaper-o' ) . '&nbsp;<a href="'. get_author_posts_url( get_the_author_meta( 'ID' , $user ) ) .'">View all articles by ' . $display_name . '</a></div>' : ''; 
+				
+				// Add Twitter if it's there
+				$author_details .= ( ! empty( $user_twitter ) )? '<div class="author-twitter">' . lwtv_yikes_symbolicons( 'twitter.svg', 'fa-twitter' ) . '&nbsp;<a href="https://twitter.com/' . $user_twitter . '" target="_blank" rel="nofollow">@' . $user_twitter . '</a> </div>' : '';
+				
+				// Add favourite shows if they're there
+				$author_details .= ( isset( $favourites ) && !empty( $favourites ) )? '<div class="author-favourites">' . lwtv_yikes_symbolicons( 'tv_flatscreen.svg', 'fa-television' ) . '&nbsp;Favorite ' . $fav_title . ': ' . $favourites . '</div>' : '';
+				
+				$author_details .= '</div>';
+				$author_details .= '</div>';
 
 				$author_box   .= '
-					<section class="author-box '. $columns .'">'
-					. $gravatar
-					. '<h4 class="author-box-title"><span itemprop="name">' . $username . '</span></h4>
-					<div class="author-box-content" itemprop="description">' . $description .  '</div>
-					</section>
-				';
+					<section class="author-box">' . $author_details . '</section>';
 			}
 		}
 
 		$author_box .= '</div>';
 
 		return $author_box;
+	}
+
+	/*
+	 * Outputs Glossary Terms
+	 *
+	 * Usage: [glossary taxonomy="taxonomy slug"]
+	 *
+	 * Attributes:
+	 *		taxonomy = taxonomy slug
+	 *
+	 * @since 1.0
+	 */
+	public function glossary( $atts ) {
+		$attr = shortcode_atts( array(
+			'taxonomy' => '',
+		), $atts );
+		
+		// Bail Early
+		if ( $atts['taxonomy'] == '' ) return;
+		
+		$the_taxonomy = sanitize_text_field( $attr[ 'taxonomy' ] );
+		$the_terms    = get_terms( $the_taxonomy );
+		$return       = '<ul class="trope-list list-group">';
+
+		if ( $the_terms && !is_wp_error( $the_terms ) ) {
+			// loop over each returned trope
+			foreach( $the_terms as $term ) {
+				$icon    = lwtv_yikes_symbolicons( get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) .'.svg', 'fa-square' );
+				$return .= '<li class="list-group-item glossary term term-' . $term->slug . '"><a href="' . get_term_link( $term->slug, $the_taxonomy ) .'" rel="glossary term">' . $icon .'</a> <a href="' . get_term_link( $term->slug, $the_taxonomy) .'" rel="glossary term" class="trope-link">' . $term->name .'</a></li>';
+			}
+		}
+			
+		$return .= '</ul>';
+		
+		return $return;
+		
 	}
 
 }
