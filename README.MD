@@ -4,7 +4,7 @@ Code shared by all LezWatch sites
 
 ## Description
 
-Instead of an MU Plugin, this is a library of code that is called by the sub-plugins. This way updates can be segmented.
+Instead of an MU Plugin, this is a library of code that is called by the sub-plugins. This way updates can be segmented. It lives in `/wp-content/library/`
 
 Includes:
 
@@ -26,7 +26,7 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ### Assets
 
-* AWS Phar
+* Amazon Affiliate Resource code
 * CSS for Author Box shortcode
 * CSS for Symbolicons
 * JS for CatSignal
@@ -67,10 +67,14 @@ _Display Author Box_
 
 Usage: `[author-box users=username]`
 
+_Socialicons_
+
+Shortcodes to support SVGs for Social Icons (Twitter, Facebook, Tumblr, Google+)
+
 ## Deployment
 
-Pushes to the `master` branch are automatically deployed via Codeship to:
+Pushes to branches are automatically deployed via Codeship as follows:
 
-* lezwatchtv.com
-* lwtv.dream.press
-* lezwatchcommercials.com
+Development: lwtv.dream.press
+
+Master: lezwatchtv.com, lezwatchcommercials.com, lezpress.com

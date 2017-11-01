@@ -167,7 +167,7 @@ class LP_Shortcodes{
 				}
 
 				// Build the author box
-				$author_details  = '<div class="col-sm-3">' . get_avatar( get_the_author_meta('user_email') , 90 ) . '</div>';
+				$author_details  = '<div class="col-sm-3">' . $gravatar . '</div>';
 				$author_details .= '<div class="col-sm-9">';
 				$author_details .= '<h4 class="author_name">' . $display_name . '</h4>';
 				$author_details .= '<div class="author-bio">' . nl2br( $user_description ) . '</div>';
