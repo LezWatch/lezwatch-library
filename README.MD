@@ -28,8 +28,8 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 * Amazon Affiliate Resource code
 * CSS for Author Box shortcode
-* CSS for Symbolicons
-* JS for CatSignal
+* CSS for Symbolicons on Admin
+* JS for CatSignal _(currently disabled)_
 * Symbolicons
 * Symbolicons Color
 
@@ -78,6 +78,12 @@ _IndieGoGo_
 Embed an IndieGoGo campaign
 
 Usage: `[indiegogo url=URL]`
+
+_Spoilers_
+
+Embed an Spoiler Alert
+
+Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
 
 ## Deployment
 

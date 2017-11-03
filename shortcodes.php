@@ -2,7 +2,7 @@
 /*
 Library: Global Shortcodes
 Description: Various shortcodes used on the LeZWatch Network
-Version: 1.2
+Version: 1.3
 Author: Mika Epstein
 */
 
@@ -25,6 +25,8 @@ class LP_Shortcodes{
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 		add_shortcode( 'glossary', array( $this, 'glossary' ) );
 		add_shortcode( 'indiegogo', array( $this, 'indiegogo' ) );
+		add_shortcode( 'spoilers', array( $this, 'spoilers' ) );
+		add_shortcode( 'badge', array( $this, 'badge' ) );
 	}
 
 	/*
@@ -239,9 +241,9 @@ class LP_Shortcodes{
 	 * Usage: [indiegogo url="https://www.indiegogo.com/projects/riley-parra-season-2-lgbt"]
 	 *
 	 * Attributes:
-	 *		id = slug of thi
+	 *		url: The URL of the project
 	 *
-	 * @since 1.0
+	 * @since 1.3
 	 */
 	public function indiegogo( $atts ) {
 		$attr = shortcode_atts( array(
@@ -254,6 +256,47 @@ class LP_Shortcodes{
 		$return =  '<iframe src="' . $url . '/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>';
 
 		return $return;
+	}
+
+	/*
+	 * Display Spoiler Warning
+	 *
+	 * Usage: 
+	 *		[spoilers]
+	 *		[spoilers warning="OMG! SPIDERS!!!"]
+	 *
+	 * @since 1.3
+	 */
+	public function spoilers( $atts ) {
+		$default    = 'Warning: This post contains spoilers!';
+		$attributes = shortcode_atts( array(
+			'warning' => $default,
+		), $atts );
+		$warning    = ( $attributes[ 'warning' ] == '' )? $default : sanitize_text_field( $attributes[ 'warning' ] );
+		
+		return '<div class="alert alert-danger" role="alert"><strong>' . $warning . '</strong></div>';
+	}
+
+	/*
+	 * Display Badge Link
+	 *
+	 * Usage: 
+	 *		[badge url=LINK class="class class" role="role"]TEXT[/badge]
+	 *
+	 * @since 1.3
+	 */
+	public function badge( $atts , $content = '', $tag ) {
+		$attributes = shortcode_atts( array(
+			'url'   => '',
+			'class' => '',
+			'role'  => '',
+		), $atts );
+		$content    = ( $content == '' )? '' : sanitize_text_field( $content );
+		$url        = esc_url( $attributes['url'] );
+		$class      = esc_attr( $attributes['class'] );
+		$role       = esc_attr( $attributes['role'] );
+		
+		return '<a class="' . $class . '" role="' . $role . '" href="' . $url . '">' . do_shortcode( $content ) . '</a>';
 	}
 
 }
