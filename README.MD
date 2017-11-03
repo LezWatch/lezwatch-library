@@ -67,9 +67,17 @@ _Display Author Box_
 
 Usage: `[author-box users=username]`
 
-_Socialicons_
+_Glossary_
 
-Shortcodes to support SVGs for Social Icons (Twitter, Facebook, Tumblr, Google+)
+Show Category Icons used for taxonomies.
+
+Usage: `[glossary taxonomy=TAXONOMY]`
+
+_IndieGoGo_
+
+Embed an IndieGoGo campaign
+
+Usage: `[indiegogo url=URL]`
 
 ## Deployment
 

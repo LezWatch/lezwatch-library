@@ -24,6 +24,7 @@ class LP_Shortcodes{
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 		add_shortcode( 'glossary', array( $this, 'glossary' ) );
+		add_shortcode( 'indiegogo', array( $this, 'indiegogo' ) );
 	}
 
 	/*
@@ -230,6 +231,29 @@ class LP_Shortcodes{
 		
 		return $return;
 		
+	}
+
+	/*
+	 * Embed an IndieGoGo Campaign
+	 *
+	 * Usage: [indiegogo url="https://www.indiegogo.com/projects/riley-parra-season-2-lgbt"]
+	 *
+	 * Attributes:
+	 *		id = slug of thi
+	 *
+	 * @since 1.0
+	 */
+	public function indiegogo( $atts ) {
+		$attr = shortcode_atts( array(
+			'url' => '',
+		), $atts );
+	
+		$url    = esc_url( $attr['url'] );
+		$url    = rtrim( $url, "#/");
+		$url    = str_replace( 'projects/', 'project/', $url );
+		$return =  '<iframe src="' . $url . '/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>";
+
+		return $return;
 	}
 
 }
