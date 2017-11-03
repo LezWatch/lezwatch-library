@@ -39,7 +39,7 @@ class LezPress_Network {
 	 */
 	function wp_enqueue_scripts() {
 		// Cat Signal
-		wp_enqueue_script( 'cat-signal', content_url() . '/library/assets/js/catsignal.js', array(), self::$version, true );
+		// wp_enqueue_script( 'cat-signal', content_url() . '/library/assets/js/catsignal.js', array(), self::$version, true );
 	}
 
 	/**
