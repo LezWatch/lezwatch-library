@@ -251,7 +251,7 @@ class LP_Shortcodes{
 		$url    = esc_url( $attr['url'] );
 		$url    = rtrim( $url, "#/");
 		$url    = str_replace( 'projects/', 'project/', $url );
-		$return =  '<iframe src="' . $url . '/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>";
+		$return =  '<iframe src="' . $url . '/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>';
 
 		return $return;
 	}
