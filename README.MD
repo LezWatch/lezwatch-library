@@ -30,6 +30,7 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 * CSS for Author Box shortcode
 * CSS for Symbolicons on Admin
 * JS for CatSignal _(currently disabled)_
+* Disabled comments on media files
 * Symbolicons
 * Symbolicons Color
 

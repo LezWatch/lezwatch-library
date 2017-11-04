@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.0.0
+Version: 2.0.1
 Author: Mika Epstein
 */
 
@@ -32,6 +32,7 @@ class LezPress_Network {
 		self::$version = '2.0.0';
 		add_action( 'wp_enqueue_scripts', array( $this,  'wp_enqueue_scripts' ) );
 		add_action( 'wp_before_admin_bar_render', array( $this, 'rainbow_bar' ) );
+		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 	}
 
 	/**
@@ -40,6 +41,17 @@ class LezPress_Network {
 	function wp_enqueue_scripts() {
 		// Cat Signal
 		// wp_enqueue_script( 'cat-signal', content_url() . '/library/assets/js/catsignal.js', array(), self::$version, true );
+	}
+
+	/**
+	 * Disable comments on media files.
+	 */
+	function filter_media_comment_status( $open, $post_id ) {
+		$post = get_post( $post_id );
+		if( $post->post_type == 'attachment' ) {
+			return false;
+		}
+		return $open;
 	}
 
 	/**
