@@ -1,5 +1,1 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<polygon points="9.123,0 3.789,24.992 0,24.992 0,28 6.299,28 9.123,14.803 11.949,28 16.689,28 19.322,19.279 21.952,28 28,28 
-	28,24.992 24.256,24.992 19.322,8.588 14.428,24.75 "/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>graph-line</title><g id="graph-line"><path d="M23,22H2V1A1,1,0,0,0,0,1V24H23a1,1,0,0,0,0-2ZM5.75,16.56A2,2,0,0,0,7,17a2,2,0,0,0,1.56-.75l3.27-4.09,6,1,5.74-6.88a2,2,0,1,0-3.08-2.56L16.2,8.84l-6-1L5.44,13.75A2,2,0,0,0,5.75,16.56Z"/></g></svg>

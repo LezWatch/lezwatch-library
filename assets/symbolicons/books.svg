@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<path d="M0,28h8v-1.998H0V28z M9,28h8v-1.998H9V28z M2,7.002h4.001v1H2V7.002z M2,5.002h4.001v1H2V5.002z M0,25.002h8V3.001H0
-	V25.002z M11,7.002h4.001v1H11V7.002z M11,5.002h4.001v1H11V5.002z M9,25.002h8V3.001H9V25.002z M0,2.002h8v-2H0V2.002z M9,2.002h8
-	v-2H9V2.002z M18,0.002L22,28h2L20,0.002H18z M22,0.002L26,28h2L24.001,0.002H22z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>books</title><g id="books"><path d="M0,18H7V6H0ZM3,8H4a1,1,0,0,1,0,2H3A1,1,0,0,1,3,8ZM6,0H1A1,1,0,0,0,0,1V4H7V1A1,1,0,0,0,6,0ZM0,23a1,1,0,0,0,1,1H6a1,1,0,0,0,1-1V20H0ZM15,0H10A1,1,0,0,0,9,1V4h7V1A1,1,0,0,0,15,0Zm8,0a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V1A1,1,0,0,0,23,0ZM19,0a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V1A1,1,0,0,0,19,0ZM9,23a1,1,0,0,0,1,1h5a1,1,0,0,0,1-1V20H9Zm0-5h7V6H9ZM12,8h1a1,1,0,0,1,0,2H12a1,1,0,0,1,0-2Z"/></g></svg>

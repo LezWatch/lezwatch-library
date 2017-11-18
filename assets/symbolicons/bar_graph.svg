@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<path d="M0,28h8V13H0V28z M10,28h8V6h-8V28z M20,28h8V0h-8V28z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>graph-bar</title><g id="graph-bar"><path d="M16,2a2,2,0,0,0-2-2H13a2,2,0,0,0-2,2V20h5Zm7,4a2,2,0,0,0-2-2H20a2,2,0,0,0-2,2V20h5ZM9,10A2,2,0,0,0,7,8H6a2,2,0,0,0-2,2V20H9ZM23,22H2V1A1,1,0,0,0,0,1V24H23a1,1,0,0,0,0-2Z"/></g></svg>

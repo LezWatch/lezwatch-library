@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<path d="M0,28h4v-9H0V28z M6,28h4V14H6V28z M12,28h4.001V9H12V28z M18,28h4V5h-4V28z M24,28h4V0h-4V28z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>graph-line</title><g id="graph-line"><path d="M23,22H2V1A1,1,0,0,0,0,1V24H23a1,1,0,0,0,0-2ZM5.75,16.56A2,2,0,0,0,7,17a2,2,0,0,0,1.56-.75l3.27-4.09,6,1,5.74-6.88a2,2,0,1,0-3.08-2.56L16.2,8.84l-6-1L5.44,13.75A2,2,0,0,0,5.75,16.56Z"/></g></svg>

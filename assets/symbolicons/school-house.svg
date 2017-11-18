@@ -1,18 +1,1 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 28 28"
-	 enable-background="new 0 0 28 28" xml:space="preserve">
-
-		<g>
-			<defs>
-				<rect id="SVGID_1_" width="28" height="28"/>
-			</defs>
-			<clipPath id="SVGID_2_">
-				<use xlink:href="#SVGID_1_"  overflow="visible"/>
-			</clipPath>
-			<path clip-path="url(#SVGID_2_)" fill="#231F20" d="M9,6.028v4.68l3-1.716V6c0-1.105,0.896-2,2-2s2,0.895,2,2v2.992l3,1.716
-				v-4.68l1.419,1.014l1.162-1.627L14,0L6.419,5.416l1.162,1.627L9,6.028z"/>
-			<path clip-path="url(#SVGID_2_)" fill="#231F20" d="M14,9L0,17.008l0.958,1.677L2,18.089V28h9v-8c0-1.1,0.9-2,2-2h2
-				c1.1,0,2,0.9,2,2v8h9v-9.911l1.042,0.596L28,17.008L14,9z M8,25H5v-6h3V25z M14,16c-1.104,0-2-0.895-2-2s0.896-2,2-2
-				c1.105,0,2,0.895,2,2S15.105,16,14,16 M23,25h-3v-6h3V25z"/>
-		</g>
-
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>school</title><g id="school"><path d="M23.45,11.61,17,8.38V4.62l.55.27A.93.93,0,0,0,18,5a1,1,0,0,0,.89-.55,1,1,0,0,0-.44-1.34L12,0,5.55,3.11a1,1,0,0,0,.9,1.78L7,4.62V8.38L.55,11.61a1,1,0,0,0,.9,1.78L2,13.12V24H9V19a3,3,0,0,1,6,0v5h7V13.12l.55.27a.93.93,0,0,0,.45.11,1,1,0,0,0,.89-.55A1,1,0,0,0,23.45,11.61ZM12,8a2,2,0,1,1,2-2A2,2,0,0,1,12,8Z"/></g></svg>

@@ -1,17 +1,1 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 28 28"
-	 enable-background="new 0 0 28 28" xml:space="preserve">
-
-		<g>
-			<defs>
-				<rect id="SVGID_1_" width="28" height="28"/>
-			</defs>
-			<clipPath id="SVGID_2_">
-				<use xlink:href="#SVGID_1_"  overflow="visible"/>
-			</clipPath>
-			<path clip-path="url(#SVGID_2_)" fill="#231F20" d="M16,0c0,7.096,3.139,12.904,8,15c-1.267,2.398-1.796,5.851-1.946,10H15v-8
-				h7.16c0.158-0.546,0.327-1.066,0.52-1.532c-0.265-0.145-0.522-0.303-0.776-0.468H15V0h-2v15H6.107
-				c-0.256,0.166-0.517,0.324-0.786,0.47c0.192,0.465,0.361,0.984,0.52,1.53H13v8H5.946C5.796,20.851,5.267,17.398,4,15
-				c4.861-2.096,8-7.904,8-15H0v27.998V28h28V0H16z"/>
-		</g>
-
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-curtain</title><g id="window-curtain"><path d="M22.93,13h0V4h-9c0,3.11,3.22,7.73,5,10h-6V4h-2V14H5c1.74-2.27,5-6.89,5-10h-9V24h7c0-3.56-3-8-3-8h6v8h2V16h6s-3,4.44-3,8h7V16h0Zm0-13H.93a1,1,0,0,0,0,2h22a1,1,0,0,0,0-2Z"/></g></svg>

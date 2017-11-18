@@ -1,14 +1,1 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<g>
-	<defs>
-		<rect id="SVGID_1_" width="28" height="28"/>
-	</defs>
-	<clipPath id="SVGID_2_">
-		<use xlink:href="#SVGID_1_"  overflow="visible"/>
-	</clipPath>
-	<path clip-path="url(#SVGID_2_)" d="M8.014,2.076v17.08c-1-0.31-1.554-0.488-2.447-0.488C2.487,18.668,0,20.756,0,23.332
-		C0,25.91,2.426,28,5.505,28c3.089,0,5.507-2.09,5.507-4.668V6.937l13.99-1.429v11.574c-1-0.313-1.642-0.492-2.536-0.492
-		c-3.079,0-5.61,2.09-5.61,4.666c0,2.578,2.492,4.668,5.57,4.668c3.09,0,5.574-2.09,5.574-4.668V0L8.014,2.076z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>music</title><g id="music"><path d="M23,.73A3,3,0,0,0,20.58,0l-10,1.43A3,3,0,0,0,8,4.43V16.82A5.77,5.77,0,0,0,5,16c-2.76,0-5,1.79-5,4s2.24,4,5,4,5-1.79,5-4V9.71L22,8v5.82A5.77,5.77,0,0,0,19,13c-2.76,0-5,1.79-5,4s2.24,4,5,4,5-1.79,5-4V3A3,3,0,0,0,23,.73Z"/></g></svg>
