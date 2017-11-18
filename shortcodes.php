@@ -225,7 +225,7 @@ class LP_Shortcodes{
 			// loop over each returned trope
 			foreach( $the_terms as $term ) {
 				$icon    = lwtv_yikes_symbolicons( get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) .'.svg', 'fa-square' );
-				$return .= '<li class="list-group-item glossary term term-' . $term->slug . '"><a href="' . get_term_link( $term->slug, $the_taxonomy ) .'" rel="glossary term">' . $icon .'</a> <a href="' . get_term_link( $term->slug, $the_taxonomy) .'" rel="glossary term" class="trope-link">' . $term->name .'</a></li>';
+				$return .= '<li class="list-group-item glossary term term-' . $term->slug . '"><a href="' . get_term_link( $term->slug, $the_taxonomy ) .'" rel="glossary term">' . $icon .'</a> <a href="' . get_term_link( $term->slug, $the_taxonomy) .'" rel="glossary term" class="trope-link">' . $term->name .' (' . get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) . ')</a></li>';
 			}
 		}
 			
