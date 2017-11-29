@@ -1,0 +1,15 @@
+{
+    "name": "lezwatch/twitter",
+    "description": "Library for Twitter oAuth",
+    "type": "library",
+    "require": {
+        "abraham/twitteroauth": "^0.7.4"
+    },
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Mika 'Ipstenu' Epstein",
+            "email": "mika@lezwatchtv.com"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "lezwatch-library",
+  "version": "1.0.0",
+  "description": "LezWatch Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LezWatch/lezwatch-library.git"
+  },
+  "keywords": [
+    "lezwatch"
+  ],
+  "author": "Mika Epstein",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/LezWatch/lezwatch-library/issues"
+  },
+  "homepage": "https://github.com/LezWatch/lezwatch-library#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-composer": "^0.4.5"
+  }
+}
