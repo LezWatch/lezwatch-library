@@ -16,12 +16,6 @@ module.exports = function(grunt) {
                 composerLocation: '/usr/local/bin/composer update'
             }
         },
-        twitter: {
-            options: {
-                cwd: 'assets/twitter',
-                composerLocation: '/usr/local/bin/composer update'
-            }
-        }
     }
 
   });
