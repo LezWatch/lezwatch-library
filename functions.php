@@ -31,7 +31,7 @@ class LezPress_Network {
 	function __construct() {
 		self::$version = '2.0.0';
 		add_action( 'wp_enqueue_scripts', array( $this,  'wp_enqueue_scripts' ) );
-		add_action( 'wp_before_admin_bar_render', array( $this, 'rainbow_bar' ) );
+		//add_action( 'wp_before_admin_bar_render', array( $this, 'rainbow_bar' ) );
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 	}
 
