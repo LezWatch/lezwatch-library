@@ -9,6 +9,10 @@ Instead of an MU Plugin, this is a library of code that is called by the sub-plu
 Includes:
 
 * Automatic upgrades for themes, plugins, and core WordPress (Skipping Akismet, Hello Dolly, and the default themes).
+* Custom Icon for Feedback in "Right Now"
+* Custom column for featured images in posts lists
+* Removal of self pings
+* Prevent Varnish caching when Restricted Site Access is in use on lwtv.dream.press
 
 ### Advertising
 
@@ -26,11 +30,11 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ### Assets
 
-* Amazon Affiliate Resource code
+* Amazon Affiliate Resource code (apai-io)
 * CSS for Author Box shortcode
 * CSS for Symbolicons on Admin
-* JS for CatSignal _(currently disabled)_
 * Disabled comments on media files
+* FacetWP Pagination JS
 * Symbolicons
 * Symbolicons Color
 
@@ -45,7 +49,17 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 Custom Shortcodes:
 
-_Display Copyright Year_
+_Author Box_
+
+Usage: `[author-box users=username]`
+
+_Badges_ 
+
+Insert Bootstrap badge code as a shortcode not HTML
+
+Usage: `[badge url=LINK class="class class" role="role"]TEXT[/badge]`
+
+_Copyright Year_
 
 Usage: `[copyright year=(start year) text=(copyright text)]`
 
@@ -53,20 +67,6 @@ Attributes:
 
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
-
-_Number of Posts via shortcodes_
-
-Usage: `[numposts data="posts" posttype="post type" term="term slug" taxonomy="taxonomy slug"]`
-
-Attributes:
-* data = `[posts|taxonomy]`
-* posttype = post type
-* term = term slug
-* taxonomy = taxonomy slug
-
-_Display Author Box_
-
-Usage: `[author-box users=username]`
 
 _Glossary_
 
@@ -80,6 +80,16 @@ Embed an IndieGoGo campaign
 
 Usage: `[indiegogo url=URL]`
 
+_Number of Posts via shortcodes_
+
+Usage: `[numposts data="posts" posttype="post type" term="term slug" taxonomy="taxonomy slug"]`
+
+Attributes:
+* data = `[posts|taxonomy]`
+* posttype = post type
+* term = term slug
+* taxonomy = taxonomy slug
+
 _Spoilers_
 
 Embed an Spoiler Alert
@@ -90,6 +100,5 @@ Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
 
 Pushes to branches are automatically deployed via Codeship as follows:
 
-Development: lwtv.dream.press
-
-Master: lezwatchtv.com, lezwatchcommercials.com, lezpress.com
+* Development: lwtv.dream.press
+* Master: lezwatchtv.com, lezwatchcommercials.com, lezpress.com

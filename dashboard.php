@@ -17,7 +17,6 @@ class LP_Dashboard{
 		add_filter( 'manage_posts_columns', array( $this, 'featured_image_manage_posts_columns' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'featured_image_manage_custom_columns' ) , 10, 2);
 		add_action( 'admin_print_scripts', array( $this, 'featured_image_admin_print_styles' )  );
-
 		add_action( 'pre_ping', array( $this, 'no_self_ping' ) );
 	}
 
@@ -28,9 +27,10 @@ class LP_Dashboard{
 	 */
 	function no_self_ping( &$links ) {
 		$home = get_option( 'home' );
-		foreach ( $links as $l => $link )
-		  if ( 0 === strpos( $link, $home ) )
-	        unset( $links[ $l ] );
+		foreach ( $links as $l => $link ) {
+			if ( 0 === strpos( $link, $home ) )
+			unset( $links[ $l ] );
+		}
 	}
 
 	/*
@@ -39,18 +39,17 @@ class LP_Dashboard{
 	 * @since 1.0
 	 */
 	public function dashboard_glance_feedback() {
-        	foreach ( array( 'feedback' ) as $post_type ) {
-        		$num_posts = wp_count_posts( $post_type );
+			foreach ( array( 'feedback' ) as $post_type ) {
+				$num_posts = wp_count_posts( $post_type );
 				$count_posts = ( isset( $num_posts->publish ) )? $num_posts->publish : '0';
-        		 
-        		if ( $count_posts !== '0' ) {
-        			if ( 'feedback' == $post_type ) {
-        				$text = _n( '%s Message', '%s Messages', $count_posts );
-        			}
-        			$text = sprintf( $text, number_format_i18n( $count_posts ) );
-        			printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-        		}
-        	}
+				if ( $count_posts !== '0' ) {
+					if ( 'feedback' == $post_type ) {
+						$text = _n( '%s Message', '%s Messages', $count_posts );
+					}
+					$text = sprintf( $text, number_format_i18n( $count_posts ) );
+					printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+				}
+			}
 	}
 
 	/*
@@ -92,16 +91,16 @@ class LP_Dashboard{
 	 * @since 1.1
 	 */
 	public function featured_image_manage_custom_columns( $column_name, $post_ID ) {
-	    if ($column_name == 'featured_image') {
+		if ($column_name == 'featured_image') {
 
 			$post_thumbnail_id = get_post_thumbnail_id( $post_ID );
 			$post_featured_image = false;
 			if ( $post_thumbnail_id ) $post_featured_image = true;
 
-	        $output = '<span class="dashicons dashicons-no"><span class="screen-reader-text">No</span></span>';
-	        if ( $post_featured_image == true ) $output = '<span class="dashicons dashicons-yes"><span class="screen-reader-text">Yes</span></span>';
-	        echo $output;
-	    }
+			$output = '<span class="dashicons dashicons-no"><span class="screen-reader-text">No</span></span>';
+			if ( $post_featured_image == true ) $output = '<span class="dashicons dashicons-yes"><span class="screen-reader-text">Yes</span></span>';
+			echo $output;
+		}
 	}
 
 	/*
