@@ -12,7 +12,7 @@ Includes:
 * Custom Icon for Feedback in "Right Now"
 * Custom column for featured images in posts lists
 * Removal of self pings
-* Prevent Varnish caching when Restricted Site Access is in use on lwtv.dream.press
+* Prevent Varnish caching when Restricted Site Access is in use on a site where `LWTV_DEV_SITE` is true.
 
 ### Advertising
 

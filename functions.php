@@ -32,7 +32,7 @@ class LezPress_Network {
 		self::$version = '2.1.0';
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 
-		if ( DB_HOST == 'mysql.lwtv.dream.press' ) {
+		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
 			add_action( 'restrict_site_access_ip_match', array( $this, 'lwtv_restrict_site_access_ip_match' ) );
 		}
 	}

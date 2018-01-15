@@ -28,8 +28,7 @@ class LP_Dashboard{
 	function no_self_ping( &$links ) {
 		$home = get_option( 'home' );
 		foreach ( $links as $l => $link ) {
-			if ( 0 === strpos( $link, $home ) )
-			unset( $links[ $l ] );
+			if ( 0 === strpos( $link, $home ) ) unset( $links[ $l ] );
 		}
 	}
 
