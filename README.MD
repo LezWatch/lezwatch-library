@@ -9,7 +9,6 @@ Instead of an MU Plugin, this is a library of code that is called by the sub-plu
 Includes:
 
 * Automatic upgrades for themes, plugins, and core WordPress (Skipping Akismet, Hello Dolly, and the default themes).
-* Custom Icon for Feedback in "Right Now"
 * Custom column for featured images in posts lists
 * Removal of self pings
 * Prevent Varnish caching when Restricted Site Access is in use on a site where `LWTV_DEV_SITE` is true.
@@ -41,9 +40,14 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 ### Dashboard customizations
 
 * Prevent self pings by interlinks
-* Show Feedback in "Right Now"
-* Custom Icon for Feedback in "Right Now"
 * Custom column with icon for featured images in posts
+
+### Plugins
+
+* Jetpack:
+  * Show Feedback in "Right Now"
+  * Custom Icon for Feedback in "Right Now"
+  * Mark feedbacks as having been answered
 
 ### Shortcodes
 

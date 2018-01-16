@@ -12,8 +12,6 @@ class LP_Dashboard{
 	 * Constructor
 	 */
 	public function __construct() {
-		add_action( 'dashboard_glance_items', array( $this, 'dashboard_glance_feedback' ) );
-		add_action( 'admin_head', array( $this, 'dashboard_glance_feedback_css' ) );
 		add_filter( 'manage_posts_columns', array( $this, 'featured_image_manage_posts_columns' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'featured_image_manage_custom_columns' ) , 10, 2);
 		add_action( 'admin_print_scripts', array( $this, 'featured_image_admin_print_styles' )  );
@@ -30,40 +28,6 @@ class LP_Dashboard{
 		foreach ( $links as $l => $link ) {
 			if ( 0 === strpos( $link, $home ) ) unset( $links[ $l ] );
 		}
-	}
-
-	/*
-	 * Show Feedback in "Right Now"
-	 *
-	 * @since 1.0
-	 */
-	public function dashboard_glance_feedback() {
-			foreach ( array( 'feedback' ) as $post_type ) {
-				$num_posts = wp_count_posts( $post_type );
-				$count_posts = ( isset( $num_posts->publish ) )? $num_posts->publish : '0';
-				if ( $count_posts !== '0' ) {
-					if ( 'feedback' == $post_type ) {
-						$text = _n( '%s Message', '%s Messages', $count_posts );
-					}
-					$text = sprintf( $text, number_format_i18n( $count_posts ) );
-					printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-				}
-			}
-	}
-
-	/*
-	 * Custom Icon for Feedback in "Right Now"
-	 *
-	 * @since 1.0
-	 */
-	public function dashboard_glance_feedback_css() {
-		echo "
-		<style type='text/css'>
-			#adminmenu #menu-posts-feedback div.wp-menu-image:before, #dashboard_right_now li.feedback-count a:before {
-				content: '\\f466';
-				margin-left: -1px;
-			}
-		</style>";
 	}
 
 	/*
