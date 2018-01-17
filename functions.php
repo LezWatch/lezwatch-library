@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.1.0
+Version: 2.1.1
 Author: Mika Epstein
 */
 
@@ -15,6 +15,9 @@ include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
 // Local Plugins
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
+
+// WordPress Plugins
+require_once( 'plugins/jetpack.php' );
 
 // Symbolicons
 include_once( dirname( __FILE__ ) . '/assets/symbolicons.php' );
@@ -29,10 +32,10 @@ class LezPress_Network {
 	protected static $version;
 
 	function __construct() {
-		self::$version = '2.1.0';
+		self::$version = '2.1.1';
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 
-		if ( DB_HOST == 'mysql.lwtv.dream.press' ) {
+		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
 			add_action( 'restrict_site_access_ip_match', array( $this, 'lwtv_restrict_site_access_ip_match' ) );
 		}
 	}
@@ -44,7 +47,6 @@ class LezPress_Network {
 	public function lwtv_restrict_site_access_ip_match() {
 		session_start();
 	}
-
 
 	/**
 	 * Disable comments on media files.
