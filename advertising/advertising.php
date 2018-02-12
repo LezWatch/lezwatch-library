@@ -142,8 +142,8 @@ class LP_Advertising {
 					amzn_assoc_height = "' . $height . '";
 					amzn_assoc_tracking_id = "lezpress-20";
 					amzn_assoc_linkid = "' . $linkid . '";;
-			    </script>
-			    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+				</script>
+				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
 			</div>
 		';
 
@@ -191,12 +191,6 @@ class LP_Advertising {
 				'linkid'    => '4911c201ef21008a67f629c4745c8d59' ,
 				'campaign'  => 'amazonvideosubs'
 				), 
-			'hbo-2017'      => array(
-				'expires'   => '2017-12-30',
-				'banner_id' => '17V0HBPP6E0CA2YD83G2', 
-				'linkid'    => 'b66058bd84eac1f6e1a00e36224411ac',
-				'campaign'  => 'amazonvideosubs'
-				), 
 			'outlander-2020'=> array( 
 				'expires'   => '2020-06-08',
 				'banner_id' => '0NAE4QVSPV9WBX705Q02', 
@@ -214,12 +208,6 @@ class LP_Advertising {
 				'banner_id' => '0AYXCYJJ9PEFSXH6QP02',
 				'linkid'    => 'ccab416cb595e275df2791325eb2367b',
 				'campaign'  => 'primeent'
-				),
-			'firetv-2017'   => array( 
-				'expires'   => '2017-12-31',
-				'banner_id' => '1E8K86THMZ6SY8Y2SH02',
-				'linkid'    => 'f12a50b3d8a00a436189261002ac80f7',
-				'campaign'  => 'amzn_smp_firetvedition'
 				),
 			'britbox'       => array( 
 				'expires'   => 'ongoing',
