@@ -5,10 +5,10 @@
  * Shows the symbolicons settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:    1.0
- * Author:     Mika A. Epstein
+ * Version:	1.0
+ * Author:	 Mika A. Epstein
  * Author URI: https://halfelf.org
- * License:    GPL-2.0+
+ * License:	GPL-2.0+
  *
  */
 
@@ -28,10 +28,10 @@ class LP_SymboliconsSettings {
 	 *
 	 * Actions to happen immediately
 	 */
-    public function __construct() {
-        add_action( 'init', array( &$this, 'init' ) );
-        add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
-    }
+	public function __construct() {
+		add_action( 'init', array( &$this, 'init' ) );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+	}
 
 	/*
 	 * Init
@@ -40,17 +40,17 @@ class LP_SymboliconsSettings {
 	 * - add settings page
 	 * - establish shortcode
 	 */
-    public function init() {
-        add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
-        add_shortcode( 'symbolicon', array( $this, 'shortcode' ) );
-    }
+	public function init() {
+		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
+		add_shortcode( 'symbolicon', array( $this, 'shortcode' ) );
+	}
 
 	/*
 	 * admin_enqueue_scripts
 	 */
-    public function admin_enqueue_scripts() {
-        wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
-    }
+	public function admin_enqueue_scripts() {
+		wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
+	}
 
 	/*
 	 * Shortcode
@@ -58,21 +58,21 @@ class LP_SymboliconsSettings {
 	 * Generate the Symbolicon via shortcode
 	 *
 	 * @param array $atts Attributes for the shortcode
-	 *                    - file: Filename
-	 *                    - title: Title to use (for A11y)
-	 *                    - url: URL to link to (optional)
+	 *   - file: Filename
+	 *   - title: Title to use (for A11y)
+	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
 	function shortcode($atts) {
 		$iconsfolder = LP_SYMBOLICONS_PATH;
-	    $svg = shortcode_atts( array(
-	    	'file'	=> '',
+		$svg = shortcode_atts( array(
+			'file'	=> '',
 			'title'	=> '',
 			'url'	=> '',
-	    ), $atts );
+		), $atts );
 
 		// Default to the square if nothing is there
-	    if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
+		if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
 		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
 		if ( !empty( $svg[ 'url' ] ) ) {
@@ -106,14 +106,14 @@ class LP_SymboliconsSettings {
 		<style>
 			span.cmb2-icon {
 				width: 80px;
-			    display: inline-block;
-			    vertical-align: top;
-			    margin: 10px;
-			    word-wrap: break-word;
+				display: inline-block;
+				vertical-align: top;
+				margin: 10px;
+				word-wrap: break-word;
 			}
 			span.cmb2-icon svg {
-			    width: 75px;
-			    height: 75px;
+				width: 75px;
+				height: 75px;
 			}
 			span.cmb2-icon svg * {
 				fill: #444;
