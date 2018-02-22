@@ -286,7 +286,7 @@ class LP_Shortcodes{
 	 *
 	 * @since 1.3
 	 */
-	public function badge( $atts , $content = '', $tag ) {
+	public function badge( $atts, $content = '', $tag ) {
 		$attributes = shortcode_atts( array(
 			'url'   => '',
 			'class' => '',
@@ -308,15 +308,15 @@ class LP_Shortcodes{
 	 *
 	 * @since 1.3.1
 	 */
-	public function badge( $atts , $content = '', $tag ) {
+	public function gleam( $atts, $content = null ) {
 		$attributes = shortcode_atts( array(
 			'url'   => '',
 		), $atts );
 
 		// Bail if empty
-		if (empty($args['url'])) return;
+		if ( empty( $attributes['url'] ) ) return;
 
-		return sprintf( '<a class="e-gleam" href="%s" rel="nofollow">%s</a><script src="//js.gleam.io/e.js" async="true"></script>', esc_url( $args['url'] ), do_shortcode( $content ) );
+		return sprintf( '<a class="e-gleam" href="%s" rel="nofollow">%s</a><script src="//js.gleam.io/e.js" async="true"></script>', esc_url( $attributes['url'] ), do_shortcode( $content ) );
 	}
 
 }
