@@ -2,7 +2,7 @@
 /*
 Library: Global Shortcodes
 Description: Various shortcodes used on the LeZWatch Network
-Version: 1.3
+Version: 1.3.1
 Author: Mika Epstein
 */
 
@@ -27,6 +27,7 @@ class LP_Shortcodes{
 		add_shortcode( 'indiegogo', array( $this, 'indiegogo' ) );
 		add_shortcode( 'spoilers', array( $this, 'spoilers' ) );
 		add_shortcode( 'badge', array( $this, 'badge' ) );
+		add_shortcode( 'gleam', array( $this, 'gleam' ) );
 	}
 
 	/*
@@ -285,7 +286,7 @@ class LP_Shortcodes{
 	 *
 	 * @since 1.3
 	 */
-	public function badge( $atts , $content = '', $tag ) {
+	public function badge( $atts, $content = '', $tag ) {
 		$attributes = shortcode_atts( array(
 			'url'   => '',
 			'class' => '',
@@ -297,6 +298,25 @@ class LP_Shortcodes{
 		$role       = esc_attr( $attributes['role'] );
 		
 		return '<a class="' . $class . '" role="' . $role . '" href="' . $url . '">' . do_shortcode( $content ) . '</a>';
+	}
+	
+	/*
+	 * Display Gleam Contest
+	 *
+	 * Usage: 
+	 *		[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]
+	 *
+	 * @since 1.3.1
+	 */
+	public function gleam( $atts, $content = null ) {
+		$attributes = shortcode_atts( array(
+			'url'   => '',
+		), $atts );
+
+		// Bail if empty
+		if ( empty( $attributes['url'] ) ) return;
+
+		return sprintf( '<a class="e-gleam" href="%s" rel="nofollow">%s</a><script src="//js.gleam.io/e.js" async="true"></script>', esc_url( $attributes['url'] ), do_shortcode( $content ) );
 	}
 
 }
