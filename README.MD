@@ -72,6 +72,12 @@ Attributes:
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
 
+_Gleam_
+
+Embed a Gleam contest
+
+Usage: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
+
 _Glossary_
 
 Show Category Icons used for taxonomies.
