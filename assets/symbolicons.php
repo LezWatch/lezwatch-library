@@ -12,9 +12,11 @@
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', dirname( __FILE__ ) . '/symbolicons/' );
+$upload_dir = wp_upload_dir();
 
-if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', '/wp-content/library/assets/symbolicons/' );
+if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', $upload_dir['basedir'] . '/lezpress-icons/symbolicons/' );
+
+if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', $upload_dir['baseurl'] . '/lezpress-icons/symbolicons/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
@@ -49,7 +51,7 @@ class LP_SymboliconsSettings {
 	 * admin_enqueue_scripts
 	 */
 	public function admin_enqueue_scripts() {
-		wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
+		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), false );
 	}
 
 	/*
@@ -63,12 +65,12 @@ class LP_SymboliconsSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode($atts) {
+	function shortcode( $atts ) {
 		$iconsfolder = LP_SYMBOLICONS_PATH;
 		$svg = shortcode_atts( array(
-			'file'	=> '',
-			'title'	=> '',
-			'url'	=> '',
+			'file'  => '',
+			'title' => '',
+			'url'   => '',
 		), $atts );
 
 		// Default to the square if nothing is there
@@ -123,16 +125,19 @@ class LP_SymboliconsSettings {
 		<h2>Symbolicons</h2>
 
 		<?php
-
-		$imagepath = LP_SYMBOLICONS_PATH.'/';
-
 		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
 
-		foreach( glob( $imagepath . '*' ) as $filename ){
+		foreach( glob( LP_SYMBOLICONS_PATH . '*' ) as $filename ){
+			$svg  = str_replace( LP_SYMBOLICONS_PATH, LP_SYMBOLICONS_URL , $filename );
+			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
+			$name = str_replace( '.svg', '', $name );
+			echo '<span role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
+			/*
 			$image = file_get_contents( $filename );
 			$name  = str_replace( $imagepath, '' , $filename );
 			$name  = str_replace( '.svg', '', $name );
 			echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
+			*/
 		}
 	}
 
