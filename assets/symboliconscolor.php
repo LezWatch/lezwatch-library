@@ -14,9 +14,9 @@
 
 $upload_dir = wp_upload_dir();
 
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', $upload_dir['basedir'] . '/lezpress-icons/symboliconscolor/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', $upload_dir['basedir'] . '/lezpress-icons/symboliconscolor/' );
 
-if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', $upload_dir['baseurl'] . '/lezpress-icons/symboliconscolor/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', $upload_dir['baseurl'] . '/lezpress-icons/symboliconscolor/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
@@ -121,19 +121,13 @@ class LP_SymboliconsColorSettings {
 		<h2>Symbolicons Color</h2>
 
 		<?php
-		if ( !file_exists( LP_SYMBOLICONSCOLOR_PATH ) && !is_dir( LP_SYMBOLICONSCOLOR_PATH ) ) {
-			echo '<p>Your site does not appear to have the symbolicons color folder included, so you can\'t use them. It should be installed at <code>'.$imagepath.'</code> for this to work.';
+		echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
-		} else {
-
-			echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
-
-			foreach( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ){
-				$svg  = str_replace( LP_SYMBOLICONSCOLOR_PATH, LP_SYMBOLICONSCOLOR_URL , $filename );
-				$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '' , $filename );
-				$name = str_replace( '.svg', '', $name );
-				echo '<span role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
-			}
+		foreach( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ){
+			$svg  = str_replace( LP_SYMBOLICONSCOLOR_PATH, LP_SYMBOLICONSCOLOR_URL , $filename );
+			$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '' , $filename );
+			$name = str_replace( '.svg', '', $name );
+			echo '<span class="symlclr-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
 		}
 	}
 

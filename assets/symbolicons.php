@@ -118,7 +118,7 @@ class LP_SymboliconsSettings {
 				height: 75px;
 			}
 			span.cmb2-icon svg * {
-				fill: #444;
+				fill: #444!important;
 			}
 		</style>
 
@@ -131,7 +131,7 @@ class LP_SymboliconsSettings {
 			$svg  = str_replace( LP_SYMBOLICONS_PATH, LP_SYMBOLICONS_URL , $filename );
 			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
 			$name = str_replace( '.svg', '', $name );
-			echo '<span role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
+			echo '<span class="cmb2-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg>' . $name . '</span>';
 		}
 	}
 
