@@ -5,10 +5,10 @@
  * Shows the symbolicons settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:	1.0
- * Author:	 Mika A. Epstein
+ * Version:    2.0
+ * Author:     Mika A. Epstein
  * Author URI: https://halfelf.org
- * License:	GPL-2.0+
+ * License:    GPL-2.0+
  *
  */
 
@@ -132,12 +132,6 @@ class LP_SymboliconsSettings {
 			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
 			$name = str_replace( '.svg', '', $name );
 			echo '<span role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
-			/*
-			$image = file_get_contents( $filename );
-			$name  = str_replace( $imagepath, '' , $filename );
-			$name  = str_replace( '.svg', '', $name );
-			echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
-			*/
 		}
 	}
 
