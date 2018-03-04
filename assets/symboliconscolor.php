@@ -65,23 +65,22 @@ class LP_SymboliconsColorSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONSCOLOR_PATH;
+	function shortcode( $atts ) {
 		$svg = shortcode_atts( array(
-		'file'	=> '',
-		'title'	=> '',
-		'url'	=> '',
+		'file'  => '',
+		'title' => '',
+		'url'   => '',
 		), $atts );
 
-		if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
+		if ( !file_exists( LP_SYMBOLICONSCOLOR_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-color-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
-		if ( !empty($svg['url']) ) {
-			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
+		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svgcolor-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONSCOLOR_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+
+		if ( !empty( $svg[ 'url' ] ) ) {
+			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
+			$iconpath = $the_icon;
 		}
-		$iconpath .= '</span>';
 
 		return $iconpath;
 	}

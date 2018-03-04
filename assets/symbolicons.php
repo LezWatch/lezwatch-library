@@ -66,7 +66,6 @@ class LP_SymboliconsSettings {
 	 * @return SVG icon of awesomeness
 	 */
 	function shortcode( $atts ) {
-		$iconsfolder = LP_SYMBOLICONS_PATH;
 		$svg = shortcode_atts( array(
 			'file'  => '',
 			'title' => '',
@@ -74,15 +73,15 @@ class LP_SymboliconsSettings {
 		), $atts );
 
 		// Default to the square if nothing is there
-		if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
+		if ( !file_exists( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
-		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
+		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONS_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+
 		if ( !empty( $svg[ 'url' ] ) ) {
-			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
+			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
+			$iconpath = $the_icon;
 		}
-		$iconpath .= '</span>';
 
 		return $iconpath;
 	}
