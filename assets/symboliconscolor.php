@@ -5,16 +5,18 @@
  * Shows the symbolicons Color settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:	1.0
- * Author:	 Mika A. Epstein
+ * Version:    2.0
+ * Author:     Mika A. Epstein
  * Author URI: https://halfelf.org
- * License:	GPL-2.0+
+ * License:    GPL-2.0+
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', dirname( __FILE__ ) . '/symboliconscolor/' );
+$upload_dir = wp_upload_dir();
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', '/wp-content/library/assets/symboliconscolor/' );
+if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', $upload_dir['basedir'] . '/lezpress-icons/symboliconscolor/' );
+
+if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', $upload_dir['baseurl'] . '/lezpress-icons/symboliconscolor/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
@@ -63,23 +65,22 @@ class LP_SymboliconsColorSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONSCOLOR_PATH;
+	function shortcode( $atts ) {
 		$svg = shortcode_atts( array(
-		'file'	=> '',
-		'title'	=> '',
-		'url'	=> '',
+		'file'  => '',
+		'title' => '',
+		'url'   => '',
 		), $atts );
 
-		if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
+		if ( !file_exists( LP_SYMBOLICONSCOLOR_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
 
-		$iconpath = '<span role="img" aria-label="'. sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-color-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
-		if ( !empty($svg['url']) ) {
-			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
+		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svgcolor-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONSCOLOR_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+
+		if ( !empty( $svg[ 'url' ] ) ) {
+			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
+			$iconpath = $the_icon;
 		}
-		$iconpath .= '</span>';
 
 		return $iconpath;
 	}
@@ -119,22 +120,13 @@ class LP_SymboliconsColorSettings {
 		<h2>Symbolicons Color</h2>
 
 		<?php
+		echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
-		$imagepath = LP_SYMBOLICONSCOLOR_PATH;
-
-		if ( !file_exists( $imagepath ) && !is_dir( $imagepath ) ) {
-			echo '<p>Your site does not appear to have the symbolicons color folder included, so you can\'t use them. It should be installed at <code>'.$imagepath.'</code> for this to work.';
-
-		} else {
-
-			echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
-
-			foreach( glob( $imagepath.'*' ) as $filename ){
-				$image = file_get_contents( $filename );
-				$name  = str_replace( $imagepath, '' , $filename );
-				$name  = str_replace( '.svg', '', $name );
-				echo '<span role="img" class="symlclr-icon">' . $image . $name .'</span>';
-			}
+		foreach( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ){
+			$svg  = str_replace( LP_SYMBOLICONSCOLOR_PATH, LP_SYMBOLICONSCOLOR_URL , $filename );
+			$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '' , $filename );
+			$name = str_replace( '.svg', '', $name );
+			echo '<span class="symlclr-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
 		}
 	}
 

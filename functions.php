@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.1.1
+Version: 2.1.2
 Author: Mika Epstein
 */
 
@@ -32,12 +32,33 @@ class LezPress_Network {
 	protected static $version;
 
 	function __construct() {
-		self::$version = '2.1.1';
+		self::$version = '2.1.2';
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
 			add_action( 'restrict_site_access_ip_match', array( $this, 'lwtv_restrict_site_access_ip_match' ) );
 		}
+	}
+
+	/**
+	 * Enqueue Scripts
+	 * Since: 2.1.2
+	 */
+	public function wp_enqueue_scripts() {
+		wp_enqueue_script( 'svg-injector', content_url( '/library/assets/js/svg-injector.min.js' ), array( 'jquery' ), '2.1.3' );
+		wp_enqueue_script( 'svg-injector-lwtv', content_url( '/library/assets/js/lwtv-svg-injector.js' ), array( 'svg-injector' ), self::$version, true );
+	}
+
+	/**
+	 * Admin Enqueue Scripts
+	 * Since: 2.1.2
+	 */
+	public function admin_enqueue_scripts() {
+		wp_enqueue_script( 'svg-injector', content_url( '/library/assets/js/svg-injector.min.js' ), array( 'jquery' ), '2.1.3' );
+		wp_enqueue_script( 'svg-injector-lwtv', content_url( '/library/assets/js/lwtv-svg-injector.js' ), array( 'svg-injector' ), self::$version, true );
 	}
 
 	/**

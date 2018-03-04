@@ -5,16 +5,18 @@
  * Shows the symbolicons settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:	1.0
- * Author:	 Mika A. Epstein
+ * Version:    2.0
+ * Author:     Mika A. Epstein
  * Author URI: https://halfelf.org
- * License:	GPL-2.0+
+ * License:    GPL-2.0+
  *
  */
 
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', dirname( __FILE__ ) . '/symbolicons/' );
+$upload_dir = wp_upload_dir();
 
-if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', '/wp-content/library/assets/symbolicons/' );
+if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', $upload_dir['basedir'] . '/lezpress-icons/symbolicons/' );
+
+if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', $upload_dir['baseurl'] . '/lezpress-icons/symbolicons/' );
 
 // if this file is called directly abort
 if ( ! defined('WPINC' ) ) {
@@ -49,7 +51,7 @@ class LP_SymboliconsSettings {
 	 * admin_enqueue_scripts
 	 */
 	public function admin_enqueue_scripts() {
-		wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
+		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), false );
 	}
 
 	/*
@@ -63,24 +65,23 @@ class LP_SymboliconsSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode($atts) {
-		$iconsfolder = LP_SYMBOLICONS_PATH;
+	function shortcode( $atts ) {
 		$svg = shortcode_atts( array(
-			'file'	=> '',
-			'title'	=> '',
-			'url'	=> '',
+			'file'  => '',
+			'title' => '',
+			'url'   => '',
 		), $atts );
 
 		// Default to the square if nothing is there
-		if ( !file_exists( $iconsfolder . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
+		if ( !file_exists( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
-		$iconpath = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">';
+		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONS_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+
 		if ( !empty( $svg[ 'url' ] ) ) {
-			$iconpath .= '<a href=' . esc_url( $svg['url'] ) . '>' . file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' ) . '</a>';
+			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
-			$iconpath .= file_get_contents( $iconsfolder . $svg[ 'file' ] . '.svg' );
+			$iconpath = $the_icon;
 		}
-		$iconpath .= '</span>';
 
 		return $iconpath;
 	}
@@ -116,23 +117,20 @@ class LP_SymboliconsSettings {
 				height: 75px;
 			}
 			span.cmb2-icon svg * {
-				fill: #444;
+				fill: #444!important;
 			}
 		</style>
 
 		<h2>Symbolicons</h2>
 
 		<?php
-
-		$imagepath = LP_SYMBOLICONS_PATH.'/';
-
 		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
 
-		foreach( glob( $imagepath . '*' ) as $filename ){
-			$image = file_get_contents( $filename );
-			$name  = str_replace( $imagepath, '' , $filename );
-			$name  = str_replace( '.svg', '', $name );
-			echo '<span role="img" class="cmb2-icon">' . $image . $name .'</span>';
+		foreach( glob( LP_SYMBOLICONS_PATH . '*' ) as $filename ){
+			$svg  = str_replace( LP_SYMBOLICONS_PATH, LP_SYMBOLICONS_URL , $filename );
+			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
+			$name = str_replace( '.svg', '', $name );
+			echo '<span class="cmb2-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg>' . $name . '</span>';
 		}
 	}
 
