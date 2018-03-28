@@ -132,6 +132,8 @@ class LP_SymboliconsSettings {
 			$name = str_replace( '.svg', '', $name );
 			echo '<span class="cmb2-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg>' . $name . '</span>';
 		}
+		
+		?></div><?php
 	}
 
 }
