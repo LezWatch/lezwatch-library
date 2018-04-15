@@ -75,7 +75,7 @@ class LP_SymboliconsSettings {
 		// Default to the square if nothing is there
 		if ( !file_exists( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
 
-		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONS_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+		$the_icon = '<span class="symbolicon" role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">' . file_get_contents( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) . '</span>';
 
 		if ( !empty( $svg[ 'url' ] ) ) {
 			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
@@ -127,10 +127,9 @@ class LP_SymboliconsSettings {
 		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
 
 		foreach( glob( LP_SYMBOLICONS_PATH . '*' ) as $filename ){
-			$svg  = str_replace( LP_SYMBOLICONS_PATH, LP_SYMBOLICONS_URL , $filename );
 			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
 			$name = str_replace( '.svg', '', $name );
-			echo '<span class="cmb2-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg>' . $name . '</span>';
+			echo '<span class="cmb2-icon" role="img">' . file_get_contents( $filename ) . $name . '</span>';
 		}
 		
 		?></div><?php

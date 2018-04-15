@@ -74,7 +74,7 @@ class LP_SymboliconsColorSettings {
 
 		if ( !file_exists( LP_SYMBOLICONSCOLOR_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
 
-		$the_icon = '<span role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svgcolor-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '"><svg width="100%" height="100%" data-src="' . LP_SYMBOLICONSCOLOR_URL . esc_attr( $svg[ 'file' ] ) . '.svg" alt="' . sanitize_text_field( $svg[ 'title' ] ) .'" /></svg>';
+		$the_icon = '<span class="symbolicons-color" role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">' . file_get_contents( LP_SYMBOLICONSCOLOR_URL . $svg[ 'file' ] . '.svg' ) . '</span>';
 
 		if ( !empty( $svg[ 'url' ] ) ) {
 			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
@@ -123,12 +123,11 @@ class LP_SymboliconsColorSettings {
 		echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
 		foreach( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ){
-			$svg  = str_replace( LP_SYMBOLICONSCOLOR_PATH, LP_SYMBOLICONSCOLOR_URL , $filename );
 			$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '' , $filename );
 			$name = str_replace( '.svg', '', $name );
-			echo '<span class="symlclr-icon" role="img"><svg width="100%" height="100%" data-src="' . $svg . '" alt="' . $name .'" /></svg></span>';
+			echo '<span class="symlclr-icon" role="img">' . file_get_contents( $filename ) . $name . '</span>';
 		}
-		
+
 		?></div><?php
 	}
 
