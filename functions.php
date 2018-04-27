@@ -10,6 +10,7 @@ Author: Mika Epstein
  * File Includes
  */
 include_once( dirname( __FILE__ ) . '/dashboard.php' );
+include_once( dirname( __FILE__ ) . '/gutenberg.php' );
 include_once( dirname( __FILE__ ) . '/shortcodes.php' );
 include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
