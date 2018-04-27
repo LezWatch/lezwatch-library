@@ -44,10 +44,28 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ### Plugins
 
+Support for specific plugins.
+
 * Jetpack:
   * Show Feedback in "Right Now"
   * Custom Icon for Feedback in "Right Now"
   * Mark feedbacks as having been answered
+
+### Gutenberg Widgets
+
+* Spoiler Warning
+
+_Embeds:_
+
+* Indiegogo (warning: This will show an error that it can't embed, but it does)
+* Gleam (warning: This will show an error that it can't embed, but it does)
+
+### Inline Embeds
+
+These mean you can just paste in the URL to your content and they embed.
+
+* Indiegogo
+* Gleam
 
 ### Shortcodes
 
