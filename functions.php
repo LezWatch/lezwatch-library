@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.1.3
+Version: 2.1.4
 Author: Mika Epstein
 */
 
@@ -10,6 +10,7 @@ Author: Mika Epstein
  * File Includes
  */
 include_once( dirname( __FILE__ ) . '/dashboard.php' );
+include_once( dirname( __FILE__ ) . '/gutenberg.php' );
 include_once( dirname( __FILE__ ) . '/shortcodes.php' );
 include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
@@ -32,12 +33,23 @@ class LezPress_Network {
 	protected static $version;
 
 	function __construct() {
-		self::$version = '2.1.3';
+		self::$version = '2.1.4';
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 
+		// When in Dev Mode...
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
 			add_action( 'restrict_site_access_ip_match', array( $this, 'lwtv_restrict_site_access_ip_match' ) );
+			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
+			defined( 'JETPACK_DEV_DEBUG' ) || define( 'JETPACK_DEV_DEBUG', true );
 		}
+	}
+
+	/**
+	 * Damn it Google, GO AWAY
+	 * Since: 2.1.4
+	 */
+	public function add_meta_tags() {
+		echo '<meta name="robots" content="noindex">' . "\n";
 	}
 
 	/**

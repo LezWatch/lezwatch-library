@@ -2,7 +2,7 @@
 /*
 Library: Global Shortcodes
 Description: Various shortcodes used on the LeZWatch Network
-Version: 1.3.1
+Version: 1.3.2
 Author: Mika Epstein
 */
 
@@ -24,10 +24,16 @@ class LP_Shortcodes{
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
 		add_shortcode( 'author-box', array( $this, 'author_box' ) );
 		add_shortcode( 'glossary', array( $this, 'glossary' ) );
-		add_shortcode( 'indiegogo', array( $this, 'indiegogo' ) );
 		add_shortcode( 'spoilers', array( $this, 'spoilers' ) );
 		add_shortcode( 'badge', array( $this, 'badge' ) );
+
+		// Gleam
 		add_shortcode( 'gleam', array( $this, 'gleam' ) );
+		wp_embed_register_handler( 'gleam', '#https?://gleam\.io/([a-zA-Z0-9_-]+)/.*#i', array( $this, 'gleam_embed_handler' ) );
+
+		// Indigogo
+		add_shortcode( 'indiegogo', array( $this, 'indiegogo_shortcode' ) );
+		wp_embed_register_handler( 'indiegogo', '#https?://www\.indiegogo\.com/projects/.*#i', array( $this, 'indiegogo_embed_handler' ) );
 	}
 
 	/*
@@ -65,10 +71,10 @@ class LP_Shortcodes{
 	 * Usage: [numposts data="posts" posttype="post type" term="term slug" taxonomy="taxonomy slug"]
 	 *
 	 * Attributes:
-	 *		data     = [posts|taxonomy]
-	 * 		posttype = post type
-	 * 		term     = term slug
-	 *		taxonomy = taxonomy slug
+	 *    data     = [posts|taxonomy]
+	 *    posttype = post type
+	 *    term     = term slug
+	 *    taxonomy = taxonomy slug
 	 *
 	 * @since 1.0
 	 */
@@ -237,7 +243,7 @@ class LP_Shortcodes{
 	}
 
 	/*
-	 * Embed an IndieGoGo Campaign
+	 * Shortcode for an IndieGoGo Campaign
 	 *
 	 * Usage: [indiegogo url="https://www.indiegogo.com/projects/riley-parra-season-2-lgbt"]
 	 *
@@ -246,7 +252,7 @@ class LP_Shortcodes{
 	 *
 	 * @since 1.3
 	 */
-	public function indiegogo( $atts ) {
+	public function indiegogo_shortcode( $atts ) {
 		$attr = shortcode_atts( array(
 			'url' => '',
 		), $atts );
@@ -257,6 +263,19 @@ class LP_Shortcodes{
 		$return =  '<iframe src="' . $url . '/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>';
 
 		return $return;
+	}
+
+	/*
+	 * Embed an IndieGoGo Campaign
+	 *
+	 * @since 1.3.2
+	 */
+	function indiegogo_embed_handler( $matches, $attr, $url, $rawattr ) {
+		$url   = esc_url( $matches[0] );
+		$url   = rtrim( $url, "#/");
+		$url   = str_replace( 'projects/', 'project/', $url );
+		$embed = sprintf( '<iframe src="%1$s/embedded" width="222" height="445" frameborder="0" scrolling="no"></iframe>', $url );
+		return apply_filters( 'indiegogo_embed', $embed, $matches, $attr, $url, $rawattr );
 	}
 
 	/*
@@ -317,6 +336,17 @@ class LP_Shortcodes{
 		if ( empty( $attributes['url'] ) ) return;
 
 		return sprintf( '<a class="e-gleam" href="%s" rel="nofollow">%s</a><script src="//js.gleam.io/e.js" async="true"></script>', esc_url( $attributes['url'] ), do_shortcode( $content ) );
+	}
+
+	/*
+	 * Embed a Gleam Campaign
+	 *
+	 * @since 1.3.2
+	 */
+	function gleam_embed_handler( $matches, $attr, $url, $rawattr ) {
+		$url   = esc_url( $matches[0] );
+		$embed = sprintf( '<a class="e-gleam" href="%1$s" rel="nofollow">%1$s</a><script src="//js.gleam.io/e.js" async="true"></script>', $url );
+		return apply_filters( 'gleam_embed', $embed, $matches, $attr, $url, $rawattr );
 	}
 
 }
