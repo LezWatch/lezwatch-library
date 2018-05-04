@@ -39,10 +39,12 @@
 		},
 
 		save: function( props ) {
+			var content = props.attributes.content || 'Warning: This post contains spoilers!';
+
 			return el(
 				'div',
 				{ className: 'alert alert-danger'},
-				props.attributes.content
+				content
 			);
 		}
 	} );
