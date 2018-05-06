@@ -34,13 +34,7 @@ class LezPress_Network {
 
 	function __construct() {
 		self::$version = '2.1.4';
-		add_action( 'init', array( $this, 'init' ) );
-	}
 
-	/*
-	 * Init
-	 */
-	function init() {
 		// Close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
 
