@@ -6,10 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LezWatch/lezwatch-library.git"
-  },
+  "repository": "git+https://github.com/LezWatch/lezwatch-library.git",
   "keywords": [
     "lezwatch"
   ],
@@ -20,7 +17,10 @@
   },
   "homepage": "https://github.com/LezWatch/lezwatch-library#readme",
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.2",
     "grunt-composer": "^0.4.5"
+  },
+  "dependencies": {
+    "npm": "^6.0.0"
   }
 }

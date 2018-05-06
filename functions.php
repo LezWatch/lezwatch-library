@@ -105,7 +105,6 @@ class LezPress_Network {
 	 * Login Errors
 	 */
 	function login_errors( $error ) {
-
 		$diane = '<br /><img src="' . content_url( 'library/assets/images/diane-fuck-off.gif' ) . '" />';
 		$error = $error . $diane;
 		return $error;
