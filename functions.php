@@ -34,7 +34,12 @@ class LezPress_Network {
 
 	function __construct() {
 		self::$version = '2.1.4';
+
+		// Close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
+
+		// Enqueue scripts
+		add_action( 'admin_enqueue_scripts',  array( $this, 'admin_enqueue_scripts' ) );
 
 		// When in Dev Mode...
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
@@ -42,6 +47,13 @@ class LezPress_Network {
 			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
 			defined( 'JETPACK_DEV_DEBUG' ) || define( 'JETPACK_DEV_DEBUG', true );
 		}
+	}
+
+	/*
+	 * Admin CSS
+	 */
+	function admin_enqueue_scripts() {
+		wp_enqueue_style( 'admin-styles', content_url( 'library/assets/css/wp-admin.css' ) );
 	}
 
 	/**
