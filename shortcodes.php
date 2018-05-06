@@ -1,7 +1,7 @@
 <?php
 /*
 Library: Global Shortcodes
-Description: Various shortcodes used on the LeZWatch Network
+Description: Various shortcodes used on the LezWatch Network
 Version: 1.3.2
 Author: Mika Epstein
 */
