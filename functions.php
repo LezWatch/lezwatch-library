@@ -45,7 +45,7 @@ class LezPress_Network {
 		add_action( 'login_enqueue_scripts', array( $this, 'login_logos' ) );
 		add_filter( 'login_headerurl', array( $this, 'login_headerurl' ) );
 		add_filter( 'login_headertitle', array( $this, 'login_headertitle' ) );
-		add_filter( 'login_errors', array( $this, 'login_errors' ), $error );
+		add_filter( 'login_errors', array( $this, 'login_errors' ) );
 
 		// When in Dev Mode...
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
@@ -73,7 +73,7 @@ class LezPress_Network {
 		$logo_image = content_url( 'library/assets/images/' . $domain . '.png' );
 
 		// Bail if the logo doesn't exist
-		if ( !file_exists( WP_CONTENT_DIR . 'library/assets/images/' . $domain . '.png' ) ) return;
+		if ( !file_exists( WP_CONTENT_DIR . '/library/assets/images/' . $domain . '.png' ) ) return;
 
 		// Otherwise, let's customize!
 		?>
