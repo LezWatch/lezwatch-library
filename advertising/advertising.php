@@ -19,7 +19,6 @@ class LP_Advertising {
 	 * Init
 	 */
 	public function init() {
-		add_shortcode( 'amazon-ads', array( $this, 'amazon_ads' ) );
 		add_shortcode( 'amazon-bounties', array( $this, 'amazon_bounties' ) );
 		add_shortcode( 'affiliates', array( $this, 'affiliates' ) );
 	}
@@ -85,87 +84,6 @@ class LP_Advertising {
 	}
 
 	/*
-	 * Display Amazon Ads
-	 *
-	 * Usage: [amazon-ads type={banner|gift-card} size={468x30}]
-	 *
-	 * @since 1.0
-	*/
-	public function amazon_ads( $atts ) {
-
-		$attr = shortcode_atts( array(
-			'type'  => 'gift-card',
-			'size'  => '468x30',
-		), $atts );
-
-		switch ( $attr['size'] ) {
-			case '120x600':
-				$width  = '120';
-				$height = '600';
-				$linkid = 'df6784c1de12263d667401e69a4893e7';
-				$p      = '11';
-			break;
-			default:
-				$width  = '468';
-				$height = '60';
-				$linkid = '21f97ff04402ba07089dfcf071a36c6c';
-				$p      = '13';
-		}
-
-		$gift_card_ads = '
-			<div class="amazon-ads">
-				<script type="text/javascript">
-				    amzn_assoc_ad_type = "banner";
-					amzn_assoc_marketplace = "amazon";
-					amzn_assoc_region = "US";
-					amzn_assoc_placement = "assoc_banner_placement_default";
-					amzn_assoc_campaigns = "gift_certificates";
-					amzn_assoc_banner_type = "category";
-					amzn_assoc_isresponsive = "true";
-					amzn_assoc_banner_id = "1G274HKHXM7QERC7YAG2";
-					amzn_assoc_tracking_id = "lezpress-20";
-					amzn_assoc_linkid = "d1494a48a27537cf8ecaa3b732b56b2d";
-				</script>
-				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-		    </div>';
-
-		$banner_ads = '
-			<div class="amazon-ads">
-				<script type="text/javascript">
-					amzn_assoc_ad_type = "banner";
-					amzn_assoc_marketplace = "amazon";
-					amzn_assoc_region = "US";
-					amzn_assoc_placement = "assoc_banner_placement_default";
-					amzn_assoc_banner_type = "ez";
-					amzn_assoc_p = "' . $p . '";
-					amzn_assoc_width = "' . $width . '";
-					amzn_assoc_height = "' . $height . '";
-					amzn_assoc_tracking_id = "lezpress-20";
-					amzn_assoc_linkid = "' . $linkid . '";;
-				</script>
-				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-			</div>
-		';
-
-		$native_ads = '<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=03c364f2-4dd2-4fdf-85ea-299766f94353"></script>';
-
-		// Show the ad based on what you picked...
-		$ads = '<!-- BEGIN Amazon Ads --><div class="amazon-ads ' . sanitize_html_class( $attr['type'] ) . '">';
-		switch ( $attr['type'] ) {
-			case 'native':
-				$ads .= $native_ads;
-			case 'banner':
-				$ads .= $banner_ads;
-			case 'gift-card':
-			default:
-				$ads .= $gift_card_ads;
-		}
-		$ads .= '</div><!-- END Amazon Ads -->';
-
-		return $ads;
-	}
-
-	/*
 	 * Display Amazon Bounties
 	 *
 	 * Usage: [amazon-bounties size=""]
@@ -215,44 +133,104 @@ class LP_Advertising {
 				'linkid'    => 'd45fe5a514960324926ae983dfb7a827',
 				'campaign'  => 'amazonvideosubs'
 				),
+			'cbsaa-2018'    => array( 
+				'expires'   => '2018-12-31',
+				'banner_id' => '15WAHRRCWADG8X4F09G2', 
+				'linkid'    => '94ff1a1d5d6749cef092f31d769e1b4f' ,
+				'campaign'  => 'primevideochannels'
+				), 
+			'hbo-2018'      => array( 
+				'expires'   => '2018-12-31',
+				'banner_id' => '1E0AR7ZBTK5HEDE0CM82', 
+				'linkid'    => 'e3d8633a5dbaed2d73ac74ea0d11a65d' ,
+				'campaign'  => 'primevideochannels'
+				), 
 			);
 
 		$bounties_160600 = array( 
-			'shameless'     => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '08ZZRWXWXFEVHYCASCR2', 
-				'linkid'    => '605851501c5f3bc4d86c97419de9c8a2' ,
-				'campaign'  => 'amazonvideosubs'
+			'shameless-2020' => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '08ZZRWXWXFEVHYCASCR2', 
+				'linkid'     => '605851501c5f3bc4d86c97419de9c8a2' ,
+				'campaign'   => 'amazonvideosubs'
 				), 
-			'westworld'     => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '10MCTXD1DJ0K6ACX0KG2', 
-				'linkid'    => '5c2a2f020b3e96d8daee238ed92dad0f' ,
-				'campaign'  => 'amazonvideosubs'
+			'westworld-2020' => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '10MCTXD1DJ0K6ACX0KG2', 
+				'linkid'     => '5c2a2f020b3e96d8daee238ed92dad0f' ,
+				'campaign'   => 'amazonvideosubs'
 				), 
-			'outlander'     => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '096WSZC10BTDR26Z8YR2', 
-				'linkid'    => 'bf8765a9aa039cac14a4e4d946fd3e8a' ,
-				'campaign'  => 'amazonvideosubs'
+			'outlander-2020' => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '096WSZC10BTDR26Z8YR2', 
+				'linkid'     => 'bf8765a9aa039cac14a4e4d946fd3e8a' ,
+				'campaign'   => 'amazonvideosubs'
 				), 
-			'twinpeaks'     => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '0K1QMMQGG293DT46SZ82', 
-				'linkid'    => 'e1d660836ce282fcd9d92461994fdc87' ,
-				'campaign'  => 'amazonvideosubs'
+			'twinpeaks-2020' => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '0K1QMMQGG293DT46SZ82', 
+				'linkid'     => 'e1d660836ce282fcd9d92461994fdc87' ,
+				'campaign'   => 'amazonvideosubs'
 				), 
-			'gameofthrones' => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '1KAXW3M068GBRWGGR282', 
-				'linkid'    => 'd23b0739507877f14aca96ee1f5e48f6' ,
-				'campaign'  => 'amazonvideosubs'
+			'got-2020'       => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '1KAXW3M068GBRWGGR282', 
+				'linkid'     => 'd23b0739507877f14aca96ee1f5e48f6' ,
+				'campaign'   => 'amazonvideosubs'
 				), 
-			'britbox' => array( 
-				'expires'   => '2020-12-31',
-				'banner_id' => '1451M1TK3PKR29C2YBR2', 
-				'linkid'    => 'bc81d7076d2ca29a4ef9bbdd36ba4d93' ,
-				'campaign'  => 'amazonvideosubs'
+			'britbox-2020'   => array( 
+				'expires'    => '2020-12-31',
+				'banner_id'  => '1451M1TK3PKR29C2YBR2', 
+				'linkid'     => 'bc81d7076d2ca29a4ef9bbdd36ba4d93' ,
+				'campaign'   => 'amazonvideosubs'
+				), 
+			'showtime-2018'  => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '0ETV0M1DQEFGJ83G8M02', 
+				'linkid'     => 'ead9f36a13eb274af4df2051c9f87966' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'starz-2018'     => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '0N482BNAZMAW3F4223G2', 
+				'linkid'     => '4a7ef3d12a2a1546fce85885d2c89e42' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'cbs-2018'       => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '1RSA96WAH3YGF1HZHCG2', 
+				'linkid'     => '8179fed0d8e02494c62e84a76085dfe3' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'hbo-2018'       => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '0TZTZKMZNERPRPZYXN82', 
+				'linkid'     => '4e5b3071cb78edebbceb9bf99fc7f710' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'westworld-2018' => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '068G1JD09XF3D3H7QXG2', 
+				'linkid'     => 'b3f825e632dd8ff260a3ef363e05ae45' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'britbox-2018'   => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '062FRX60FAE1CTM89V82', 
+				'linkid'     => '6a32a23a758b0b8183f887d9088877d5' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'prime-2018'     => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '1KDYJTM5G5NPVXW1V2R2', 
+				'linkid'     => '2c1ad740dc275afccec6feb6a7e9a5e7' ,
+				'campaign'   => 'primevideochannels'
+				), 
+			'got-2018'       => array( 
+				'expires'    => '2018-12-31',
+				'banner_id'  => '06BB0SBR8G81YR8KW9R2', 
+				'linkid'     => 'ac02c962ab5b66869371e9cb7122e3e9' ,
+				'campaign'   => 'primevideochannels'
 				), 
 			);
 
@@ -283,26 +261,8 @@ class LP_Advertising {
 		$bounty = $bounties [ array_rand( $bounties ) ];
 
 		// Build the ad
-		$ads = '
-			<div class="amazon-ads">
-				<script type="text/javascript">
-					amzn_assoc_ad_type = "banner";
-					amzn_assoc_marketplace = "amazon";
-					amzn_assoc_region = "US";
-					amzn_assoc_placement = "assoc_banner_placement_default";
-					amzn_assoc_campaigns = "'. $bounty['campaign'] .'";
-					amzn_assoc_banner_type = "promotions";
-					amzn_assoc_p = "'. $amzn_assoc_p .'";
-					amzn_assoc_banner_id = "'. $bounty['banner_id'] .'";
-					amzn_assoc_width = "'. $width .'";
-					amzn_assoc_height = "'. $height .'";
-					amzn_assoc_tracking_id = "lezpress-20";
-					amzn_assoc_linkid = "'. $bounty['linkid'] .'";
-				</script>
-				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-			</div>
-		';
-		
+		$ads = '<!-- BEGIN Amazon Ads --><div class="affiliate-ads amazon amazon-bounties"><iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=' . $amzn_assoc_p . '&l=ur1&category=' . $bounty['campaign'] . '&banner='. $bounty['banner_id'] . '&f=ifr&lc=pf4&linkID=' . $bounty['linkid'] . '&t=lezpress-20&tracking_id=lezpress-20" width="' . $width . '" height="' . $height . '" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe></div><!-- END Amazon Ads -->';
+
 		return $ads;
 
 	}
