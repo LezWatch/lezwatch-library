@@ -14,9 +14,6 @@ include_once( dirname( __FILE__ ) . '/gutenberg.php' );
 include_once( dirname( __FILE__ ) . '/shortcodes.php' );
 include_once( dirname( __FILE__ ) . '/upgrades.php' );
 
-// Local Plugins
-include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
-
 // WordPress Plugins
 require_once( 'plugins/jetpack.php' );
 
