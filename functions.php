@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.1.5
+Version: 3.0
 Author: Mika Epstein
 */
 
@@ -30,7 +30,7 @@ class LezPress_Network {
 	protected static $version;
 
 	function __construct() {
-		self::$version = '2.1.4';
+		self::$version = '3.0';
 
 		// Close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
