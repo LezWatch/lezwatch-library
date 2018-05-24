@@ -16,6 +16,12 @@ module.exports = function(grunt) {
                 composerLocation: '/usr/local/bin/composer update'
             }
         },
+        aws: {
+            options: {
+                cwd: 'assets/aws',
+                composerLocation: '/usr/local/bin/composer update'
+            }
+        },
     }
 
   });

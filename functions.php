@@ -2,7 +2,7 @@
 /*
 Library: Functions
 Description: Special Functions
-Version: 2.1.5
+Version: 3.0
 Author: Mika Epstein
 */
 
@@ -13,9 +13,6 @@ include_once( dirname( __FILE__ ) . '/dashboard.php' );
 include_once( dirname( __FILE__ ) . '/gutenberg.php' );
 include_once( dirname( __FILE__ ) . '/shortcodes.php' );
 include_once( dirname( __FILE__ ) . '/upgrades.php' );
-
-// Local Plugins
-include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
 
 // WordPress Plugins
 require_once( 'plugins/jetpack.php' );
@@ -33,7 +30,7 @@ class LezPress_Network {
 	protected static $version;
 
 	function __construct() {
-		self::$version = '2.1.4';
+		self::$version = '3.0';
 
 		// Close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10 , 2 );
@@ -105,7 +102,6 @@ class LezPress_Network {
 	 * Login Errors
 	 */
 	function login_errors( $error ) {
-
 		$diane = '<br /><img src="' . content_url( 'library/assets/images/diane-fuck-off.gif' ) . '" />';
 		$error = $error . $diane;
 		return $error;
