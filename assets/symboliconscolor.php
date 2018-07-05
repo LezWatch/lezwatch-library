@@ -5,21 +5,22 @@
  * Shows the symbolicons Color settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:    2.0
- * Author:     Mika A. Epstein
- * Author URI: https://halfelf.org
- * License:    GPL-2.0+
- *
+ * @version 2.0
+ * @package library
  */
 
 $upload_dir = wp_upload_dir();
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) define( 'LP_SYMBOLICONSCOLOR_PATH', $upload_dir['basedir'] . '/lezpress-icons/symboliconscolor/' );
+if ( ! defined( 'LP_SYMBOLICONSCOLOR_PATH' ) ) {
+	define( 'LP_SYMBOLICONSCOLOR_PATH', $upload_dir['basedir'] . '/lezpress-icons/symboliconscolor/' );
+}
 
-if ( !defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) define( 'LP_SYMBOLICONSCOLOR_URL', $upload_dir['baseurl'] . '/lezpress-icons/symboliconscolor/' );
+if ( ! defined( 'LP_SYMBOLICONSCOLOR_URL' ) ) {
+	define( 'LP_SYMBOLICONSCOLOR_URL', $upload_dir['baseurl'] . '/lezpress-icons/symboliconscolor/' );
+}
 
 // if this file is called directly abort
-if ( ! defined('WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -65,18 +66,20 @@ class LP_SymboliconsColorSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode( $atts ) {
+	public function shortcode( $atts ) {
 		$svg = shortcode_atts( array(
-		'file'  => '',
-		'title' => '',
-		'url'   => '',
+			'file'  => '',
+			'title' => '',
+			'url'   => '',
 		), $atts );
 
-		if ( !file_exists( LP_SYMBOLICONSCOLOR_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'eightball';
+		if ( ! file_exists( LP_SYMBOLICONSCOLOR_PATH . $svg['file'] . '.svg' ) ) {
+			$svg['file'] = 'eightball';
+		}
 
-		$the_icon = '<span class="symbolicons-color" role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">' . file_get_contents( LP_SYMBOLICONSCOLOR_URL . $svg[ 'file' ] . '.svg' ) . '</span>';
+		$the_icon = '<span class="symbolicons-color" role="img" aria-label="' . sanitize_text_field( $svg['title'] ) . '" title="' . sanitize_text_field( $svg['title'] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg['title'] ) . '">' . file_get_contents( LP_SYMBOLICONSCOLOR_URL . $svg['file'] . '.svg' ) . '</span>';
 
-		if ( !empty( $svg[ 'url' ] ) ) {
+		if ( ! empty( $svg['url'] ) ) {
 			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
 			$iconpath = $the_icon;
@@ -91,7 +94,7 @@ class LP_SymboliconsColorSettings {
 	 * Create our settings page
 	 */
 	public function add_settings_page() {
-		$page = add_theme_page(__('Symbolicons Color'), __('Symbolicons Color'), 'edit_posts', 'symboliconscolor', array($this, 'settings_page'));
+		$page = add_theme_page( __( 'Symbolicons Color' ), __( 'Symbolicons Color' ), 'edit_posts', 'symboliconscolor', array( $this, 'settings_page' ) );
 	}
 
 	/*
@@ -99,7 +102,7 @@ class LP_SymboliconsColorSettings {
 	 *
 	 * A list of all the Symbolicons and how to use them. Kind of.
 	 */
-	function settings_page() {
+	public function settings_page() {
 		?>
 		<div class="wrap">
 
@@ -122,13 +125,17 @@ class LP_SymboliconsColorSettings {
 		<?php
 		echo '<p>The following are all the symbolicons in color you have to chose from and their file names.</p><p>They\'re only good for shortcodes like: <br /><code>[symboliconcolor file=cat title="This is a cat" url=http://example.com/cat/]</code></p>';
 
-		foreach( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ){
-			$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '' , $filename );
+		foreach ( glob( LP_SYMBOLICONSCOLOR_PATH . '*' ) as $filename ) {
+			$name = str_replace( LP_SYMBOLICONSCOLOR_PATH, '', $filename );
 			$name = str_replace( '.svg', '', $name );
+			// @codingStandardsIgnoreStart
 			echo '<span class="symlclr-icon" role="img">' . file_get_contents( $filename ) . $name . '</span>';
+			// @codingStandardsIgnoreEnd
 		}
 
-		?></div><?php
+		?>
+		</div>
+		<?php
 	}
 
 }
