@@ -11,17 +11,22 @@
 /*
  * File Includes
  */
-require_once dirname( __FILE__ ) . '/dashboard.php';
-require_once dirname( __FILE__ ) . '/gutenberg.php';
-require_once dirname( __FILE__ ) . '/shortcodes.php';
-require_once dirname( __FILE__ ) . '/upgrades.php';
+
+// Composer
+require_once 'vendor/autoload.php';
+
+// WordPress Things
+require_once 'dashboard.php';
+require_once 'gutenberg.php';
+require_once 'shortcodes.php';
+require_once 'upgrades.php';
 
 // WordPress Plugins
 require_once 'plugins/jetpack.php';
 
 // Symbolicons
-require_once dirname( __FILE__ ) . '/assets/symbolicons.php';
-require_once dirname( __FILE__ ) . '/assets/symboliconscolor.php';
+require_once 'assets/symbolicons.php';
+require_once 'assets/symboliconscolor.php';
 
 /**
  * LezPress_Network class.
@@ -58,7 +63,7 @@ class LezPress_Network {
 	 * Admin CSS
 	 */
 	public function admin_enqueue_scripts() {
-		wp_enqueue_style( 'admin-styles', content_url( 'library/assets/css/wp-admin.css' ) );
+		wp_enqueue_style( 'admin-styles', content_url( 'library/assets/css/wp-admin.css' ), array(), self::$version );
 	}
 
 	/*
