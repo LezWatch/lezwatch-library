@@ -2,11 +2,17 @@
 /*
  * Various shortcodes and embeds used on the LezWatch Network
  *
- * @ver 2.0
+ * @ver 2.0.0
  * @package library
  */
 
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 class LP_Shortcodes {
+
+	protected static $version;
 
 	/**
 	 * Constructor
@@ -14,6 +20,7 @@ class LP_Shortcodes {
 	public function __construct() {
 		add_action( 'init', array( $this, 'init' ) );
 		add_filter( 'widget_text', 'do_shortcode' );
+		self::$version = '2.0.0';
 	}
 
 	/**
@@ -143,7 +150,7 @@ class LP_Shortcodes {
 			return;
 		}
 
-		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ) );
+		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ), array(), self::$version );
 
 		$users      = explode( ',', sanitize_user( $atts['users'] ) );
 		$author_box = '<div class="author-box-shortcode">';

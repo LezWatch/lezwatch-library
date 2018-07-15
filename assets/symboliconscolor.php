@@ -26,6 +26,8 @@ if ( ! defined( 'WPINC' ) ) {
 
 class LP_SymboliconsColorSettings {
 
+	protected static $version;
+
 	/*
 	 * Construct
 	 *
@@ -34,6 +36,7 @@ class LP_SymboliconsColorSettings {
 	public function __construct() {
 		add_action( 'init', array( &$this, 'init' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+		self::$version = '2.0';
 	}
 
 	/*
@@ -52,7 +55,7 @@ class LP_SymboliconsColorSettings {
 	 * admin_enqueue_scripts
 	 */
 	public function admin_enqueue_scripts() {
-		wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', false );
+		wp_register_style( 'symbolicons-admin', '/wp-content/library/assets/css/symbolicons-admin.css', array(), self::$version );
 	}
 
 	/*

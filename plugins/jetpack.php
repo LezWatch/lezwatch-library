@@ -178,7 +178,7 @@ class LP_Jetpack_Feedback {
 
 	public function add_archived_to_bulk_edit() {
 		global $post;
-		if ( 'feedback' !== $post->post_type ) {
+		if ( ! isset( $post->post_type ) || 'feedback' !== $post->post_type ) {
 			return;
 		}
 		?>

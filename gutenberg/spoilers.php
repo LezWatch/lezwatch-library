@@ -13,7 +13,8 @@ function lp_spoilers_block_init() {
 		'spoilers-block-editor',
 		content_url( 'library/gutenberg/' . $index_js ),
 		array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
-		filemtime( "$dir/$index_js" )
+		filemtime( "$dir/$index_js" ),
+		false
 	);
 
 	$editor_css = 'spoilers/editor.css';

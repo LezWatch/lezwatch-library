@@ -26,6 +26,8 @@ if ( ! defined( 'LP_SYMBOLICONS_URL' ) ) {
 
 class LP_SymboliconsSettings {
 
+	protected static $version;
+
 	/*
 	 * Construct
 	 *
@@ -34,6 +36,7 @@ class LP_SymboliconsSettings {
 	public function __construct() {
 		add_action( 'init', array( &$this, 'init' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+		self::$version = '2.0';
 	}
 
 	/*
@@ -52,7 +55,7 @@ class LP_SymboliconsSettings {
 	 * admin_enqueue_scripts
 	 */
 	public function admin_enqueue_scripts() {
-		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), false );
+		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), array(), self::$version );
 	}
 
 	/*
