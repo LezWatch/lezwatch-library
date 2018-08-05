@@ -53,7 +53,7 @@ class LWTV_Library_Gutenblocks {
 	public function listicles() {
 		$dir = dirname( __FILE__ );
 
-		$index_js = 'listicles/index.js';
+		$index_js = 'listicles/dist/blocks.build.js';
 		wp_register_script(
 			'listicles-block-editor',
 			content_url( 'library/gutenberg/' . $index_js ),
@@ -61,9 +61,8 @@ class LWTV_Library_Gutenblocks {
 			filemtime( "$dir/$index_js" ),
 			false
 		);
-		wp_enqueue_script( 'jquery-ui-accordion' );
 
-		$editor_css = 'listicles/editor.css';
+		$editor_css = 'listicles/dist/blocks.editor.build.css';
 		wp_register_style(
 			'listicles-block-editor',
 			content_url( 'library/gutenberg/' . $editor_css ),
@@ -71,12 +70,23 @@ class LWTV_Library_Gutenblocks {
 			filemtime( "$dir/$editor_css" )
 		);
 
+		$style_css = 'listicles/dist/blocks.style.build.css';
+		wp_register_style(
+			'listicles-block',
+			content_url( 'library/gutenberg/' . $style_css ),
+			array( 'wp-editor', 'wp-blocks' ),
+			filemtime( "$dir/$style_css" )
+		);
+
 		register_block_type( 'lez-library/listicles', array(
 			'editor_script' => 'listicles-block-editor',
 			'editor_style'  => 'listicles-block-editor',
+			'style'         => 'listicles-block',
 		) );
 	}
 
 }
 
-new LWTV_Library_Gutenblocks();
+if ( function_exists( 'register_block_type' ) ) {
+	new LWTV_Library_Gutenblocks();
+}
