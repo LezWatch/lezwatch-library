@@ -1,55 +1,66 @@
-( function( blocks, i18n, element ) {
-	var el = element.createElement;
-	var __ = i18n.__;
-	var RichText = blocks.RichText;
+( function( blocks, element, editor, components ) {
 
-	blocks.registerBlockType( 'library/spoilers', {
+	const { registerBlockType } = blocks;
+	const { RichText } = editor;
+	const { createElement } = element;
+	const { InspectorControls } = editor;
+	const { SelectControl, ToggleControl } = components;
 
-		title: __( 'Spoiler Warning' ),
+	registerBlockType( 'lez-library/spoilers', {
+		title: 'Spoiler Warning',
 		icon: 'vault',
 		category: 'widgets',
-		supportHTML: false,
-
+		customClassName: false,
+		className: false,
 		attributes: {
 			content: {
-				type: 'array',
 				source: 'children',
 				selector: 'div',
-			},
+				default: 'Warning: This post contains spoilers!'
+			}
+		},
+
+		save: function( props ) {
+			const content = props.attributes.content;
+			const container = createElement(
+				'div', { className: 'alert alert-danger' },
+				React.createElement( RichText.Content, { value: content })
+			);
+			return container;
 		},
 
 		edit: function( props ) {
-			var content = props.attributes.content || 'Warning: This post contains spoilers!';
-			var focus = props.focus;
-			function onChangeContent( newContent ) {
+			const content = props.attributes.content;
+			const focus = props.focus;
+
+			function onChangeSpoiler( newContent ) {
 				props.setAttributes( { content: newContent } );
 			}
 
-			return el(
+			const editSpoiler = createElement(
 				RichText,
 				{
 					tagName: 'div',
 					className: props.className,
-					onChange: onChangeContent,
+					onChange: onChangeSpoiler,
 					value: content,
 					focus: focus,
-					onFocus: props.setFocus
+					onFocus: props.setFocus,
 				}
+			);
+
+			return createElement(
+				'div', { className: 'alert alert-danger' },
+				editSpoiler
 			);
 		},
 
-		save: function( props ) {
-			var content = props.attributes.content || 'Warning: This post contains spoilers!';
+	});
 
-			return el(
-				'div',
-				{ className: 'alert alert-danger'},
-				content
-			);
-		}
-	} );
-} )(
+})(
 	window.wp.blocks,
-	window.wp.i18n,
-	window.wp.element
+	window.wp.element,
+	window.wp.editor,
+	window.wp.components,
+	window.wp.i18n
 );

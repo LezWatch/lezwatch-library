@@ -7,6 +7,6 @@
 *.swp
 Thumbs.db
 package-lock.json
-/node_modules/
+*node_modules/
 /.sass-cache/
 /npm-debug.log

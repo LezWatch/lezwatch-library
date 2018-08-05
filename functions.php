@@ -17,7 +17,7 @@ require_once 'vendor/autoload.php';
 
 // WordPress Things
 require_once 'dashboard.php';
-require_once 'gutenberg.php';
+require_once 'gutenberg/_main.php';
 require_once 'shortcodes.php';
 require_once 'upgrades.php';
 
