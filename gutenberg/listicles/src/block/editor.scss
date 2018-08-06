@@ -6,5 +6,9 @@
  */
 
 body {
-    counter-reset: lez-library-listicle-counter;
+  counter-reset: lez-library-listicle-counter;
+}
+
+.wp-block-lez-library-listicles {
+  padding: 10px;
 }
