@@ -11,10 +11,10 @@ const { Fragment } = wp.element;
 import './style.scss';
 import './editor.scss';
 
-registerBlockType( 'lez-library/listtitle', {
+registerBlockType( 'lez-library/listdt', {
 
 	title: 'List Title',
-	parent: [ 'lez-library/listicle' ],
+	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'formatting',
 	attributes: {

@@ -10,5 +10,6 @@
  */
 
 import './block/listicle.js';
-import './block/listtitle.js';
 import './block/listitem.js';
+import './block/listdt.js';
+import './block/listdd.js';

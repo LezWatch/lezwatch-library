@@ -43,16 +43,11 @@ registerBlockType( 'lez-library/listicles', {
 			<Fragment>
 				<dl className={ className }>
 					<InnerBlocks
-						layouts={ [
-							{ name: 'column-1', label: 'Column 1', icon: 'columns' },
-						] }
 						template={ [
-							[ 'lez-library/listtitle', { layout:'column-1' } ],
-							[ 'lez-library/listitem', { layout:'column-1' } ],
+							[ 'lez-library/listitem' ]
 						] }
-						templateLock="all"
 						allowedBlocks={ [
-							[ 'lez-library/listitem' ], [ 'lez-library/listtitle' ]
+							[ 'lez-library/listitem' ]
 						] }
 					/>
 				</dl>
