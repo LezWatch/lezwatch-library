@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: listicles — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: listicles — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
+ * Plugin Name: Listicles for Gutenberg
+ * Plugin URI: https://github.com/ipstenu/listicles-gutenberg/
+ * Description: Listicles creates a Gutenberg Block for generating listicles in posts.
+ * Author: ipstenu
+ * Author URI: https://halfelf.org/
  * Version: 1.0.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
