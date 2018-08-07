@@ -5,10 +5,31 @@
  * which makes it higher in priority.
  */
 
-body {
-  counter-reset: lez-library-listicle-counter;
-}
-
 .wp-block-lez-library-listicles {
-  padding: 10px;
+    counter-reset: listicle-counter;
+    padding: 10px;
+    & dt:before {
+      content: counter(listicle-counter);
+      counter-increment: listicle-counter;
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    &.reversed  dt:before {
+      counter-increment: listicle-counter -1;
+    }
+    dt {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    dd {
+      margin: 0 2rem 0 2rem;
+    }
 }

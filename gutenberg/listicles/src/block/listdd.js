@@ -5,12 +5,6 @@ const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
-/**
- * Internal dependencies
- */
-import './style.scss';
-import './editor.scss';
-
 registerBlockType( 'lez-library/listdd', {
 
 	title: 'List Content',

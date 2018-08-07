@@ -1,15 +1,11 @@
+
+
 /**
  * WordPress dependencies
  */
 const { InnerBlocks, RichText } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
-
-/**
- * Internal dependencies
- */
-import './style.scss';
-import './editor.scss';
 
 registerBlockType( 'lez-library/listdt', {
 
@@ -25,6 +21,7 @@ registerBlockType( 'lez-library/listdt', {
 		},
 		placeholder: {
 			type: 'string',
+			default: 'Title',
 		},
 	},
 

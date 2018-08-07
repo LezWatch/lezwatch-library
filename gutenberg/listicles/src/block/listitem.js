@@ -5,12 +5,6 @@ const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
-/**
- * Internal dependencies
- */
-import './style.scss';
-import './editor.scss';
-
 registerBlockType( 'lez-library/listitem', {
 
 	title: 'List Item',
@@ -25,12 +19,9 @@ registerBlockType( 'lez-library/listitem', {
 
 		return (
 				<InnerBlocks
-				layouts={ [
-					{ name: 'column-2', label: 'Column 2', icon: 'columns' },
-				] }
 				template={ [
-					[ 'lez-library/listdt', { layout:'column-2', placeholder: 'Title' } ],
-					[ 'lez-library/listdd', { layout:'column-2' } ],
+					[ 'lez-library/listdt' ],
+					[ 'lez-library/listdd' ],
 				] }
 				allowedBlocks={ [
 					[ 'lez-library/listdt' ], [ 'lez-library/listdd' ]

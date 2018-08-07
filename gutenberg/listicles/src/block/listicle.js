@@ -3,6 +3,7 @@
  */
 import classnames from 'classnames';
 import memoize from 'memize';
+import times from 'lodash/times';
 
 /**
  * WordPress dependencies
@@ -15,19 +16,9 @@ const { PanelBody, ToggleControl, RangeControl } = wp.components;
 /**
  * Some defaults
  */
-
 const MAX_ITEMS = 18;
-
-/**
- * Returns the layouts configuration for a given number of columns.
- *
- * @param {number} items Number of items.
- *
- * @return {Object[]} Layout configuration.
- */
-const getListicleTemplate = memoize( ( items ) => {
-	//return times( columns, () => [ 'core/column' ] );
-	[ 'lez-library/listitem' ]
+const getItemsTemplate = memoize( ( items ) => {
+	return times( items, () => [ 'lez-library/listitem' ] );
 } );
 
 /**
@@ -54,15 +45,18 @@ registerBlockType( 'lez-library/listicles', {
 
 	description: 'Add a block that displays a list item. Make a separate block for each item, which is not the greatest solution, but it\'s what we have.',
 
-	supports: {
-		align: [ 'wide', 'full' ],
-	},
-
 	edit: props => {
 
 		const { attributes: { placeholder },
 			 className, setAttributes,  } = props;
-		const { items } = props.attributes;
+		const { items, reversed } = props.attributes;
+
+		let reversai = '';
+		let counter = '0';
+		if ( reversed ) {
+			reversai = 'reversed';
+			counter = parseInt(`${ items }`)+1;
+		}
 
 		return (
 			<Fragment>
@@ -77,17 +71,18 @@ registerBlockType( 'lez-library/listicles', {
 						/>
 						<ToggleControl
 							label='Reversed'
+							help={ ( checked ) => checked ? 'Reversed order (10 - 1 )' : 'Numerical order (1-10)' }
 							checked={ props.attributes.reversed }
 							onChange={ () => props.setAttributes( { reversed: ! props.attributes.reversed } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
-				<dl className={ className }>
+				<dl
+					className={ `${ className } ${ reversai } listicle items-${ items }` }
+					style={ { counterReset: `listicle-counter ${ counter }` } }
+				>
 					<InnerBlocks
-						//template={ getListicleTemplate( items ) }
-						template= { [
-							[ 'lez-library/listitem' ]
-						] }
+						template={ getItemsTemplate( items ) }
 						allowedBlocks={ [
 							[ 'lez-library/listitem' ]
 						] }
@@ -99,8 +94,20 @@ registerBlockType( 'lez-library/listicles', {
 
 	save: props => {
 		const { attributes: { className } } = props;
+		const { items, reversed } = props.attributes;
+
+		let reversai = '';
+		let counter = 0;
+		if ( reversed ) {
+			reversai = 'reversed';
+			counter = parseInt(`${ items }`)+1;
+		}
+
 		return (
-			<dl className={ className }>
+			<dl
+				className={ `${ className } ${ reversai } listicle items-${ items }` }
+				style={ { counterReset: `listicle-counter ${ counter }` } }
+			>
 				<InnerBlocks.Content />
 			</dl>
 		);
