@@ -53,12 +53,14 @@ Support for specific plugins.
 
 ### Gutenberg Widgets
 
-* Spoiler Warning
+* Spoiler Warning - Insert and edit
+* Listicles - Insert a listicle for each item. Reversable and extendable.
 
 _Embeds:_
 
 * Indiegogo (warning: This will show an error that it can't embed, but it does)
 * Gleam (warning: This will show an error that it can't embed, but it does)
+* DisneyABCPress videos
 
 ### Inline Embeds
 
@@ -66,6 +68,7 @@ These mean you can just paste in the URL to your content and they embed.
 
 * Indiegogo
 * Gleam
+* DisneyABCPress videos
 
 ### Shortcodes
 
@@ -75,7 +78,7 @@ _Author Box_
 
 Usage: `[author-box users=username]`
 
-_Badges_ 
+_Badges_
 
 Insert Bootstrap badge code as a shortcode not HTML
 

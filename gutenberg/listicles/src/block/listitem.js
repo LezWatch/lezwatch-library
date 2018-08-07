@@ -5,12 +5,6 @@ const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
-/**
- * Internal dependencies
- */
-import './style.scss';
-import './editor.scss';
-
 registerBlockType( 'lez-library/listitem', {
 
 	title: 'List Item',
@@ -24,18 +18,22 @@ registerBlockType( 'lez-library/listitem', {
 		const { className } = props;
 
 		return (
-			<dd className={ className }>
-				<InnerBlocks templateLock={ false } />
-			</dd>
+				<InnerBlocks
+				template={ [
+					[ 'lez-library/listdt' ],
+					[ 'lez-library/listdd' ],
+				] }
+				allowedBlocks={ [
+					[ 'lez-library/listdt' ], [ 'lez-library/listdd' ]
+				] }
+				/>
 		);
 	},
 
 	save: function( props ) {
 		const { attributes: { className } } = props;
 		return (
-			<dd className={ className }>
-				<InnerBlocks.Content />
-			</dd>
+			<InnerBlocks.Content />
 		);
 	},
 } );

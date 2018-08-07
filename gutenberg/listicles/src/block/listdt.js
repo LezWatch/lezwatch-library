@@ -1,3 +1,5 @@
+
+
 /**
  * WordPress dependencies
  */
@@ -5,16 +7,10 @@ const { InnerBlocks, RichText } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
-/**
- * Internal dependencies
- */
-import './style.scss';
-import './editor.scss';
-
-registerBlockType( 'lez-library/listtitle', {
+registerBlockType( 'lez-library/listdt', {
 
 	title: 'List Title',
-	parent: [ 'lez-library/listicle' ],
+	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'formatting',
 	attributes: {
@@ -25,6 +21,7 @@ registerBlockType( 'lez-library/listtitle', {
 		},
 		placeholder: {
 			type: 'string',
+			default: 'Title',
 		},
 	},
 
