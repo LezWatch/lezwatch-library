@@ -54,7 +54,7 @@ Support for specific plugins.
 ### Gutenberg Widgets
 
 * Spoiler Warning - Insert and edit
-* Listicles - Insert a listicle for each item (not currently reversible)
+* Listicles - Insert a listicle for each item. Reversable and extendable.
 
 _Embeds:_
 
