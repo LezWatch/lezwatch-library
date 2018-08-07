@@ -1,18 +1,19 @@
 /**
  * WordPress dependencies
  */
+const { __ } = wp.i18n;
 const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
 registerBlockType( 'lez-library/listdd', {
 
-	title: 'List Content',
+	title: __( 'List Content', 'lezwatch-library' ),
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'formatting',
 
-	description: 'A list description (aka content).',
+	description: __( 'A list description (aka content).', 'lezwatch-library' ),
 
 	edit: function( props ) {
 		const { className } = props;
