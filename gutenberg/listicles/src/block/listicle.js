@@ -43,7 +43,7 @@ registerBlockType( 'lez-library/listicles', {
 		}
 	},
 
-	description: 'Add a block that displays a list item. Make a separate block for each item, which is not the greatest solution, but it\'s what we have.',
+	description: 'A block for listicles. Adjust the number with the slider, and flip it reversible if you so desire. Lists only can go up to 18 for managability.',
 
 	edit: props => {
 
