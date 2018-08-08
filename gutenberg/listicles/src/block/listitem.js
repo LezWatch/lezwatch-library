@@ -1,18 +1,19 @@
 /**
  * WordPress dependencies
  */
+const { __ } = wp.i18n;
 const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
 registerBlockType( 'lez-library/listitem', {
 
-	title: 'List Item',
+	title: __( 'List Item', 'lezwatch-library' ),
 	parent: [ 'lez-library/listicles' ],
 	icon: 'editor-rtl',
 	category: 'formatting',
 
-	description: 'An individual list item.',
+	description: __( 'An individual list item.', 'lezwatch-library' ),
 
 	edit: function( props ) {
 		const { className } = props;

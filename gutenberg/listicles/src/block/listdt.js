@@ -3,13 +3,14 @@
 /**
  * WordPress dependencies
  */
+const { __ } = wp.i18n;
 const { InnerBlocks, RichText } = wp.editor;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
 registerBlockType( 'lez-library/listdt', {
 
-	title: 'List Title',
+	title: __( 'List Title', 'lezwatch-library' ),
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'formatting',
@@ -21,11 +22,11 @@ registerBlockType( 'lez-library/listdt', {
 		},
 		placeholder: {
 			type: 'string',
-			default: 'Title',
+			default: __( 'Title', 'lezwatch-library' ),
 		},
 	},
 
-	description: 'An individual list title.',
+	description: __( 'An individual list title.', 'lezwatch-library' ),
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { content } = attributes;

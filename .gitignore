@@ -10,3 +10,5 @@ package-lock.json
 *node_modules/
 /.sass-cache/
 /npm-debug.log
+*.js.map
+*.css.map
