@@ -6,12 +6,11 @@ Code shared by all LezWatch sites
 
 Instead of an MU Plugin, this is a library of code that is called by the sub-plugins. This way updates can be segmented. It lives in `/wp-content/library/`
 
-Includes:
+Features include:
 
-* Automatic upgrades for themes, plugins, and core WordPress (Skipping Akismet, Hello Dolly, and the default themes).
-* Custom column for featured images in posts lists
-* Removal of self pings
-* Prevent Varnish caching when Restricted Site Access is in use on a site where `LWTV_DEV_SITE` is true.
+* Disabled comments on media files
+* Customized Login Pages
+* And ...
 
 ### Advertising
 
@@ -29,48 +28,34 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ### Assets
 
-* Amazon Affiliate Resource code (apai-io)
 * CSS for Author Box shortcode
 * CSS for Symbolicons on Admin
-* Disabled comments on media files
+* Images (Diane flipping people off)
 * FacetWP Pagination JS
 * Symbolicons
 * Symbolicons Color
 
-### Dashboard customizations
+### Features
 
-* Prevent self pings by interlinks
-* Custom column with icon for featured images in posts
+* Dashboard
+    * Custom column for featured images in posts lists
+    * Removal of self pings
+* Embeds (Work in Classic Editor and Gutenberg)
+    * Indiegogo
+    * Gleam
+    * DisneyABCPress videos
+* Shortcodes (See Details Below)
+    * Author Box
+    * Badges
+    * Copyright Year
+    * Gleam Embed
+    * Glossary
+    * Indiegogo Embed
+    * Number of Posts
+    * Spoiler Warning
+* Upgrades (everything auto updates)
 
-### Plugins
-
-Support for specific plugins.
-
-* Jetpack:
-  * Show Feedback in "Right Now"
-  * Custom Icon for Feedback in "Right Now"
-  * Mark feedbacks as having been answered
-
-### Gutenberg Widgets
-
-* Spoiler Warning - Insert and edit
-* Listicles - Insert a listicle for each item. Reversable and extendable.
-
-_Embeds:_
-
-* Indiegogo (warning: This will show an error that it can't embed, but it does)
-* Gleam (warning: This will show an error that it can't embed, but it does)
-* DisneyABCPress videos
-
-### Inline Embeds
-
-These mean you can just paste in the URL to your content and they embed.
-
-* Indiegogo
-* Gleam
-* DisneyABCPress videos
-
-### Shortcodes
+#### Shortcodes
 
 Custom Shortcodes:
 
@@ -89,13 +74,10 @@ _Copyright Year_
 Usage: `[copyright year=(start year) text=(copyright text)]`
 
 Attributes:
-
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
 
 _Gleam_
-
-Embed a Gleam contest
 
 Usage: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
 
@@ -106,8 +88,6 @@ Show Category Icons used for taxonomies.
 Usage: `[glossary taxonomy=TAXONOMY]`
 
 _IndieGoGo_
-
-Embed an IndieGoGo campaign
 
 Usage: `[indiegogo url=URL]`
 
@@ -123,13 +103,39 @@ Attributes:
 
 _Spoilers_
 
-Embed an Spoiler Alert
-
 Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
 
-## Deployment
+### Gutenberg Widgets
+
+* Author Box - Insert and pick a name
+* Spoiler Warning - Insert and edit
+* Listicles - Insert a listicle for each item. Reversable and extendable.
+
+### Plugins
+
+Support for specific plugins.
+
+* Jetpack:
+  * Show Feedback in "Right Now"
+  * Custom Icon for Feedback in "Right Now"
+  * Mark feedbacks as having been answered
+
+### Vendor
+
+Vendor code used by Composer. _DO NOT_ exclude from GitHub or deploys.
+
+* AWS SDK (Official)
+* Amazon Product API (Unofficial)
+
+## Development
+
+Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
+
+To update libraries, run `composer update`
+
+### Deployment
 
 Pushes to branches are automatically deployed via Codeship as follows:
 
-* Development: lwtv.dream.press
-* Master: lezwatchtv.com, lezwatchcommercials.com, lezpress.com
+* Development: [lwtv.dream.press](https://lwtv.dream.press)
+* Master: [lezwatchtv.com](https://lezwatchtv.com), [lezwatchcommercials.com](https://lezwatchcommercials.com), [lezpress.com](https://lezpress.com)

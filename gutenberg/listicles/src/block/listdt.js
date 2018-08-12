@@ -13,7 +13,7 @@ registerBlockType( 'lez-library/listdt', {
 	title: __( 'List Title', 'lezwatch-library' ),
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
-	category: 'formatting',
+	category: 'lezwatch',
 	attributes: {
 		content: {
 			type: 'array',

@@ -11,7 +11,7 @@ registerBlockType( 'lez-library/listitem', {
 	title: __( 'List Item', 'lezwatch-library' ),
 	parent: [ 'lez-library/listicles' ],
 	icon: 'editor-rtl',
-	category: 'formatting',
+	category: 'lezwatch',
 
 	description: __( 'An individual list item.', 'lezwatch-library' ),
 
