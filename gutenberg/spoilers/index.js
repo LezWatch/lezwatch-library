@@ -9,7 +9,7 @@
 	registerBlockType( 'lez-library/spoilers', {
 		title: 'Spoiler Warning',
 		icon: 'vault',
-		category: 'widgets',
+		category: 'lezwatch',
 		customClassName: false,
 		className: false,
 		attributes: {

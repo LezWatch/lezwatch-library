@@ -11,7 +11,7 @@ registerBlockType( 'lez-library/listdd', {
 	title: __( 'List Content', 'lezwatch-library' ),
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
-	category: 'formatting',
+	category: 'lezwatch',
 
 	description: __( 'A list description (aka content).', 'lezwatch-library' ),
 

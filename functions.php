@@ -15,13 +15,12 @@
 // Composer
 require_once 'vendor/autoload.php';
 
-// WordPress Things
-require_once 'dashboard.php';
+// Features and WP Stuff
+require_once 'features/dashboard.php';
+require_once 'features/embeds.php';
+require_once 'features/shortcodes.php';
+require_once 'features/upgrades.php';
 require_once 'gutenberg/_main.php';
-require_once 'shortcodes.php';
-require_once 'upgrades.php';
-
-// WordPress Plugins
 require_once 'plugins/jetpack.php';
 
 // Symbolicons

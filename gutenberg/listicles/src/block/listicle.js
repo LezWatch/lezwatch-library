@@ -32,7 +32,7 @@ registerBlockType( 'lez-library/listicles', {
 
 	title: __( 'Listicle', 'lezwatch-library' ),
 	icon: 'excerpt-view',
-	category: 'layout',
+	category: 'lezwatch',
 	attributes: {
 		items: {
 			type: 'number',

@@ -10,7 +10,7 @@ var el = wp.element.createElement,
 registerBlockType( 'lez-library/author-box', {
 	title: 'Author Box',
 	icon: 'id',
-	category: 'widgets',
+	category: 'lezwatch',
 
 
 	edit: function( props ) {

@@ -18,6 +18,18 @@ class LWTV_Library_Gutenblocks {
 		add_action( 'init', array( $this, 'spoilers' ) );
 		add_action( 'init', array( $this, 'listicles' ) );
 		add_action( 'init', array( $this, 'author_box' ) );
+
+		add_filter( 'block_categories', function( $categories, $post ) {
+			return array_merge(
+				$categories,
+				array(
+					array(
+						'slug'  => 'lezwatch',
+						'title' => 'LezWatch',
+					),
+				)
+			);
+		}, 10, 2 );
 	}
 
 	public function spoilers() {
