@@ -2,7 +2,7 @@
 /*
  * Various  used on the LezWatch Network
  *
- * @ver 1.0.0
+ * @ver 2.0.1
  * @package library
  */
 
@@ -31,6 +31,9 @@ class LP_Embeds {
 
 		// Disney/ABC Press
 		wp_embed_register_handler( 'disneypress', '#https?://www\.disneyabcpress\.com/([a-zA-Z0-9_-]+)/video/([a-zA-Z0-9_-]+)/embed#i', array( $this, 'disneypress_embed_handler' ) );
+
+		// GoFundMe
+		wp_embed_register_handler( 'gofundme', '#https?://www\.gofundme\.com/.*#i', array( $this, 'gofundme_embed_handler' ) );
 	}
 
 	/*
@@ -58,14 +61,28 @@ class LP_Embeds {
 	}
 
 	/*
-	 * Embed a  Disney/ABC Press Video
+	 * Embed a Disney/ABC Press Video
 	 *
 	 * @since 2.0
 	 */
 	public function disneypress_embed_handler( $matches, $attr, $url, $rawattr ) {
 		$url   = esc_url( $matches[0] );
 		$embed = sprintf( '<div class="embed-responsive embed-responsive-16by9"><iframe id="embed" src="%1$s" frameborder="0"></iframe></div>', $url );
-		return apply_filters( 'gleam_embed', $embed, $matches, $attr, $url, $rawattr );
+		return apply_filters( 'disneypress_embed', $embed, $matches, $attr, $url, $rawattr );
+	}
+
+	/*
+	 * Embed GoFundMe Campaign
+	 * Ex: https://www.gofundme.com/2nj4s24s
+	 *
+	 * @since 2.0
+	 */
+	public function gofundme_embed_handler( $matches, $attr, $url, $rawattr ) {
+		$url   = esc_url( $matches[0] );
+		$parse = wp_parse_url( $url );
+		$id    = isset( $parse['path'] ) ? ltrim( $parse['path'], '/' ) : '12345';
+		$embed = sprintf( '<iframe class="gfm-media-widget" image="1" coinfo="1" width="100%%" height="100%%" frameborder="0" id="%1$s"></iframe><script src="//funds.gofundme.com/js/5.0/media-widget.js"></script>', $id );
+		return apply_filters( 'gofundme_embed', $embed, $matches, $attr, $url, $rawattr );
 	}
 
 }
