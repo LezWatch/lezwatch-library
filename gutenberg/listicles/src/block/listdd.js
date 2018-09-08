@@ -20,7 +20,24 @@ registerBlockType( 'lez-library/listdd', {
 
 		return (
 			<dd className={ className }>
-				<InnerBlocks templateLock={ false } />
+				<InnerBlocks
+					allowedBlocks={ [
+						[ 'core/audio' ],
+						[ 'core/embed' ],
+						[ 'core/freeform' ],
+						[ 'core/gallery' ],
+						[ 'core/html' ],
+						[ 'core/image' ],
+						[ 'core/list' ],
+						[ 'core/paragraph' ],
+						[ 'core/pullquote' ],
+						[ 'core/quote' ],
+						[ 'core/shortcode' ],
+						[ 'core/verse' ],
+						[ 'core/video' ]
+					] }
+					templateLock={ false }
+				/>
 			</dd>
 		);
 	},

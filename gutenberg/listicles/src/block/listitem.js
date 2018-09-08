@@ -27,6 +27,7 @@ registerBlockType( 'lez-library/listitem', {
 				allowedBlocks={ [
 					[ 'lez-library/listdt' ], [ 'lez-library/listdd' ]
 				] }
+				templateLock={ 'all' }
 				/>
 		);
 	},
