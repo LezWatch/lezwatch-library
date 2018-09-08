@@ -8,6 +8,8 @@
 .wp-block-lez-library-listicles {
     counter-reset: listicle-counter;
     padding: 10px;
+    dl {
+    }
     & dt:before {
       content: counter(listicle-counter);
       counter-increment: listicle-counter;
@@ -31,5 +33,10 @@
     }
     dd {
       margin: 0 2rem 0 2rem;
+    }
+
+    .listicles-buttons {
+        text-align: center;
+        padding-top: 6px;
     }
 }

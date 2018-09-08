@@ -12,7 +12,7 @@ const { __ } = wp.i18n;
 const { Fragment } = wp.element;
 const { createBlock, registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { PanelBody, ToggleControl, RangeControl } = wp.components;
+const { PanelBody, ToggleControl, RangeControl, IconButton } = wp.components;
 
 /**
  * Some defaults
@@ -30,7 +30,7 @@ import './editor.scss';
 
 registerBlockType( 'lez-library/listicles', {
 
-	title: __( 'Listicle', 'lezwatch-library' ),
+	title: 'Listicle',
 	icon: 'excerpt-view',
 	category: 'lezwatch',
 	attributes: {
@@ -44,7 +44,7 @@ registerBlockType( 'lez-library/listicles', {
 		}
 	},
 
-	description: __( 'A block for listicles. Adjust the number with the slider, and flip it reversible if you so desire. Lists only can go up to 18 for managability.', 'lezwatch-library' ),
+	description: 'A block for listicles. Adjust the number with the slider, and flip it reversible if you so desire. Lists only can go up to 18 for managability.',
 
 	edit: props => {
 
@@ -62,17 +62,17 @@ registerBlockType( 'lez-library/listicles', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Listicle Settings', 'lezwatch-library' ) }>
+					<PanelBody title={ 'Listicle Settings' }>
 						<RangeControl
-							label={ __( 'Items', 'lezwatch-library' ) }
+							label={ 'Items' }
 							value={ items }
 							onChange={ ( value ) => setAttributes( { items: value } ) }
 							min={ 1 }
 							max={ MAX_ITEMS }
 						/>
 						<ToggleControl
-							label={ __( 'Reversed', 'lezwatch-library' ) }
-							help={ ( checked ) => checked ? __( 'Reversed order (10 - 1 )', 'lezwatch-library' ) : __( 'Numerical order (1-10)', 'lezwatch-library' ) }
+							label={ 'Reversed' }
+							help={ ( checked ) => checked ? 'Reversed order (10 - 1)' : 'Numerical order (1 - 10)' }
 							checked={ props.attributes.reversed }
 							onChange={ () => props.setAttributes( { reversed: ! props.attributes.reversed } ) }
 						/>
@@ -88,6 +88,25 @@ registerBlockType( 'lez-library/listicles', {
 							[ 'lez-library/listitem' ]
 						] }
 					/>
+					<div className='listicles-buttons'>
+						<IconButton
+							icon='insert'
+							onClick={ () => setAttributes( { items: parseInt(`${ items }`)+1 } ) }
+							className='editor-inserter__toggle'
+						>Add Item</IconButton>
+
+						<IconButton
+							icon='dismiss'
+							onClick={ () => setAttributes( { items: parseInt(`${ items }`)-1 } ) }
+							className='editor-inserter__toggle'
+						>Remove Item</IconButton>
+
+						<IconButton
+							icon='controls-repeat'
+							onClick={ () => setAttributes( { reversed: ! reversed } ) }
+							className='editor-inserter__toggle'
+						>Toggle Order</IconButton>
+					</div>
 				</dl>
 			</Fragment>
 		);

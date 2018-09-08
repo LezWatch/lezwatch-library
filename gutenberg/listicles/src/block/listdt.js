@@ -10,7 +10,7 @@ const { Fragment } = wp.element;
 
 registerBlockType( 'lez-library/listdt', {
 
-	title: __( 'List Title', 'lezwatch-library' ),
+	title: 'List Title',
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'lezwatch',
@@ -22,11 +22,11 @@ registerBlockType( 'lez-library/listdt', {
 		},
 		placeholder: {
 			type: 'string',
-			default: __( 'Title', 'lezwatch-library' ),
+			default: 'Title',
 		},
 	},
 
-	description: __( 'An individual list title.', 'lezwatch-library' ),
+	description: 'An individual list title.',
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { content } = attributes;
