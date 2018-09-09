@@ -8,19 +8,21 @@ const { Fragment } = wp.element;
 
 registerBlockType( 'lez-library/listdd', {
 
-	title: __( 'List Content', 'lezwatch-library' ),
+	title: 'List Content',
 	parent: [ 'lez-library/listitem' ],
 	icon: 'migrate',
 	category: 'lezwatch',
 
-	description: __( 'A list description (aka content).', 'lezwatch-library' ),
+	description: 'A list description (aka content).',
 
 	edit: function( props ) {
 		const { className } = props;
 
 		return (
 			<dd className={ className }>
-				<InnerBlocks templateLock={ false } />
+				<InnerBlocks
+					templateLock={ false }
+				/>
 			</dd>
 		);
 	},
