@@ -60,7 +60,7 @@ class LWTV_Library_Gutenblocks {
 
 		register_block_type( 'lez-library/spoilers', array(
 			'editor_script' => 'spoilers-block-editor',
-			'editor_style'  => 'spoilers-block-editor',
+			'edistyle'  => 'spoilers-block-editor',
 			'style'         => 'spoilers-block',
 		) );
 	}
