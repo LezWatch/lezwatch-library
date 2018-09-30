@@ -87,6 +87,7 @@ registerBlockType( 'lez-library/listicles', {
 						allowedBlocks={ [
 							[ 'lez-library/listitem' ]
 						] }
+						templateLock={ 'insert' }
 					/>
 					<div className='listicles-buttons'>
 						<IconButton

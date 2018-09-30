@@ -50,7 +50,6 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
     * Copyright Year
     * Gleam Embed
     * Glossary
-    * Indiegogo Embed
     * Number of Posts
     * Spoiler Warning
 * Upgrades (everything auto updates)

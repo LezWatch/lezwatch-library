@@ -2,21 +2,24 @@ This project was bootstrapped with [Create Guten Block](https://github.com/ahmad
 
 ## About
 
-This is the LezWatch version of Listicles, a Gutenberg Block that creates, well, listicles.
+These are the various Gutenblocks
 
 ## Development Notes
 
-The source code is located in `/src/` - that's where most (if not all) of your work will happen.
-
-* `blocks.js` - A list of all the separate JS files included
-* `/block/listicle.js` - The main listicle file
-* `/block/listitem.js` - Individual list items (this is only usable inside the Listicles block)
-* `/block/listdt.js` - The list title
-* `/block/listdd.js` - The list content (this allows you to add as many sub blocks as you can)
-
-When built, the new code will deploy to the `/dist/` folder.
+The source code is located in `/src/` - that's where most (if not all) of your work will happen. When built, the new code will deploy to the `/dist/` folder.
 
 The overall code is called from the `/gutenberg/_main.php` file.
+
+* `blocks.js` - A list of all the separate JS files included
+
+_Author Box_
+* `author-box/block.js`
+
+_Listicle_
+* `/listicle/listicle.js` - The main listicle file
+* `/listicle/listitem.js` - Individual list items (this is only usable inside the Listicles block)
+* `/listicle/listdt.js` - The list title
+* `/listicle/listdd.js` - The list content (this allows you to add as many sub blocks as you can)
 
 ### Notes
 
