@@ -27,20 +27,19 @@ class LP_Shortcodes {
 	 * Init
 	 */
 	public function init() {
+		// Inline (will remain shortcodes)
 		add_shortcode( 'copyright', array( $this, 'copyright' ) );
 		add_shortcode( 'numposts', array( $this, 'numposts' ) );
-		add_shortcode( 'author-box', array( $this, 'author_box' ) );
-		add_shortcode( 'glossary', array( $this, 'glossary' ) );
-		add_shortcode( 'spoilers', array( $this, 'spoilers' ) );
 		add_shortcode( 'badge', array( $this, 'badge' ) );
 
-		// Gleam
+		// Blocks (all have been converted to Gutenblocks)
+		add_shortcode( 'author-box', array( $this, 'author_box' ) );
+		add_shortcode( 'glossary', array( 'LWTV_Shortcodes', 'glossary' ) );
+		add_shortcode( 'spoilers', array( $this, 'spoilers' ) );
+
+		// Embeds (all work in Gutenberg)
 		add_shortcode( 'gleam', array( $this, 'gleam' ) );
-
-		// Indigogo
 		add_shortcode( 'indiegogo', array( $this, 'indiegogo_shortcode' ) );
-
-		// Disney/ABC Press
 		add_shortcode( 'disneypress', array( $this, 'disneypress_shortcode' ) );
 	}
 
@@ -56,10 +55,13 @@ class LP_Shortcodes {
 	 * @since 1.0
 	 */
 	public function copyright( $atts ) {
-		$attributes = shortcode_atts( array(
-			'year' => 'auto',
-			'text' => '&copy;',
-		), $atts );
+		$attributes = shortcode_atts(
+			array(
+				'year' => 'auto',
+				'text' => '&copy;',
+			),
+			$atts
+		);
 
 		$year = ( '' === $attributes['year'] || false === ctype_digit( $attributes['year'] ) ) ? date( 'Y' ) : intval( $attributes['year'] );
 		$text = ( '' === $attributes['text'] ) ? '&copy;' : sanitize_text_field( $attributes['text'] );
@@ -87,12 +89,15 @@ class LP_Shortcodes {
 	 * @since 1.0
 	 */
 	public function numposts( $atts ) {
-		$attr = shortcode_atts( array(
-			'data'     => 'posts',
-			'posttype' => 'post',
-			'term'     => '',
-			'taxonomy' => '',
-		), $atts );
+		$attr = shortcode_atts(
+			array(
+				'data'     => 'posts',
+				'posttype' => 'post',
+				'term'     => '',
+				'taxonomy' => '',
+			),
+			$atts
+		);
 
 		if ( 'posts' === $attr['data'] ) {
 			// Collect posts
@@ -145,22 +150,18 @@ class LP_Shortcodes {
 
 		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ), array(), self::$version );
 
+		$mystery    = '<div class="col-sm-3"><img src="http://0.gravatar.com/avatar/9c7ddb864b01d8e47ce3414c9bbf3008?s=64&d=mm&f=y&r=g"></div><div class="col-sm-9"><h4 class="author_name">Mystery Girl</h4><div class="author-bio">Yet another lesbian who slept with Shane. Or Sara Lance.</div></div>';
 		$users      = explode( ',', sanitize_user( $attributes['users'] ) );
 		$author_box = '<div class="author-box-shortcode">';
 
 		if ( '' === $attributes['users'] || ! isset( $attributes['users'] ) ) {
-			$author_details  = '<div class="col-sm-3"><img src="http://0.gravatar.com/avatar/9c7ddb864b01d8e47ce3414c9bbf3008?s=64&d=mm&f=y&r=g"></div>';
-			$author_details .= '<div class="col-sm-9">';
-			$author_details .= '<h4 class="author_name">Mystery Girl</h4>';
-			$author_details .= '<div class="author-bio">Yet another lesbian who slept with Shane. Or Sara Lance.</div>';
-			$author_details .= '</div>';
-
-			$author_box .= '<section class="author-box">' . $author_details . '</section>';
+			$valid_user = 0;
 		} else {
+			$valid_user = 0;
 			foreach ( $users as $user ) {
 				$user = username_exists( sanitize_user( $user ) );
 				if ( $user ) {
-					// Get author gravatar
+					$valid_user++;
 					$gravatar = get_avatar( get_the_author_meta( 'email', $user ) );
 
 					// Get author's display name
@@ -217,45 +218,14 @@ class LP_Shortcodes {
 			}
 		}
 
+		// If there was no valid user
+		if ( 0 === $valid_user ) {
+			$author_box .= '<section class="author-box">' . $mystery . '</section>';
+		}
+
 		$author_box .= '</div>';
 
 		return $author_box;
-	}
-
-	/*
-	 * Outputs Glossary Terms
-	 *
-	 * Usage: [glossary taxonomy="taxonomy slug"]
-	 *
-	 * Attributes:
-	 *		taxonomy = taxonomy slug
-	 *
-	 * @since 1.0
-	 */
-	public function glossary( $atts ) {
-		$attr = shortcode_atts( array(
-			'taxonomy' => '',
-		), $atts );
-
-		// Bail Early
-		if ( '' === $atts['taxonomy'] ) {
-			return;
-		}
-
-		$the_taxonomy = sanitize_text_field( $attr['taxonomy'] );
-		$the_terms    = get_terms( $the_taxonomy );
-		$return       = '<ul class="trope-list list-group">';
-
-		if ( $the_terms && ! is_wp_error( $the_terms ) ) {
-			// loop over each returned trope
-			foreach ( $the_terms as $term ) {
-				$icon    = lwtv_yikes_symbolicons( get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) . '.svg', 'fa-square' );
-				$return .= '<li class="list-group-item glossary term term-' . $term->slug . '"><a href="' . get_term_link( $term->slug, $the_taxonomy ) . '" rel="glossary term">' . $icon . '</a> <a href="' . get_term_link( $term->slug, $the_taxonomy ) . '" rel="glossary term" class="trope-link">' . $term->name . ' (' . get_term_meta( $term->term_id, 'lez_termsmeta_icon', true ) . ')</a></li>';
-			}
-		}
-
-		$return .= '</ul>';
-		return $return;
 	}
 
 	/*
@@ -269,9 +239,12 @@ class LP_Shortcodes {
 	 * @since 1.3
 	 */
 	public function indiegogo_shortcode( $atts ) {
-		$attr = shortcode_atts( array(
-			'url' => '',
-		), $atts );
+		$attr = shortcode_atts(
+			array(
+				'url' => '',
+			),
+			$atts
+		);
 
 		$url    = esc_url( $attr['url'] );
 		$url    = rtrim( $url, '#/' );
@@ -292,9 +265,12 @@ class LP_Shortcodes {
 	 */
 	public function spoilers( $atts ) {
 		$default    = 'Warning: This post contains spoilers!';
-		$attributes = shortcode_atts( array(
-			'warning' => $default,
-		), $atts );
+		$attributes = shortcode_atts(
+			array(
+				'warning' => $default,
+			),
+			$atts
+		);
 		$warning    = ( '' === $attributes['warning'] ) ? $default : sanitize_text_field( $attributes['warning'] );
 
 		return '<div class="alert alert-danger" role="alert"><strong>' . $warning . '</strong></div>';
@@ -309,11 +285,14 @@ class LP_Shortcodes {
 	 * @since 1.3
 	 */
 	public function badge( $atts, $content = '', $tag ) {
-		$attributes = shortcode_atts( array(
-			'url'   => '',
-			'class' => '',
-			'role'  => '',
-		), $atts );
+		$attributes = shortcode_atts(
+			array(
+				'url'   => '',
+				'class' => '',
+				'role'  => '',
+			),
+			$atts
+		);
 		$content    = ( '' === $content ) ? '' : sanitize_text_field( $content );
 		$url        = esc_url( $attributes['url'] );
 		$class      = esc_attr( $attributes['class'] );
@@ -331,9 +310,12 @@ class LP_Shortcodes {
 	 * @since 1.3.1
 	 */
 	public function gleam( $atts, $content = null ) {
-		$attributes = shortcode_atts( array(
-			'url' => '',
-		), $atts );
+		$attributes = shortcode_atts(
+			array(
+				'url' => '',
+			),
+			$atts
+		);
 
 		// Bail if empty
 		if ( empty( $attributes['url'] ) ) {
@@ -352,9 +334,12 @@ class LP_Shortcodes {
 	 * @since 2.0
 	 */
 	public function disneypress( $atts, $content = null ) {
-		$attributes = shortcode_atts( array(
-			'url' => '',
-		), $atts );
+		$attributes = shortcode_atts(
+			array(
+				'url' => '',
+			),
+			$atts
+		);
 
 		// Bail if empty
 		if ( empty( $attributes['url'] ) ) {

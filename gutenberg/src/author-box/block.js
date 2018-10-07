@@ -9,7 +9,7 @@ import './editor.scss';
 const { registerBlockType } = wp.blocks;
 const { createElement, Fragment } = wp.element;
 const { InspectorControls } = wp.editor;
-const { ServerSideRender, TextControl, PanelBody } = wp.components;
+const { ServerSideRender, TextControl, PanelBody, SelectControl } = wp.components;
 
 registerBlockType( 'lez-library/author-box', {
 	title: 'Author Box',
@@ -30,10 +30,16 @@ registerBlockType( 'lez-library/author-box', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ 'Author Box Settings' }>
-						<TextControl
-							type='string'
+						<SelectControl
 							label={ 'Username' }
 							value={ props.attributes.users }
+							options={ [
+								{ label: 'Choose a user...', value: null },
+								{ label: 'Mia', value: 'mia' },
+								{ label: 'Mika', value: 'ipstenu' },
+								{ label: 'Nikki', value: 'NikkiT' },
+								{ label: 'Tracy', value: 'liljimmi' },
+							] }
 							onChange={ ( value ) => props.setAttributes( { users: value } ) }
 						/>
 					</PanelBody>
