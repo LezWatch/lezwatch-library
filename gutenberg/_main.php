@@ -9,25 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
-* Block Initializer.
-*/
-require_once 'src/init.php';
+if ( function_exists( 'register_block_type' ) ) {
+	/**
+	* Block Initializer.
+	*/
+	require_once 'src/init.php';
 
-// Add a block category
-add_filter(
-	'block_categories',
-	function( $categories, $post ) {
-		return array_merge(
-			$categories,
-			array(
+	// Add a block category
+	add_filter(
+		'block_categories',
+		function( $categories, $post ) {
+			return array_merge(
+				$categories,
 				array(
-					'slug'  => 'lezwatch',
-					'title' => 'LezWatch Library',
-				),
-			)
-		);
-	},
-	10,
-	2
-);
+					array(
+						'slug'  => 'lezwatch',
+						'title' => 'LezWatch Library',
+					),
+				)
+			);
+		},
+		10,
+		2
+	);
+}
