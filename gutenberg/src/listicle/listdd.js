@@ -19,11 +19,13 @@ registerBlockType( 'lez-library/listdd', {
 		const { className } = props;
 
 		return (
-			<dd className={ className }>
-				<InnerBlocks
-					templateLock={ false }
-				/>
-			</dd>
+			<Fragment>
+				<dd className={ className }>
+					<InnerBlocks
+						templateLock={ false }
+					/>
+				</dd>
+			</Fragment>
 		);
 	},
 

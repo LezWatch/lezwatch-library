@@ -6,10 +6,8 @@
  */
 
 .wp-block-lez-library-listicles {
+    margin: 4px;
     counter-reset: listicle-counter;
-    padding: 10px;
-    dl {
-    }
     & dt:before {
       content: counter(listicle-counter);
       counter-increment: listicle-counter;
@@ -32,11 +30,21 @@
       }
     }
     dd {
-      margin: 0 2rem 0 2rem;
+        margin: 0 2rem 0 2rem;
     }
-
     .listicles-buttons {
         text-align: center;
         padding-top: 6px;
+    }
+    div.editor-inserter {
+        display: none;
+    }
+    div.listicles-innerblocks {
+        margin: 4px 0;
+        padding: 4px;
+        border: 1px solid #d3d3d3;
+    }
+    div.editor-inner-blocks {
+        margin: 1rem;
     }
 }
