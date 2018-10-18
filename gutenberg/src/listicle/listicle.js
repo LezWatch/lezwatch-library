@@ -13,11 +13,11 @@ const { Fragment } = wp.element;
 const { createBlock, registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { PanelBody, ToggleControl, RangeControl, IconButton } = wp.components;
+const { dispatch } = wp.data;
 
 /**
  * Some defaults
  */
-const MAX_ITEMS = 18;
 const getItemsTemplate = memoize( ( items ) => {
 	return times( items, () => [ 'lez-library/listitem' ] );
 } );
@@ -49,7 +49,7 @@ registerBlockType( 'lez-library/listicles', {
 	edit: props => {
 
 		const { attributes: { placeholder },
-			 className, setAttributes,  } = props;
+			 className, setAttributes, clientId } = props;
 		const { items, reversed } = props.attributes;
 
 		let reversai = '';
@@ -59,17 +59,19 @@ registerBlockType( 'lez-library/listicles', {
 			counter = parseInt(`${ items }`)+1;
 		}
 
+		/**
+		 * Add Item
+		 */
+		const onAddItem = () => {
+			setAttributes( { items: parseInt(`${ items }`)+1 } )
+			const block = createBlock( 'lez-library/listitem' )
+			dispatch( 'core/editor' ).insertBlock( block, items, clientId )
+		}
+
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ 'Listicle Settings' }>
-						<RangeControl
-							label={ 'Items' }
-							value={ items }
-							onChange={ ( value ) => setAttributes( { items: value } ) }
-							min={ 1 }
-							max={ MAX_ITEMS }
-						/>
 						<ToggleControl
 							label={ 'Reversed' }
 							help={ ( checked ) => checked ? 'Reversed order (10 - 1)' : 'Numerical order (1 - 10)' }
@@ -87,20 +89,14 @@ registerBlockType( 'lez-library/listicles', {
 						allowedBlocks={ [
 							[ 'lez-library/listitem' ]
 						] }
-						templateLock={ 'insert' }
+						defaultBlock={ 'lez-library/listitem' }
 					/>
 					<div className='listicles-buttons'>
 						<IconButton
 							icon='insert'
-							onClick={ () => setAttributes( { items: parseInt(`${ items }`)+1 } ) }
+							onClick={ onAddItem }
 							className='editor-inserter__toggle'
 						>Add Item</IconButton>
-
-						<IconButton
-							icon='dismiss'
-							onClick={ () => setAttributes( { items: parseInt(`${ items }`)-1 } ) }
-							className='editor-inserter__toggle'
-						>Remove Item</IconButton>
 
 						<IconButton
 							icon='controls-repeat'

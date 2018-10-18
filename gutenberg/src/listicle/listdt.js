@@ -37,6 +37,7 @@ registerBlockType( 'lez-library/listdt', {
 					tagName='dt'
 					className={ className }
 					value={ content }
+					formattingControls={ [ 'italic', 'strikethrough', 'bold', 'link' ] }
 					onChange={ ( content ) => setAttributes( { content } ) }
 				/>
 			</Fragment>

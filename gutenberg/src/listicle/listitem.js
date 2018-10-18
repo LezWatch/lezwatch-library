@@ -16,19 +16,32 @@ registerBlockType( 'lez-library/listitem', {
 	description: 'An individual list item.',
 
 	edit: function( props ) {
-		const { className } = props;
+		const { className, clientId } = props;
+
+		/**
+		 * Add Item
+		 */
+		const onRemoveItem = () => {
+			setAttributes( { items: parseInt(`${ items }`)-1 } )
+			const block = createBlock( 'lez-library/listitem' )
+			dispatch( 'core/editor' ).removeBlock( block, items, clientId )
+		}
 
 		return (
-				<InnerBlocks
-				template={ [
-					[ 'lez-library/listdt' ],
-					[ 'lez-library/listdd' ],
-				] }
-				allowedBlocks={ [
-					[ 'lez-library/listdt' ], [ 'lez-library/listdd' ]
-				] }
-				templateLock={ 'all' }
-				/>
+			<Fragment>
+				<div className='listicles-innerblocks' >
+					<InnerBlocks
+					template={ [
+						[ 'lez-library/listdt' ],
+						[ 'lez-library/listdd' ],
+					] }
+					allowedBlocks={ [
+						[ 'lez-library/listdt' ], [ 'lez-library/listdd' ]
+					] }
+					templateLock={ 'all' }
+					/>
+				</div>
+			</Fragment>
 		);
 	},
 
