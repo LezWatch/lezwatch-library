@@ -150,7 +150,7 @@ class LP_Shortcodes {
 
 		wp_enqueue_style( 'author-box-shortcode', content_url( 'library/assets/css/author-box.css' ), array(), self::$version );
 
-		$mystery    = '<div class="col-sm-3"><img src="http://0.gravatar.com/avatar/9c7ddb864b01d8e47ce3414c9bbf3008?s=64&d=mm&f=y&r=g"></div><div class="col-sm-9"><h4 class="author_name">Mystery Girl</h4><div class="author-bio">Yet another lesbian who slept with Shane. Or Sara Lance.</div></div>';
+		$mystery    = '<div class="col-sm-3"><img src="http://0.gravatar.com/avatar/9c7ddb864b01d8e47ce3414c9bbf3008?s=64&d=mm&f=y&r=g"></div><div class="col-sm"><h4 class="author_name">Mystery Girl</h4><div class="author-bio">Yet another lesbian who slept with Shane. Or Sara Lance.</div></div>';
 		$users      = explode( ',', sanitize_user( $attributes['users'] ) );
 		$author_box = '<div class="author-box-shortcode">';
 
@@ -195,7 +195,7 @@ class LP_Shortcodes {
 
 					// Build the author box
 					$author_details  = '<div class="col-sm-3">' . $gravatar . '</div>';
-					$author_details .= '<div class="col-sm-9">';
+					$author_details .= '<div class="col-sm">';
 					$author_details .= '<h4 class="author_name">' . $display_name . '</h4>';
 					$author_details .= '<div class="author-bio">' . nl2br( $user_description ) . '</div>';
 
