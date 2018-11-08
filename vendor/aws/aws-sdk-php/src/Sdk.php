@@ -30,6 +30,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionBatch(array $args = [])
  * @method \Aws\Budgets\BudgetsClient createBudgets(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionBudgets(array $args = [])
+ * @method \Aws\Chime\ChimeClient createChime(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionChime(array $args = [])
  * @method \Aws\Cloud9\Cloud9Client createCloud9(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCloud9(array $args = [])
  * @method \Aws\CloudDirectory\CloudDirectoryClient createCloudDirectory(array $args = [])
@@ -218,6 +220,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionPI(array $args = [])
  * @method \Aws\Pinpoint\PinpointClient createPinpoint(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionPinpoint(array $args = [])
+ * @method \Aws\PinpointEmail\PinpointEmailClient createPinpointEmail(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionPinpointEmail(array $args = [])
  * @method \Aws\Polly\PollyClient createPolly(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionPolly(array $args = [])
  * @method \Aws\Pricing\PricingClient createPricing(array $args = [])
@@ -295,7 +299,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.67.22';
+    const VERSION = '3.71.0';
 
     /** @var array Arguments for creating clients */
     private $args;
