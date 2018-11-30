@@ -25,7 +25,6 @@
         "docs": "https://github.com/lezwatch/lwtv-underscores/wiki"
     },
     "require": {
-        "exeu/apai-io": "~2.0",
         "aws/aws-sdk-php": "^3.63"
     }
 }

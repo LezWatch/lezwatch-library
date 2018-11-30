@@ -1,17 +1,17 @@
 [
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.71.0",
-        "version_normalized": "3.71.0.0",
+        "version": "3.80.1",
+        "version_normalized": "3.80.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "8585a1b39db65ed393dff4018fe545ea44005532"
+            "reference": "16819253927a18f96c9bbd85cb1b47419e5bc371"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8585a1b39db65ed393dff4018fe545ea44005532",
-            "reference": "8585a1b39db65ed393dff4018fe545ea44005532",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/16819253927a18f96c9bbd85cb1b47419e5bc371",
+            "reference": "16819253927a18f96c9bbd85cb1b47419e5bc371",
             "shasum": ""
         },
         "require": {
@@ -45,7 +45,7 @@
             "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2018-11-06T22:04:52+00:00",
+        "time": "2018-11-30T00:01:18+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -82,62 +82,6 @@
             "glacier",
             "s3",
             "sdk"
-        ]
-    },
-    {
-        "name": "exeu/apai-io",
-        "version": "2.2.0",
-        "version_normalized": "2.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Exeu/apai-io.git",
-            "reference": "ba5bb754f59f744e927a3bdf4b339fa2a0afb44f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Exeu/apai-io/zipball/ba5bb754f59f744e927a3bdf4b339fa2a0afb44f",
-            "reference": "ba5bb754f59f744e927a3bdf4b339fa2a0afb44f",
-            "shasum": ""
-        },
-        "require": {
-            "guzzlehttp/guzzle": "~6.0",
-            "php": ">=5.6.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~5.0"
-        },
-        "time": "2018-02-12T10:44:56+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "ApaiIO\\": "src/ApaiIO"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Jan Eichhorn",
-                "email": "exeu65@googlemail.com",
-                "role": "Maintainer"
-            },
-            {
-                "name": "Dejan Spasic",
-                "email": "dejan.spasic@bitweise.biz",
-                "role": "Developer"
-            }
-        ],
-        "description": "Amazon Product Advertising PHP Library",
-        "homepage": "https://github.com/Exeu/apai-io",
-        "keywords": [
-            "ECS",
-            "Product Advertising",
-            "amazon",
-            "products",
-            "rest"
         ]
     },
     {

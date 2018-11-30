@@ -12,5 +12,4 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
-    'ApaiIO\\' => array($vendorDir . '/exeu/apai-io/src/ApaiIO'),
 );
