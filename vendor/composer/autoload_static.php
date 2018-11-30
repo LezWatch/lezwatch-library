@@ -32,7 +32,6 @@ class ComposerStaticInit1fd829985f52ee4fc0bd0f31e10dbcc2
         'A' => 
         array (
             'Aws\\' => 4,
-            'ApaiIO\\' => 7,
         ),
     );
 
@@ -60,10 +59,6 @@ class ComposerStaticInit1fd829985f52ee4fc0bd0f31e10dbcc2
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
-        ),
-        'ApaiIO\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/exeu/apai-io/src/ApaiIO',
         ),
     );
 

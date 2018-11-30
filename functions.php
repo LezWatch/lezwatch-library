@@ -13,9 +13,7 @@
  */
 
 // Composer
-// Disabling because we don't need this at the moment. It only
-// calls the amazon API.
-// require_once 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 // Features and WP Stuff
 require_once 'features/dashboard.php';
