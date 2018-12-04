@@ -46,7 +46,7 @@ class LezWatch_Library_Gutenberg {
 		wp_enqueue_style(
 			'lez-library-gutenberg-style', // Handle.
 			content_url( 'library/gutenberg/' . $build_css ),
-			array( 'wp-blocks' ),
+			array( 'wp-editor' ),
 			filemtime( self::$directory . '/' . $build_css )
 		);
 	}
@@ -57,7 +57,7 @@ class LezWatch_Library_Gutenberg {
 		wp_enqueue_script(
 			'lez-library-gutenberg-blocks', // Handle.
 			content_url( 'library/gutenberg/' . $build_js ),
-			array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
+			array( 'wp-i18n', 'wp-element' ),
 			filemtime( self::$directory . '/' . $build_js ),
 			true
 		);
