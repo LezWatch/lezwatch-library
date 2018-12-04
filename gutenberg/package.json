@@ -8,7 +8,7 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "cgb-scripts": "1.9.8",
+    "cgb-scripts": "1.13.0",
     "classnames": "2.2.5",
     "lodash": "4.17.10",
     "lodash.times": "4.3.2",
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.52",
     "@babel/core": "7.0.0-beta.52",
-    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-env": "^7.2.0",
     "babel-plugin-lodash": "3.3.4"
   }
 }
