@@ -9,14 +9,5 @@
  * Webpack is compiling as the input file.
  */
 
-// Author Box
-import './author-box/block.js';
-
-// Listicles
-import './listicle/listicle.js'; // Main Listicle (the dl)
-import './listicle/listitem.js'; // List Items (includes dt and dd)
-import './listicle/listdt.js';   // The title of the item
-import './listicle/listdd.js';   // Free text!
-
 // Spoiler
 import './spoiler/block.js';

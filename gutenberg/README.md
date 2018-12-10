@@ -12,14 +12,8 @@ The overall code is called from the `/gutenberg/_main.php` file.
 
 * `blocks.js` - A list of all the separate JS files included
 
-_Author Box_
-* `author-box/block.js`
-
-_Listicle_
-* `/listicle/listicle.js` - The main listicle file
-* `/listicle/listitem.js` - Individual list items (this is only usable inside the Listicles block)
-* `/listicle/listdt.js` - The list title
-* `/listicle/listdd.js` - The list content (this allows you to add as many sub blocks as you can)
+_Spoiler Warning Box_
+* `spoiler/block.js`
 
 ### Notes
 
