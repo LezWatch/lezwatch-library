@@ -106,9 +106,7 @@ Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
 
 ### Gutenberg Widgets
 
-* Author Box - Insert and pick a name
 * Spoiler Warning - Insert and edit
-* Listicles - Insert a listicle for each item. Reversable and extendable.
 
 ### Plugins
 
@@ -124,7 +122,6 @@ Support for specific plugins.
 Vendor code used by Composer. _DO NOT_ exclude from GitHub or deploys.
 
 * AWS SDK (Official)
-* Amazon Product API (Unofficial)
 
 ## Development
 
