@@ -9,6 +9,11 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Bail early if Jetpack isn't active.
+if ( ! class_exists( 'Jetpack' ) ) {
+	return;
+}
+
 /**
  * LP_Jetpack_Feedback class.
  * Functions used by Jetpack
@@ -28,6 +33,44 @@ class LP_Jetpack_Feedback {
 		add_filter( 'display_post_states', array( $this, 'display_post_states' ) );
 		add_action( 'admin_footer-post.php', array( $this, 'add_archived_to_post_status_list' ) );
 		add_action( 'admin_footer-edit.php', array( $this, 'add_archived_to_bulk_edit' ) );
+		add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_spammers' ), 11, 2 );
+	}
+
+	/**
+	 * [jetpack_spammers description]
+	 * @param  boolean $is_spam   Default spam decision
+	 * @param  array   $form      The form data
+	 * @return boolean $is_spam   If the person is spam
+	 */
+	public function jetpack_spammers( $is_spam, $form ) {
+		// Defaults
+		$emaillist = array();
+		$iplist    = array();
+		$blacklist = explode( "\n", get_option( 'blacklist_keys' ) );
+
+		// Check the list for valid emails. Add them to spam if found.
+		// Also check for IP address and add them
+		foreach ( $blacklist as $spammer ) {
+			if ( is_email( $spammer ) ) {
+				$emaillist[] = $spammer;
+			} elseif ( filter_var( $spammer, FILTER_VALIDATE_IP ) ) {
+				$iplist = $spammer;
+			}
+		}
+
+		// Get the email from the form:
+		$this_email = $form['comment_author_email'];
+		// Get the IP address:
+		$this_ip = $form['comment_author_IP'];
+
+		// If the email or IP is on the list, spam it.
+		if ( in_array( $this_email, $emaillist ) || ( ! is_null( $this_ip ) && in_array( $this_ip, $iplist ) ) ) {
+			$is_spam = true;
+		}
+
+		// Return the results
+		return $is_spam;
+
 	}
 
 	/**
@@ -111,7 +154,7 @@ class LP_Jetpack_Feedback {
 	public function mark_as_answered() {
 
 		// If contact forms aren't active, we'll just pass
-		if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'contact-form' ) ) {
+		if ( Jetpack::is_module_active( 'contact-form' ) ) {
 
 			// Check Nonce
 			if ( isset( $_GET['answered_post_status-nonce'] ) && wp_verify_nonce( $_GET['answered_post_status-nonce'], 'answered_post_status-post_id' . $_GET['answered_post_status-post_id'] ) ) {
