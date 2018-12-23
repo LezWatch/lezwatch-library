@@ -34,6 +34,7 @@ class LP_Jetpack_Feedback {
 		add_action( 'admin_footer-post.php', array( $this, 'add_archived_to_post_status_list' ) );
 		add_action( 'admin_footer-edit.php', array( $this, 'add_archived_to_bulk_edit' ) );
 		add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_spammers' ), 11, 2 );
+		add_filter( 'jetpack_contact_form_is_spam', array( $this, 'way2enjoy_harassment' ), 11, 2 );
 	}
 
 	/**
@@ -71,6 +72,42 @@ class LP_Jetpack_Feedback {
 		// Return the results
 		return $is_spam;
 
+	}
+
+	/**
+	 * [way2enjoy_harassment description]
+	 * @param  boolean $is_spam   Default spam decision
+	 * @param  array   $form      The form data
+	 * @return boolean $is_spam   If the person is spam
+	 */
+	public function way2enjoy_harassment( $is_spam, $form ) {
+
+		// This is a person who is serial harassing.
+		$bad_names = array( 'sonam', 'Ravi', 'ravi' );
+		$bad_email = array( 'sonam', 'rstbiet' );
+		$bad_text  = array( 'Mika madam', 'mika madam', 'Tracy madam', 'tracy madam', 'Respected Madam', 'way2enjoy' );
+
+		// Check if the comment author is on the bad names list
+		if ( in_array( $form['comment_author'], $bad_names ) ) {
+			$is_spam = true;
+		}
+
+		// Check if the email is one of the bad ones
+		foreach ( $bad_email as $an_email ) {
+			if ( strpos( $form['comment_author_email'], $an_email ) ) {
+				$is_spam = true;
+			}
+		}
+
+		// Check if the text contains key phrases
+		foreach ( $bad_text as $a_text ) {
+			if ( strpos( $form['comment_content'], $a_text ) ) {
+				$is_spam = true;
+			}
+		}
+
+		// Return the results
+		return $is_spam;
 	}
 
 	/**
