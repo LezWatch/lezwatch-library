@@ -54,7 +54,7 @@ class LP_Jetpack_Feedback {
 			if ( is_email( $spammer ) ) {
 				$emaillist[] = $spammer;
 			} elseif ( filter_var( $spammer, FILTER_VALIDATE_IP ) ) {
-				$iplist = $spammer;
+				$iplist[] = $spammer;
 			}
 		}
 
@@ -64,7 +64,7 @@ class LP_Jetpack_Feedback {
 		$this_ip = $form['comment_author_IP'];
 
 		// If the email or IP is on the list, spam it.
-		if ( in_array( $this_email, $emaillist ) || ( ! is_null( $this_ip ) && in_array( $this_ip, $iplist ) ) ) {
+		if ( in_array( $this_email, $emaillist ) || in_array( $this_ip, $iplist ) ) {
 			$is_spam = true;
 		}
 
