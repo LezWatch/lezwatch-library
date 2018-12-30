@@ -9,5 +9,8 @@
  * Webpack is compiling as the input file.
  */
 
+// Private Note
+import './private-note/block.js';
+
 // Spoiler
 import './spoiler/block.js';

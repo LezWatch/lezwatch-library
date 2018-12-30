@@ -33,34 +33,25 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 * Images (Diane flipping people off)
 * FacetWP Pagination JS
 * Symbolicons
-* Symbolicons Color
 
 ### Features
 
 * Dashboard
     * Custom column for featured images in posts lists
     * Removal of self pings
-* Embeds (Work in Classic Editor and Gutenberg)
+* Embeds
     * Indiegogo
     * Gleam
     * DisneyABCPress videos
 * Shortcodes (See Details Below)
-    * Author Box
     * Badges
     * Copyright Year
-    * Gleam Embed
-    * Glossary
     * Number of Posts
-    * Spoiler Warning
 * Upgrades (everything auto updates)
 
 #### Shortcodes
 
 Custom Shortcodes:
-
-_Author Box_
-
-Usage: `[author-box users=username]`
 
 _Badges_
 
@@ -76,20 +67,6 @@ Attributes:
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
 
-_Gleam_
-
-Usage: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
-
-_Glossary_
-
-Show Category Icons used for taxonomies.
-
-Usage: `[glossary taxonomy=TAXONOMY]`
-
-_IndieGoGo_
-
-Usage: `[indiegogo url=URL]`
-
 _Number of Posts via shortcodes_
 
 Usage: `[numposts data="posts" posttype="post type" term="term slug" taxonomy="taxonomy slug"]`
@@ -100,13 +77,22 @@ Attributes:
 * term = term slug
 * taxonomy = taxonomy slug
 
-_Spoilers_
+**Deprecated**
 
-Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
+The following shortcodes shouldn't be used anymore. They've been replaced with Gutenberg Blocks.
 
-### Gutenberg Widgets
+* Author Box:  `[author-box users=username]`
+* Embed Gleam: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
+* Embed IndieGoGo: `[indiegogo url=URL]`
+* Glossary: `[glossary taxonomy=TAXONOMY]`
+* Spoilers: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
+
+### Gutenberg Blocks
+
+For development information, please read [gutenberg/README.md](the Gutenberg Readme)
 
 * Spoiler Warning - Insert and edit
+* Private Notes - Only displays in the editor.
 
 ### Plugins
 
@@ -116,6 +102,7 @@ Support for specific plugins.
   * Show Feedback in "Right Now"
   * Custom Icon for Feedback in "Right Now"
   * Mark feedbacks as having been answered
+  * Protection from spammers and harassers
 
 ### Vendor
 
