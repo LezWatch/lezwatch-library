@@ -25,7 +25,6 @@ require_once 'plugins/jetpack.php';
 
 // Symbolicons
 require_once 'assets/symbolicons.php';
-require_once 'assets/symboliconscolor.php';
 
 /**
  * LezPress_Network class.
