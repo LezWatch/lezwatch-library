@@ -10,7 +10,7 @@
  */
 
 // Featured Image
-//import './featured-image/block.js';
+import './featured-image/block.js';
 
 // Private Note
 import './private-note/block.js';
