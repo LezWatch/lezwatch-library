@@ -9,6 +9,9 @@
  * Webpack is compiling as the input file.
  */
 
+// Featured Image
+import './featured-image/block.js';
+
 // Private Note
 import './private-note/block.js';
 
