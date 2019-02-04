@@ -1,5 +1,5 @@
 {
-	"name": "LezWatch/library",
+	"name": "lezwatch/library",
     "description": "Basic Library for all LezWatchy products.",
     "version": "3.0.0",
     "type": "library",
