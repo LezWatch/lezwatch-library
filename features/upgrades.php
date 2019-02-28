@@ -6,8 +6,11 @@ Version: 1.0
 Author: Mika Epstein
 */
 
-// auto updates
-//define( 'WP_AUTO_UPDATE_CORE', true );
+// Prevent auto upgrades if we're on the dev site.
+if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
+	return;
+}
+
 define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
 
 // Force auto plugin updates:
