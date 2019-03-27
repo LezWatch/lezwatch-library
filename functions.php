@@ -127,7 +127,11 @@ class LezPress_Network {
 	 * Since: 2.1.0
 	 */
 	public function lwtv_restrict_site_access_ip_match() {
-		session_start();
+		// @codingStandardsIgnoreStart
+		if ( ! is_user_logged_in() && session_status() != PHP_SESSION_ACTIVE ) {
+			@session_start();
+		}
+		// @codingStandardsIgnoreEnd
 	}
 
 	/**
