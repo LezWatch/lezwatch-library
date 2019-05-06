@@ -12,6 +12,9 @@ The overall code is called from the `/gutenberg/_main.php` file.
 
 * `blocks.js` - A list of all the separate JS files included
 
+_Featured Image_
+* `featured-image/block.js`
+
 _Private Note Box_
 * `private-note/block.js`
 
