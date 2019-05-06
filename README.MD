@@ -12,27 +12,17 @@ Features include:
 * Customized Login Pages
 * And ...
 
-### Advertising
-
-Global Advertising code
-
-_Display Affiliate Ads_
-
-Usage: `[affiliates type={random|genesis|facetwp|dreamhost} size={heightxwidth}]`
-
-(Currently all ads are 300x250 for ... reasons)
-
-_Display Amazon Ads_
-
-Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
-
 ### Assets
 
-* CSS for Author Box shortcode
-* CSS for Symbolicons on Admin
-* Images (Diane flipping people off)
+* Amazon API
+* CSS
+    * Author Box shortcode
+    * Symbolicons on Admin
+    * WP Admin tweaks
+* Images
+    * Diane flipping people off
+    * login page icons
 * FacetWP Pagination JS
-* Symbolicons
 
 ### Features
 
@@ -40,18 +30,17 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
     * Custom column for featured images in posts lists
     * Removal of self pings
 * Embeds
-    * Indiegogo
-    * Gleam
     * DisneyABCPress videos
-* Shortcodes (See Details Below)
+    * Gleam
+    * GoFundMe
+    * Indiegogo
+* Shortcodes (See details below)
     * Badges
     * Copyright Year
     * Number of Posts
 * Upgrades (everything auto updates)
 
-#### Shortcodes
-
-Custom Shortcodes:
+#### Custom Shortcodes
 
 _Badges_
 
@@ -91,8 +80,16 @@ The following shortcodes shouldn't be used anymore. They've been replaced with G
 
 For development information, please read [gutenberg/README.md](the Gutenberg Readme)
 
+* Featured Image
 * Spoiler Warning - Insert and edit
 * Private Notes - Only displays in the editor.
+
+_Featured Image_
+
+Allows featured images to be added to post content. This will **not** make the image show in-line, it's for the backend only.
+
+_Private Note_
+
 
 ### Plugins
 
