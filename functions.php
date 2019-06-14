@@ -46,7 +46,7 @@ class LezPress_Network {
 		// Login Page Changes
 		add_action( 'login_enqueue_scripts', array( $this, 'login_logos' ) );
 		add_filter( 'login_headerurl', array( $this, 'login_headerurl' ) );
-		add_filter( 'login_headertitle', array( $this, 'login_headertitle' ) );
+		add_filter( 'login_headertext', array( $this, 'login_headertitle' ) );
 		add_filter( 'login_errors', array( $this, 'login_errors' ) );
 
 		// When in Dev Mode...
