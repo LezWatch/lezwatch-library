@@ -36,3 +36,7 @@
 .wp-block-lez-library-featured-image button.is-destructive:hover:after {
 	background-color: #eeeeee;
 }
+
+.wp-block-lez-library-featured-image .components-notice.is-notice {
+	display: none;
+}
