@@ -17,6 +17,8 @@ registerBlockType( 'lez-library/featured-image', {
 	category: 'lezwatch',
 	description: 'Featured Image inside the editor.',
 	inserter: false,
+	multiple: false,
+	reusable: false,
 
 	edit( { className } ) {
 		return (
