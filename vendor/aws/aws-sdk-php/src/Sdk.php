@@ -144,6 +144,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionElasticsearchService(array $args = [])
  * @method \Aws\Emr\EmrClient createEmr(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionEmr(array $args = [])
+ * @method \Aws\EventBridge\EventBridgeClient createEventBridge(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionEventBridge(array $args = [])
  * @method \Aws\FMS\FMSClient createFMS(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionFMS(array $args = [])
  * @method \Aws\FSx\FSxClient createFSx(array $args = [])
@@ -373,7 +375,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.104.1';
+    const VERSION = '3.108.2';
 
     /** @var array Arguments for creating clients */
     private $args;
