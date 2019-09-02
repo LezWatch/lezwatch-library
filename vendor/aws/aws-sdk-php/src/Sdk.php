@@ -152,6 +152,10 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionFSx(array $args = [])
  * @method \Aws\Firehose\FirehoseClient createFirehose(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionFirehose(array $args = [])
+ * @method \Aws\ForecastQueryService\ForecastQueryServiceClient createForecastQueryService(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionForecastQueryService(array $args = [])
+ * @method \Aws\ForecastService\ForecastServiceClient createForecastService(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionForecastService(array $args = [])
  * @method \Aws\GameLift\GameLiftClient createGameLift(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionGameLift(array $args = [])
  * @method \Aws\Glacier\GlacierClient createGlacier(array $args = [])
@@ -377,7 +381,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.109.2';
+    const VERSION = '3.110.7';
 
     /** @var array Arguments for creating clients */
     private $args;
