@@ -37,7 +37,11 @@ class LezPress_Network {
 	public function __construct() {
 		self::$version = '3.0';
 
-		// Close comments on media
+		// Disable check for 'is your admin password legit'.
+		// https://make.wordpress.org/core/2019/10/17/wordpress-5-3-admin-email-verification-screen/
+		add_filter( 'admin_email_check_interval', '__return_false' );
+
+		// Force close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10, 2 );
 
 		// Enqueue scripts
