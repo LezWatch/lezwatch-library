@@ -78,6 +78,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionCodePipeline(array $args = [])
  * @method \Aws\CodeStar\CodeStarClient createCodeStar(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCodeStar(array $args = [])
+ * @method \Aws\CodeStarNotifications\CodeStarNotificationsClient createCodeStarNotifications(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionCodeStarNotifications(array $args = [])
  * @method \Aws\CognitoIdentity\CognitoIdentityClient createCognitoIdentity(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCognitoIdentity(array $args = [])
  * @method \Aws\CognitoIdentityProvider\CognitoIdentityProviderClient createCognitoIdentityProvider(array $args = [])
@@ -322,6 +324,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionSageMaker(array $args = [])
  * @method \Aws\SageMakerRuntime\SageMakerRuntimeClient createSageMakerRuntime(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSageMakerRuntime(array $args = [])
+ * @method \Aws\SavingsPlans\SavingsPlansClient createSavingsPlans(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionSavingsPlans(array $args = [])
  * @method \Aws\SecretsManager\SecretsManagerClient createSecretsManager(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSecretsManager(array $args = [])
  * @method \Aws\SecurityHub\SecurityHubClient createSecurityHub(array $args = [])
@@ -387,7 +391,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.112.23';
+    const VERSION = '3.114.1';
 
     /** @var array Arguments for creating clients */
     private $args;
