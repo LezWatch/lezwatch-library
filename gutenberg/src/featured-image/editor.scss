@@ -33,10 +33,18 @@
 	text-indent: 0;
 }
 
+.wp-block-lez-library-featured-image button.is-link.is-destructive {
+	display: none;
+}
+
 .wp-block-lez-library-featured-image button.is-destructive:hover:after {
 	background-color: #eeeeee;
 }
 
 .wp-block-lez-library-featured-image .components-notice.is-notice {
 	display: none;
+}
+
+body.post-type-post_type_actors  .block-editor-rich-text__editable.wp-block-paragraph:not(.is-selected) [data-rich-text-placeholder]:after, body.post-type-post_type_characters  .block-editor-rich-text__editable.wp-block-paragraph:not(.is-selected) [data-rich-text-placeholder]:after {
+	display: block!important;
 }

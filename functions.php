@@ -41,6 +41,9 @@ class LezPress_Network {
 		// https://make.wordpress.org/core/2019/10/17/wordpress-5-3-admin-email-verification-screen/
 		add_filter( 'admin_email_check_interval', '__return_false' );
 
+		// Extend the cookies
+		add_filter( 'auth_cookie_expiration', array( $this, 'extend_login_session' ) );
+
 		// Force close comments on media
 		add_filter( 'comments_open', array( $this, 'filter_media_comment_status' ), 10, 2 );
 
@@ -148,6 +151,16 @@ class LezPress_Network {
 			return false;
 		}
 		return $open;
+	}
+
+	/**
+	 * Extend login sessions
+	 * @param  int    $expire Current expire length (3 days)
+	 * @return int            New time
+	 */
+	public function extend_login_session( $expire ) {
+		// Set login session limit in seconds
+		return YEAR_IN_SECONDS;
 	}
 
 }
