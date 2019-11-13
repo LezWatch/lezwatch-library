@@ -28,7 +28,7 @@ Gutenberg is _very_ sensitive to changes, which can invalidate a block and cause
 1. Do _not_ rename any functions
 2. Do _not_ change the output
 
-Basically, leave it alone as much as possible.
+Basically, leave it alone as much as possible. You can safely fiddle with CSS a lot of the time, but that's often it.
 
 ## Installation and Building
 
