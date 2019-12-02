@@ -9,7 +9,7 @@ import './editor.scss';
 
 const { registerBlockType } = wp.blocks;
 const { createElement } = wp.element;
-const { RichText, InspectorControls } = wp.editor;
+const { RichText, InspectorControls } = wp.blockEditor;
 const { SelectControl, ToggleControl } = wp.components;
 
 registerBlockType( 'lez-library/spoilers', {

@@ -9,7 +9,8 @@ import './editor.scss';
 
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
-const { InnerBlocks, InspectorControls } = wp.editor;
+const { InspectorControls } = wp.blockEditor;
+const { InnerBlocks } = wp.editor;
 
 registerBlockType( 'lez-library/private-note', {
 	title: 'Private Note',
