@@ -1,0 +1,22 @@
+{
+  "name": "lez-library-gutenberg",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "start": "cgb-scripts start",
+    "build": "cgb-scripts build"
+  },
+  "dependencies": {
+    "cgb-scripts": ">=1.22.0",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "lodash.times": "4.3.2",
+    "memize": "1.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-plugin-lodash": "3.3.4"
+  }
+}

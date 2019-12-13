@@ -5,25 +5,28 @@
  * Shows the symbolicons settings page, based on the contents on
  * /mu-plugins/symbolicons
  *
- * Version:    2.0
- * Author:     Mika A. Epstein
- * Author URI: https://halfelf.org
- * License:    GPL-2.0+
- *
+ * @version 2.0
+ * @package library
  */
 
-$upload_dir = wp_upload_dir();
-
-if ( !defined( 'LP_SYMBOLICONS_PATH' ) ) define( 'LP_SYMBOLICONS_PATH', $upload_dir['basedir'] . '/lezpress-icons/symbolicons/' );
-
-if ( !defined( 'LP_SYMBOLICONS_URL' ) ) define( 'LP_SYMBOLICONS_URL', $upload_dir['baseurl'] . '/lezpress-icons/symbolicons/' );
-
 // if this file is called directly abort
-if ( ! defined('WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+$upload_dir = wp_upload_dir();
+
+if ( ! defined( 'LP_SYMBOLICONS_PATH' ) ) {
+	define( 'LP_SYMBOLICONS_PATH', $upload_dir['basedir'] . '/lezpress-icons/symbolicons/' );
+}
+
+if ( ! defined( 'LP_SYMBOLICONS_URL' ) ) {
+	define( 'LP_SYMBOLICONS_URL', $upload_dir['baseurl'] . '/lezpress-icons/symbolicons/' );
+}
+
 class LP_SymboliconsSettings {
+
+	protected static $version;
 
 	/*
 	 * Construct
@@ -33,6 +36,7 @@ class LP_SymboliconsSettings {
 	public function __construct() {
 		add_action( 'init', array( &$this, 'init' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
+		self::$version = '2.0';
 	}
 
 	/*
@@ -51,7 +55,7 @@ class LP_SymboliconsSettings {
 	 * admin_enqueue_scripts
 	 */
 	public function admin_enqueue_scripts() {
-		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), false );
+		wp_register_style( 'symbolicons-admin', content_url( '/library/assets/css/symbolicons-admin.css' ), array(), self::$version );
 	}
 
 	/*
@@ -65,7 +69,7 @@ class LP_SymboliconsSettings {
 	 *   - url: URL to link to (optional)
 	 * @return SVG icon of awesomeness
 	 */
-	function shortcode( $atts ) {
+	public function shortcode( $atts ) {
 		$svg = shortcode_atts( array(
 			'file'  => '',
 			'title' => '',
@@ -73,11 +77,13 @@ class LP_SymboliconsSettings {
 		), $atts );
 
 		// Default to the square if nothing is there
-		if ( !file_exists( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) ) $svg[ 'file' ] = 'square';
+		if ( ! file_exists( LP_SYMBOLICONS_PATH . $svg['file'] . '.svg' ) ) {
+			$svg['file'] = 'square';
+		}
 
-		$the_icon = '<span class="symbolicon" role="img" aria-label="' . sanitize_text_field( $svg[ 'title' ] ) . '" title="' . sanitize_text_field( $svg[ 'title' ] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg[ 'title' ] ) . '">' . file_get_contents( LP_SYMBOLICONS_PATH . $svg[ 'file' ] . '.svg' ) . '</span>';
+		$the_icon = '<span class="symbolicon" role="img" aria-label="' . sanitize_text_field( $svg['title'] ) . '" title="' . sanitize_text_field( $svg['title'] ) . '" class="svg-shortcode ' . sanitize_text_field( $svg['title'] ) . '">' . file_get_contents( LP_SYMBOLICONS_PATH . $svg['file'] . '.svg' ) . '</span>';
 
-		if ( !empty( $svg[ 'url' ] ) ) {
+		if ( ! empty( $svg['url'] ) ) {
 			$iconpath = '<a href=' . esc_url( $svg['url'] ) . '> ' . $the_icon . ' </a>';
 		} else {
 			$iconpath = $the_icon;
@@ -100,7 +106,7 @@ class LP_SymboliconsSettings {
 	 *
 	 * A list of all the Symbolicons and how to use them. Kind of.
 	 */
-	function settings_page() {
+	public function settings_page() {
 		?>
 		<div class="wrap">
 
@@ -126,13 +132,16 @@ class LP_SymboliconsSettings {
 		<?php
 		echo '<p>The following are all the symbolicons you have to chose from and their file names. Let this help you be more better with your iconing.</p>';
 
-		foreach( glob( LP_SYMBOLICONS_PATH . '*' ) as $filename ){
-			$name = str_replace( LP_SYMBOLICONS_PATH, '' , $filename );
+		foreach ( glob( LP_SYMBOLICONS_PATH . '*' ) as $filename ) {
+			$name = str_replace( LP_SYMBOLICONS_PATH, '', $filename );
 			$name = str_replace( '.svg', '', $name );
-			echo '<span class="cmb2-icon" role="img">' . file_get_contents( $filename ) . $name . '</span>';
+			// @codingStandardsIgnoreStart
+			echo '<span class="cmb2-icon" role="img">' . file_get_contents( $filename ) . esc_html( $name ) . '</span>';
+			// @codingStandardsIgnoreEnd
 		}
-		
-		?></div><?php
+		?>
+		</div>
+		<?php
 	}
 
 }

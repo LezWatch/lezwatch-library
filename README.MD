@@ -6,58 +6,43 @@ Code shared by all LezWatch sites
 
 Instead of an MU Plugin, this is a library of code that is called by the sub-plugins. This way updates can be segmented. It lives in `/wp-content/library/`
 
-Includes:
+Features include:
 
-* Automatic upgrades for themes, plugins, and core WordPress (Skipping Akismet, Hello Dolly, and the default themes).
-* Custom column for featured images in posts lists
-* Removal of self pings
-* Prevent Varnish caching when Restricted Site Access is in use on a site where `LWTV_DEV_SITE` is true.
-
-### Advertising
-
-Global Advertising code
-
-_Display Affiliate Ads_
-
-Usage: `[affiliates type={random|genesis|facetwp|dreamhost} size={heightxwidth}]`
-
-(Currently all ads are 300x250 for ... reasons)
-
-_Display Amazon Ads_
-
-Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
+* Disabled comments on media files
+* Customized Login Pages
+* And ...
 
 ### Assets
 
-* Amazon Affiliate Resource code (apai-io)
-* CSS for Author Box shortcode
-* CSS for Symbolicons on Admin
-* Disabled comments on media files
+* Amazon API
+* CSS
+    * Author Box shortcode
+    * Symbolicons on Admin
+    * WP Admin tweaks
+* Images
+    * Diane flipping people off
+    * login page icons
 * FacetWP Pagination JS
-* Symbolicons
-* Symbolicons Color
 
-### Dashboard customizations
+### Features
 
-* Prevent self pings by interlinks
-* Custom column with icon for featured images in posts
+* Dashboard
+    * Custom column for featured images in posts lists
+    * Removal of self pings
+* Embeds
+    * DisneyABCPress videos
+    * Gleam
+    * GoFundMe
+    * Indiegogo
+* Shortcodes (See details below)
+    * Badges
+    * Copyright Year
+    * Number of Posts
+* Upgrades (everything auto updates)
 
-### Plugins
+#### Custom Shortcodes
 
-* Jetpack:
-  * Show Feedback in "Right Now"
-  * Custom Icon for Feedback in "Right Now"
-  * Mark feedbacks as having been answered
-
-### Shortcodes
-
-Custom Shortcodes:
-
-_Author Box_
-
-Usage: `[author-box users=username]`
-
-_Badges_ 
+_Badges_
 
 Insert Bootstrap badge code as a shortcode not HTML
 
@@ -68,27 +53,8 @@ _Copyright Year_
 Usage: `[copyright year=(start year) text=(copyright text)]`
 
 Attributes:
-
 * year = (int) start year. (default: current year)
 * text = (text) copyright message. (default: &copy; )
-
-_Gleam_
-
-Embed a Gleam contest
-
-Usage: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
-
-_Glossary_
-
-Show Category Icons used for taxonomies.
-
-Usage: `[glossary taxonomy=TAXONOMY]`
-
-_IndieGoGo_
-
-Embed an IndieGoGo campaign
-
-Usage: `[indiegogo url=URL]`
 
 _Number of Posts via shortcodes_
 
@@ -100,15 +66,56 @@ Attributes:
 * term = term slug
 * taxonomy = taxonomy slug
 
-_Spoilers_
+**Deprecated**
 
-Embed an Spoiler Alert
+The following shortcodes shouldn't be used anymore. They've been replaced with Gutenberg Blocks.
 
-Usage: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
+* Author Box:  `[author-box users=username]`
+* Embed Gleam: `[gleam url="https://gleam.io/iR0GQ/gleam-demo-competition"]Gleam Demo Competition[/gleam]`
+* Embed IndieGoGo: `[indiegogo url=URL]`
+* Glossary: `[glossary taxonomy=TAXONOMY]`
+* Spoilers: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
 
-## Deployment
+### Gutenberg Blocks
+
+For development information, please read [gutenberg/README.md](the Gutenberg Readme)
+
+* Featured Image
+* Spoiler Warning - Insert and edit
+* Private Notes - Only displays in the editor.
+
+_Featured Image_
+
+Allows featured images to be added to post content. This will **not** make the image show in-line, it's for the backend only.
+
+_Private Note_
+
+
+### Plugins
+
+Support for specific plugins.
+
+* Jetpack:
+  * Show Feedback in "Right Now"
+  * Custom Icon for Feedback in "Right Now"
+  * Mark feedbacks as having been answered
+  * Protection from spammers and harassers
+
+### Vendor
+
+Vendor code used by Composer. _DO NOT_ exclude from GitHub or deploys.
+
+* AWS SDK (Official)
+
+## Development
+
+Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
+
+To update libraries, run `composer update`
+
+### Deployment
 
 Pushes to branches are automatically deployed via Codeship as follows:
 
-* Development: lwtv.dream.press
-* Master: lezwatchtv.com, lezwatchcommercials.com, lezpress.com
+* Development: [lwtv.dream.press](https://lwtv.dream.press)
+* Master: [lezwatchtv.com](https://lezwatchtv.com), [lezwatchcommercials.com](https://lezwatchcommercials.com), [lezpress.com](https://lezpress.com)
