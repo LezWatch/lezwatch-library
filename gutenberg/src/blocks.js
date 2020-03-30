@@ -17,3 +17,10 @@ import './private-note/block.js';
 
 // Spoiler
 import './spoiler/block.js';
+
+// Disable fullscreen editor
+const isFullscreenMode = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fullscreenMode' );
+
+if ( isFullscreenMode ) {
+    wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fullscreenMode' );
+}
