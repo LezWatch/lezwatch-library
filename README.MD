@@ -101,12 +101,6 @@ Support for specific plugins.
   * Mark feedbacks as having been answered
   * Protection from spammers and harassers
 
-### Vendor
-
-Vendor code used by Composer. _DO NOT_ exclude from GitHub or deploys.
-
-* AWS SDK (Official)
-
 ## Development
 
 Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
