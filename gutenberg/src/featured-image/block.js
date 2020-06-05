@@ -34,7 +34,7 @@ registerBlockType( 'lez-library/featured-image', {
 		);
 	},
 	save( { className } ) {
-		// Doesn't save an data. Defer's to theme's placement of featured image.
+		// Doesn't save any data. Defer's to theme's placement of featured image.
 		return '';
 	},
 } );
