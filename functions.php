@@ -2,7 +2,7 @@
 /*
  * Library: Functions
  * Description: Special Functions
- * Version: 3.0
+ * Version: 3.1
  * Author: Mika Epstein
  *
  * @package library
@@ -32,7 +32,7 @@ class LezPress_Network {
 	protected static $version;
 
 	public function __construct() {
-		self::$version = '3.0';
+		self::$version = '3.1';
 
 		// Disable check for 'is your admin password legit'.
 		// https://make.wordpress.org/core/2019/10/17/wordpress-5-3-admin-email-verification-screen/
