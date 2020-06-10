@@ -12,9 +12,6 @@
  * File Includes
  */
 
-// Composer
-require_once 'vendor/autoload.php';
-
 // Features and WP Stuff
 require_once 'features/dashboard.php';
 require_once 'features/embeds.php';
