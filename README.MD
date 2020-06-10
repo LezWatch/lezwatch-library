@@ -112,4 +112,4 @@ To update libraries, run `composer update`
 Pushes to branches are automatically deployed via Codeship as follows:
 
 * Development: [lezwatchtvcom.stage.site](https://lezwatchtvcom.stage.site)
-* Master: [lezwatchtv.com](https://lezwatchtv.com), [lezwatchcommercials.com](https://lezwatchcommercials.com), [lezpress.com](https://lezpress.com)
+* Main: [lezwatchtv.com](https://lezwatchtv.com), [lezwatchcommercials.com](https://lezwatchcommercials.com), [lezpress.com](https://lezpress.com)
