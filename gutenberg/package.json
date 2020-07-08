@@ -1,6 +1,6 @@
 {
   "name": "lez-library-gutenberg",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "start": "cgb-scripts start",
@@ -9,7 +9,7 @@
   "dependencies": {
     "cgb-scripts": ">=1.23.0",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.times": "4.3.2",
     "memize": "^1.1.0"
   },
