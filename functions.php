@@ -18,7 +18,7 @@ require_once 'features/embeds.php';
 require_once 'features/shortcodes.php';
 require_once 'features/upgrades.php';
 require_once 'gutenberg/_main.php';
-require_once 'plugins/jetpack.php';
+require_once 'plugins/_main.php';
 
 // Symbolicons
 require_once 'assets/symbolicons.php';

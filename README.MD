@@ -101,6 +101,9 @@ Support for specific plugins.
   * Mark feedbacks as having been answered
   * Protection from spammers and harassers
 
+* Comment Probation:
+  * Forked due to lack of support and changes needed for WP 5.5
+
 ## Development
 
 Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
