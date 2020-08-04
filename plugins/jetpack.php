@@ -35,8 +35,11 @@ class LP_Jetpack_Feedback {
 		add_action( 'admin_footer-post.php', array( $this, 'add_archived_to_post_status_list' ) );
 		add_action( 'admin_footer-edit.php', array( $this, 'add_archived_to_bulk_edit' ) );
 
+		// Disable jetpack sharing counts to not phone home to Facebook.
+		add_filter( 'jetpack_sharing_counts', '__return_false' );
+
 		// This will be added in an upcoming version of Jetpack
-		if ( ! method_exists( 'Grunion_Contact_Form_Plugin', 'is_spam_blacklist' ) ) {
+		if ( ! method_exists( 'Grunion_Contact_Form_Plugin', 'is_spam_blocklist' ) ) {
 			add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_spammers' ), 11, 2 );
 		}
 		add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_harassment' ), 11, 2 );
