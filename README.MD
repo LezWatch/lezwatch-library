@@ -108,7 +108,7 @@ Support for specific plugins.
 
 Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
 
-To update libraries, run `composer update`
+At this time, there are no 3rd party libraries.
 
 ### Deployment
 
