@@ -168,7 +168,7 @@ class LP_Jetpack_Feedback {
 	public function display_post_states( $states ) {
 		global $post;
 
-		if ( 'feedback' === $post->post_type ) {
+		if ( is_object( $post ) && 'feedback' === $post->post_type ) {
 			$arg = get_query_var( 'post_status' );
 			if ( 'answered' !== $arg ) {
 				if ( 'answered' === $post->post_status ) {
@@ -230,11 +230,11 @@ class LP_Jetpack_Feedback {
 		$label    = '';
 
 		// Bail if not feedback
-		if ( 'feedback' === $post->post_type ) {
+		if ( is_object( $post ) && 'feedback' === $post->post_type ) {
 			return;
 		}
 
-		if ( 'answered' === $post->post_status ) {
+		if ( is_object( $post ) && 'answered' === $post->post_status ) {
 			echo '
 				<script>
 					jQuery(document).ready(function($){
@@ -257,7 +257,7 @@ class LP_Jetpack_Feedback {
 
 	public function add_archived_to_bulk_edit() {
 		global $post;
-		if ( ! isset( $post->post_type ) || 'feedback' !== $post->post_type ) {
+		if ( ! is_object( $post ) || 'feedback' !== $post->post_type ) {
 			return;
 		}
 		?>
