@@ -76,11 +76,11 @@ class LP_Jetpack_Feedback {
 			return $is_spam;
 		}
 
-		$badlist   = array();
-		$blacklist = explode( "\n", get_option( 'blacklist_keys' ) );
+		$badlist    = array();
+		$disallowed = LP_Find_Spammers::list();
 
 		// Check the list for valid emails. Add the email _USERNAME_ to the list
-		foreach ( $blacklist as $spammer ) {
+		foreach ( $disallowed as $spammer ) {
 			if ( is_email( $spammer ) ) {
 				$emailparts = explode( '@', $spammer );
 				$username   = $emailparts[0];
@@ -95,12 +95,10 @@ class LP_Jetpack_Feedback {
 		}
 
 		// Check if the email username is one of the bad ones
-		// This will allow spammer@example.com AND spammer+foobar@example.com to get caught
-		// Alas innocent@spammer.com will ALSO be caught here.
-		foreach ( $badlist as $bad_person ) {
-			if ( preg_match( '/' . $bad_person . '/', $form['comment_author_email'] ) ) {
-				return true;
-			}
+		// Get a true/falsy
+		$is_spammer = Lezwatch_Find_Spammers::is_spammer( $form['comment_author_email'] );
+		if ( $is_spammer ) {
+			return true;
 		}
 
 		return false;

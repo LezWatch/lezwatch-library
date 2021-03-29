@@ -34,16 +34,16 @@ class Plugin_Comment_Probation {
 	}
 
 	public function gettext( $translated, $original, $domain ) {
-		if ( 'Comment author must have a previously approved comment' != $original ) {
+		if ( 'Comment author must have a previously approved comment' !== $original ) {
 			return $translated;
 		}
 
-		return sprintf( __( 'Comment author must have a previously approved comment (<a href="%s">and not be on probation</a>)', 'comment-probation' ), network_admin_url( 'plugins.php' ) . '#comment-probation' );
+		return sprintf( 'Comment author must have a previously approved comment (<a href="%s">and not be on probation</a>)', network_admin_url( 'plugins.php' ) . '#comment-probation' );
 	}
 
 	public function wp_set_comment_status( $comment_id, $status ) {
 		global $wpdb;
-		if ( '1' != $status && 'approve' != $status ) {
+		if ( '1' !== $status && 'approve' !== $status ) {
 			return;
 		}
 
@@ -51,10 +51,11 @@ class Plugin_Comment_Probation {
 			update_comment_meta( $comment_id, self::META_KEY, '1' );
 		} else {
 			$commentdata = get_comment( $comment_id );
-			$comment_ids = $wpdb->get_col( $wpdb->prepare( "SELECT comment_ID FROM $wpdb->comments WHERE comment_author = %s AND comment_author_email = %s AND comment_approved = '1'",
-                     $commentdata->comment_author, $commentdata->comment_author_email ) );
-			foreach ( $comment_ids as $comment_id )
+			$comment_ids = $wpdb->get_col( $wpdb->prepare( "SELECT comment_ID FROM $wpdb->comments WHERE comment_author = %s AND comment_author_email = %s AND comment_approved = '1'", $commentdata->comment_author, $commentdata->comment_author_email ) );
+
+			foreach ( $comment_ids as $comment_id ) {
 				delete_comment_meta( $comment_id, self::META_KEY );
+			}
 		}
 	}
 
@@ -66,7 +67,7 @@ class Plugin_Comment_Probation {
 		global $wpdb;
 
 		// If we're not approving the comment, keep going.
-		if ( 1 != $approved ) {
+		if ( 1 !== $approved ) {
 			return $approved;
 		}
 
@@ -77,8 +78,7 @@ class Plugin_Comment_Probation {
 
 		// The only other situation is check_comment() returning true.
 		$comment_ids = $wpdb->get_col( $wpdb->prepare( "SELECT comment_ID FROM $wpdb->comments
-			WHERE comment_author = %s AND comment_author_email = %s AND comment_approved = '1'",
-			$commentdata['comment_author'], $commentdata['comment_author_email'] ) );
+			WHERE comment_author = %s AND comment_author_email = %s AND comment_approved = '1'", $commentdata['comment_author'], $commentdata['comment_author_email'] ) );
 
 		// This shouldn't happen...
 		if ( ! $comment_ids ) {
@@ -109,8 +109,8 @@ class Plugin_Comment_Probation {
 
 		$probation = str_replace( 'action=approvecomment', 'action=approvecomment&amp;probation=1', $actions['approve'] );
 		preg_match( '/^(.*?>)/', $probation, $matches );
-		$probation = str_replace( array( ':new=approved', ' vim-a' ), array( ':new=approved&probation=1', '' ), $matches[1] );
-		$probation .= __( 'Approve with Probation', 'comment-probation' ) . '</a>';
+		$probation  = str_replace( array( ':new=approved', ' vim-a' ), array( ':new=approved&probation=1', '' ), $matches[1] );
+		$probation .= 'Approve with Probation</a>';
 
 		$actions['approve'] .= '<span class="comment-probation"> | ' . $probation . '</span>';
 
