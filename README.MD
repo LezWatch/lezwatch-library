@@ -34,17 +34,19 @@ Features include:
     * Gleam
     * GoFundMe
     * Indiegogo
-* Shortcodes (See details below)
+* Shortcodes
     * Badges
     * Copyright Year
     * Number of Posts
+* Spammers
+  * Extracts list of spammer emails and domains
 * Upgrades (everything auto updates)
 
 #### Custom Shortcodes
 
 _Badges_
 
-Insert Bootstrap badge code as a shortcode not HTML
+Insert Bootstrap badge code as a shortcode.
 
 Usage: `[badge url=LINK class="class class" role="role"]TEXT[/badge]`
 
@@ -81,8 +83,8 @@ The following shortcodes shouldn't be used anymore. They've been replaced with G
 For development information, please read [gutenberg/README.md](the Gutenberg Readme)
 
 * Featured Image
-* Spoiler Warning - Insert and edit
-* Private Notes - Only displays in the editor.
+* Private Notes
+* Spoiler Warning
 
 _Featured Image_
 
@@ -90,25 +92,33 @@ Allows featured images to be added to post content. This will **not** make the i
 
 _Private Note_
 
+Shows a private note, meant for editors only, usually when we have to remove content by actor request.
+
+_Spoiler Warning_
+
+Inserts a boilerplate, editable, block that warns people about spoilers.
 
 ### Plugins
 
 Support for specific plugins.
 
+* Comment Probation:
+  * Forked due to lack of support and changes needed for WP 5.5
+
+* Gravity Forms:
+  * Protection from spammers via disallowed keys
+
 * Jetpack:
   * Show Feedback in "Right Now"
   * Custom Icon for Feedback in "Right Now"
   * Mark feedbacks as having been answered
-  * Protection from spammers and harassers
-
-* Comment Probation:
-  * Forked due to lack of support and changes needed for WP 5.5
+  * Protection from spammers via disallowed keys
 
 ## Development
 
 Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
 
-To update libraries, run `composer update`
+At this time, there are **no** 3rd party libraries.
 
 ### Deployment
 

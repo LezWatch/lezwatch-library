@@ -9,5 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once 'jetpack.php';
 require_once 'comment-probation.php';
+require_once 'gravity-forms.php';
+require_once 'jetpack.php';

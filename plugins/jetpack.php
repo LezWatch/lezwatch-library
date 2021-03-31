@@ -35,8 +35,11 @@ class LP_Jetpack_Feedback {
 		add_action( 'admin_footer-post.php', array( $this, 'add_archived_to_post_status_list' ) );
 		add_action( 'admin_footer-edit.php', array( $this, 'add_archived_to_bulk_edit' ) );
 
+		// Disable jetpack sharing counts to not phone home to Facebook.
+		add_filter( 'jetpack_sharing_counts', '__return_false' );
+
 		// This will be added in an upcoming version of Jetpack
-		if ( ! method_exists( 'Grunion_Contact_Form_Plugin', 'is_spam_blacklist' ) ) {
+		if ( ! method_exists( 'Grunion_Contact_Form_Plugin', 'is_spam_blocklist' ) ) {
 			add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_spammers' ), 11, 2 );
 		}
 		add_filter( 'jetpack_contact_form_is_spam', array( $this, 'jetpack_harassment' ), 11, 2 );
@@ -73,11 +76,11 @@ class LP_Jetpack_Feedback {
 			return $is_spam;
 		}
 
-		$badlist   = array();
-		$blacklist = explode( "\n", get_option( 'blacklist_keys' ) );
+		$badlist    = array();
+		$disallowed = LP_Find_Spammers::list();
 
 		// Check the list for valid emails. Add the email _USERNAME_ to the list
-		foreach ( $blacklist as $spammer ) {
+		foreach ( $disallowed as $spammer ) {
 			if ( is_email( $spammer ) ) {
 				$emailparts = explode( '@', $spammer );
 				$username   = $emailparts[0];
@@ -92,12 +95,10 @@ class LP_Jetpack_Feedback {
 		}
 
 		// Check if the email username is one of the bad ones
-		// This will allow spammer@example.com AND spammer+foobar@example.com to get caught
-		// Alas innocent@spammer.com will ALSO be caught here.
-		foreach ( $badlist as $bad_person ) {
-			if ( preg_match( '/' . $bad_person . '/', $form['comment_author_email'] ) ) {
-				return true;
-			}
+		// Get a true/falsy
+		$is_spammer = Lezwatch_Find_Spammers::is_spammer( $form['comment_author_email'] );
+		if ( $is_spammer ) {
+			return true;
 		}
 
 		return false;
@@ -165,7 +166,7 @@ class LP_Jetpack_Feedback {
 	public function display_post_states( $states ) {
 		global $post;
 
-		if ( 'feedback' === $post->post_type ) {
+		if ( is_object( $post ) && 'feedback' === $post->post_type ) {
 			$arg = get_query_var( 'post_status' );
 			if ( 'answered' !== $arg ) {
 				if ( 'answered' === $post->post_status ) {
@@ -227,11 +228,11 @@ class LP_Jetpack_Feedback {
 		$label    = '';
 
 		// Bail if not feedback
-		if ( 'feedback' === $post->post_type ) {
+		if ( is_object( $post ) && 'feedback' === $post->post_type ) {
 			return;
 		}
 
-		if ( 'answered' === $post->post_status ) {
+		if ( is_object( $post ) && 'answered' === $post->post_status ) {
 			echo '
 				<script>
 					jQuery(document).ready(function($){
@@ -254,7 +255,7 @@ class LP_Jetpack_Feedback {
 
 	public function add_archived_to_bulk_edit() {
 		global $post;
-		if ( ! isset( $post->post_type ) || 'feedback' !== $post->post_type ) {
+		if ( ! is_object( $post ) || 'feedback' !== $post->post_type ) {
 			return;
 		}
 		?>

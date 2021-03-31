@@ -195,7 +195,7 @@ class LP_Shortcodes {
 	 *
 	 * @since 1.3
 	 */
-	public function badge( $atts, $content = '', $tag ) {
+	public function badge( $atts, $content = '', $tag = '' ) {
 		$attributes = shortcode_atts(
 			array(
 				'url'   => '',

@@ -27,5 +27,5 @@ add_filter( 'auto_update_plugin', '__return_true' );
 add_filter( 'auto_update_theme', '__return_true' );
 
 // Suspend or force emails (false == no email ; true == yes email)
-add_filter( 'auto_core_update_send_email', '__return_true', 1 );
+add_filter( 'auto_core_update_send_email', '__return_false', 1 );
 add_filter( 'automatic_updates_send_debug_email', '__return_true', 1 );
