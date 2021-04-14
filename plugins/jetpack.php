@@ -96,7 +96,7 @@ class LP_Jetpack_Feedback {
 
 		// Check if the email username is one of the bad ones
 		// Get a true/falsy
-		$is_spammer = Lezwatch_Find_Spammers::is_spammer( $form['comment_author_email'] );
+		$is_spammer = LP_Find_Spammers::is_spammer( $form['comment_author_email'] );
 		if ( $is_spammer ) {
 			return true;
 		}
