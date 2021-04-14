@@ -52,7 +52,6 @@ class LezPress_Network {
 
 		// When in Dev Mode...
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
-			add_action( 'restrict_site_access_ip_match', array( $this, 'lwtv_restrict_site_access_ip_match' ) );
 			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
 			defined( 'JETPACK_DEV_DEBUG' ) || define( 'JETPACK_DEV_DEBUG', true );
 		}
@@ -121,18 +120,6 @@ class LezPress_Network {
 	 */
 	public function add_meta_tags() {
 		echo '<meta name="robots" content="noindex">' . "\n";
-	}
-
-	/**
-	 * Prevent caching when running restrict site access plugin
-	 * Since: 2.1.0
-	 */
-	public function lwtv_restrict_site_access_ip_match() {
-		// @codingStandardsIgnoreStart
-		if ( ! is_user_logged_in() && session_status() != PHP_SESSION_ACTIVE ) {
-			@session_start();
-		}
-		// @codingStandardsIgnoreEnd
 	}
 
 	/**
