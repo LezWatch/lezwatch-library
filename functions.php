@@ -50,9 +50,6 @@ class LezPress_Network {
 		add_filter( 'login_headertext', array( $this, 'login_headertitle' ) );
 		add_filter( 'login_errors', array( $this, 'login_errors' ) );
 
-		// Disables...
-		add_filter( 'wp_headers', array( $this, 'disable_floc' ) );
-
 		// When in Dev Mode...
 		if ( defined( 'LWTV_DEV_SITE' ) && LWTV_DEV_SITE ) {
 			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
@@ -145,18 +142,6 @@ class LezPress_Network {
 	public function extend_login_session( $expire ) {
 		// Set login session limit in seconds
 		return YEAR_IN_SECONDS;
-	}
-
-	/**
-	 * Disable Floc
-	 *
-	 * It tracks users into buckets, which could put LGBTQ folks at risk.
-	 * @param  array $headers HTML Page headers
-	 * @return array          Edited headers
-	 */
-	public function disable_floc( $headers ) {
-		$headers['Permissions-Policy'] = 'interest-cohort=()';
-		return $headers;
 	}
 
 }
