@@ -1,15 +1,11 @@
 <?php
 /**
- * Blocks Initializer
- *
- * Enqueue CSS/JS of all the blocks.
- *
- * @since   1.0.0
- * @package CGB
+ * Name: Gutenberg Blocks
+ * Description: Blocks for Gutenberg
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) || ! function_exists( 'register_block_type' ) ) {
 	exit;
 }
 
@@ -18,7 +14,25 @@ class LezWatch_Library_Gutenberg {
 	protected static $directory;
 
 	public function __construct() {
-		self::$directory = dirname( dirname( __FILE__ ) );
+		self::$directory = dirname( __FILE__ );
+
+		// Add a block category
+		add_filter(
+			'block_categories',
+			function( $categories, $post ) {
+				return array_merge(
+					$categories,
+					array(
+						array(
+							'slug'  => 'lezwatch',
+							'title' => 'LezWatch Library',
+						),
+					)
+				);
+			},
+			10,
+			2
+		);
 
 		add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_assets' ) );
@@ -34,10 +48,10 @@ class LezWatch_Library_Gutenberg {
 
 	public function block_assets() {
 		// Styles.
-		$build_css = 'dist/blocks.style.build.css';
+		$build_css = 'build/style-index.css';
 		wp_enqueue_style(
 			'lez-library-gutenberg-style', // Handle.
-			content_url( 'library/gutenberg/' . $build_css ),
+			content_url( 'library/blocks/' . $build_css ),
 			array( 'wp-editor' ),
 			filemtime( self::$directory . '/' . $build_css )
 		);
@@ -45,20 +59,20 @@ class LezWatch_Library_Gutenberg {
 
 	public function block_editor_assets() {
 		// Scripts.
-		$build_js = 'dist/blocks.build.js';
+		$build_js = 'build/index.js';
 		wp_enqueue_script(
 			'lez-library-gutenberg-blocks', // Handle.
-			content_url( 'library/gutenberg/' . $build_js ),
+			content_url( 'library/blocks/' . $build_js ),
 			array( 'wp-i18n', 'wp-element' ),
 			filemtime( self::$directory . '/' . $build_js ),
 			true
 		);
 
 		// Styles.
-		$editor_css = 'dist/blocks.editor.build.css';
+		$editor_css = 'build/index.css';
 		wp_enqueue_style(
 			'lez-library-gutenberg-editor', // Handle.
-			content_url( 'library/gutenberg/' . $editor_css ),
+			content_url( 'library/blocks/' . $editor_css ),
 			array(),
 			filemtime( self::$directory . '/' . $editor_css )
 		);
