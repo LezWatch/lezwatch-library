@@ -13,8 +13,8 @@
  */
 
 // Features and WP Stuff
+require_once 'blocks/_main.php';
 require_once 'features/_main.php';
-require_once 'gutenberg/_main.php';
 require_once 'plugins/_main.php';
 
 // Symbolicons

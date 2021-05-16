@@ -24,6 +24,26 @@ Features include:
     * login page icons
 * FacetWP Pagination JS
 
+### Blocks
+
+For development information, please read [blocks/README.md](the Gutenberg Readme)
+
+* Featured Image
+* Private Notes
+* Spoiler Warning
+
+_Featured Image_
+
+Allows featured images to be added to post content. This will **not** make the image show in-line, it's for the backend only.
+
+_Private Note_
+
+Shows a private note, meant for editors only, usually when we have to remove content by actor request.
+
+_Spoiler Warning_
+
+Inserts a boilerplate, editable, block that warns people about spoilers.
+
 ### Features
 
 * Dashboard
@@ -77,26 +97,6 @@ The following shortcodes shouldn't be used anymore. They've been replaced with G
 * Embed IndieGoGo: `[indiegogo url=URL]`
 * Glossary: `[glossary taxonomy=TAXONOMY]`
 * Spoilers: `[spoilers]` or `[spoilers warning="OMG SPIDERS!!!"]`
-
-### Gutenberg Blocks
-
-For development information, please read [gutenberg/README.md](the Gutenberg Readme)
-
-* Featured Image
-* Private Notes
-* Spoiler Warning
-
-_Featured Image_
-
-Allows featured images to be added to post content. This will **not** make the image show in-line, it's for the backend only.
-
-_Private Note_
-
-Shows a private note, meant for editors only, usually when we have to remove content by actor request.
-
-_Spoiler Warning_
-
-Inserts a boilerplate, editable, block that warns people about spoilers.
 
 ### Plugins
 
