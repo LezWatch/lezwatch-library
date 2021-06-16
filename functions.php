@@ -55,6 +55,17 @@ class LezPress_Network {
 			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
 			defined( 'JETPACK_DEV_DEBUG' ) || define( 'JETPACK_DEV_DEBUG', true );
 		}
+
+		// After Theme Setup...
+		add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ), 11 );
+	}
+
+	/**
+	 * After Theme Setup
+	 */
+	public function after_setup_theme() {
+		//https://make.wordpress.org/core/2021/06/14/introducing-the-template-editor-in-wordpress-5-8/
+		remove_theme_support( 'block-templates' );
 	}
 
 	/*
