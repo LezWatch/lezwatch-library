@@ -35,6 +35,10 @@ class LezPress_Network {
 		// https://make.wordpress.org/core/2019/10/17/wordpress-5-3-admin-email-verification-screen/
 		add_filter( 'admin_email_check_interval', '__return_false' );
 
+		// Disable email update alerts for themes and plugins
+		add_filter( 'auto_plugin_update_send_email', '__return_false' );
+		add_filter( 'auto_theme_update_send_email', '__return_false' );
+
 		// Extend the cookies
 		add_filter( 'auth_cookie_expiration', array( $this, 'extend_login_session' ) );
 
