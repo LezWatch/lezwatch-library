@@ -35,6 +35,10 @@ class LezPress_Network {
 		// https://make.wordpress.org/core/2019/10/17/wordpress-5-3-admin-email-verification-screen/
 		add_filter( 'admin_email_check_interval', '__return_false' );
 
+		// Disable email update alerts for themes and plugins
+		add_filter( 'auto_plugin_update_send_email', '__return_false' );
+		add_filter( 'auto_theme_update_send_email', '__return_false' );
+
 		// Extend the cookies
 		add_filter( 'auth_cookie_expiration', array( $this, 'extend_login_session' ) );
 
@@ -55,6 +59,17 @@ class LezPress_Network {
 			add_action( 'wp_head', array( $this, 'add_meta_tags' ), 2 );
 			defined( 'JETPACK_DEV_DEBUG' ) || define( 'JETPACK_DEV_DEBUG', true );
 		}
+
+		// After Theme Setup...
+		add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ), 11 );
+	}
+
+	/**
+	 * After Theme Setup
+	 */
+	public function after_setup_theme() {
+		//https://make.wordpress.org/core/2021/06/14/introducing-the-template-editor-in-wordpress-5-8/
+		remove_theme_support( 'block-templates' );
 	}
 
 	/*
