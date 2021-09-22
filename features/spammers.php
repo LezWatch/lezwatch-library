@@ -1,10 +1,6 @@
 <?php
 /*
-Library: Gravity Forms Add Ons
-Description: Addons for Gravity Forms
-Version: 1.0
-
-Source: https://docs.gravityforms.com/gform_entry_is_spam/
+Find Spammers -- this allows us to pick out only emails and reduce false negatives on killing them.
 */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -13,9 +9,6 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * class LP_Find_Spammers
- *
- * Customize Gravity Forms
- *
  * @since 1.0
  */
 class LP_Find_Spammers {
