@@ -18,7 +18,7 @@ class LezWatch_Library_Gutenberg {
 
 		// Add a block category
 		add_filter(
-			'block_categories',
+			'block_categories_all',
 			function( $categories, $post ) {
 				return array_merge(
 					$categories,
