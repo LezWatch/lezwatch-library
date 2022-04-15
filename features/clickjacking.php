@@ -12,7 +12,7 @@
  * @package library
 */
 
-class ClickJacking {
+class LezWatch_ClickJacking {
 
 	/**
 	 * Constructor
@@ -40,4 +40,4 @@ class ClickJacking {
 
 }
 
-new ClickJacking();
+new LezWatch_ClickJacking();
