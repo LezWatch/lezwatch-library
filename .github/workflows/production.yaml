@@ -45,7 +45,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.LWTV_STATUS_SSH_KEY }}
           ARGS: "-rlgoDzvc -i"
-          REMOTE_HOST: ${{ secrets.LEZPRESS_HOST }}
+          REMOTE_HOST: ${{ secrets.LWTV_DOCS_HOST }}
           REMOTE_USER: ${{ secrets.LWTV_STATUS_USER }}
           TARGET: ${{ secrets.LEZPRESS_TARGET }}library/
           EXCLUDE: "/.git/, /.github/"
