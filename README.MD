@@ -116,13 +116,13 @@ Support for specific plugins.
 
 ## Development
 
-Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **master** and when it's done, it'll update properly.
+Update code like you normally would. If you don't want to push it anywhere, make a local branch. Always remember, merge to **development** first. If that works, do a pull request to **production** and when it's done, it'll update properly.
 
 At this time, there are **no** 3rd party libraries.
 
 ### Deployment
 
-Pushes to branches are automatically deployed via Codeship as follows:
+Pushes to branches are automatically deployed via Github Actions as follows:
 
 * Development: [lezwatchtvcom.stage.site](https://lezwatchtvcom.stage.site)
 * Main: [lezwatchtv.com](https://lezwatchtv.com), [lezwatchcommercials.com](https://lezwatchcommercials.com), [lezpress.com](https://lezpress.com), [docs.lezwatchtv.com](https://docs.lezwatchtv.com)
