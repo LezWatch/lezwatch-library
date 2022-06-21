@@ -14,7 +14,6 @@ Features include:
 
 ### Assets
 
-* Amazon API
 * CSS
     * Author Box shortcode
     * Symbolicons on Admin
@@ -46,18 +45,22 @@ Inserts a boilerplate, editable, block that warns people about spoilers.
 
 ### Features
 
+* Clickjacking
+  * Some SAMEORIGIN protection which doesn't really do much but makes 'security reporters' hush
 * Dashboard
-    * Custom column for featured images in posts lists
-    * Removal of self pings
+  * Custom column for featured images in posts lists
+  * Removal of self pings
 * Embeds
-    * DisneyABCPress videos
-    * Gleam
-    * GoFundMe
-    * Indiegogo
+  * DisneyABCPress videos
+  * Gleam
+  * GoFundMe
+  * Indiegogo
+* GutenSlam
+  * make Block Editor stop being such a dillhole and forget preferences.
 * Shortcodes
-    * Badges
-    * Copyright Year
-    * Number of Posts
+  * Badges
+  * Copyright Year
+  * Number of Posts
 * Spammers
   * Extracts list of spammer emails and domains
 * Upgrades (everything auto updates)
