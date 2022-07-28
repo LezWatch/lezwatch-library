@@ -30,26 +30,6 @@ jobs:
           TARGET: ${{ secrets.LWTV_TARGET }}library/
           EXCLUDE: "/.git/, /.github/"
 
-      - name: Deploy to LezWatch.Commercials Production Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.LWCOM_SSH_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          REMOTE_HOST: ${{ secrets.LWCOM_HOST }}
-          REMOTE_USER: ${{ secrets.LWCOM_USER }}
-          TARGET: ${{ secrets.LWCOM_TARGET }}library/
-          EXCLUDE: "/.git/, /.github/"
-
-      - name: Deploy to LezPress Production Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.LWTV_STATUS_SSH_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          REMOTE_HOST: ${{ secrets.LWTV_DOCS_HOST }}
-          REMOTE_USER: ${{ secrets.LWTV_STATUS_USER }}
-          TARGET: ${{ secrets.LEZPRESS_TARGET }}library/
-          EXCLUDE: "/.git/, /.github/"
-
       - name: Deploy to LWTV.Docs Production Server
         uses: easingthemes/ssh-deploy@main
         env:
