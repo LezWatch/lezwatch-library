@@ -27,7 +27,7 @@ jobs:
           ARGS: "-rlgoDzvc -i"
           REMOTE_HOST: ${{ secrets.LWTV_HOST }}
           REMOTE_USER: ${{ secrets.LWTV_USER }}
-          TARGET: ${{ secrets.LWTV_TARGET }}library/
+          TARGET: /home/${{ secrets.LWTV_USER }}/${{ secrets.LWTV_DOMAIN }}/wp-content/library/
           EXCLUDE: "/.git/, /.github/"
 
       - name: Deploy to LWTV.Docs Production Server
@@ -37,5 +37,5 @@ jobs:
           ARGS: "-rlgoDzvc -i"
           REMOTE_HOST: ${{ secrets.LWTV_DOCS_HOST }}
           REMOTE_USER: ${{ secrets.LWTV_STATUS_USER }}
-          TARGET: ${{ secrets.LWTV_DOCS_TARGET }}library/
+          TARGET: /home/${{ secrets.LWTV_STATUS_USER }}/${{ secrets.LWTV_DOCS_DOMAIN }}/wp-content/library/
           EXCLUDE: "/.git/, /.github/"
